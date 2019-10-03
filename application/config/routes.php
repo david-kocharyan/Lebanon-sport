@@ -86,3 +86,12 @@ $route['admin/schools/store'] = 'admin/Schools/store';
 $route['admin/schools/edit/(:any)'] = 'admin/Schools/edit/$1';
 $route['admin/schools/update/(:any)'] = 'admin/Schools/update/$1';
 $route['admin/schools/change-status/(:any)'] = 'admin/Schools/change_status/$1';
+
+//Sport Types Crud
+$route['admin/sport-types'] = 'admin/SportTypes';
+$route['admin/sport-types/create'] = 'admin/SportTypes/create';
+$route['admin/sport-types/store'] = 'admin/SportTypes/store';
+$route['admin/sport-types/edit/(:any)'] = 'admin/SportTypes/edit/$1';
+$route['admin/sport-types/update/(:any)'] = 'admin/SportTypes/update/$1';
+$route['admin/sport-types/change-status/(:any)'] = 'admin/SportTypes/change_status/$1';
+

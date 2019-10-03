@@ -115,6 +115,10 @@
 							class="mdi mdi-home fa-fw"></i> <span
 							class="hide-menu">Schools</span></a></li>
 
+				<li><a href="<?= base_url('admin/sport-types') ?>" class="waves-effect"><i
+							class="mdi mdi-home fa-fw"></i> <span
+							class="hide-menu">Sport Types</span></a></li>
+
 			</ul>
 
 

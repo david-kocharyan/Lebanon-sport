@@ -46,8 +46,7 @@ class Regions extends CI_Controller
 			);
 			$this->Region->insert($data);
 
-			$this->session->set_flashdata('success', 'You have stored the area successfully');
-			redirect("admin/regions/create");
+			redirect("admin/regions");
 		}
 	}
 
