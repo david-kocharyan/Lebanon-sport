@@ -78,3 +78,11 @@ $route['admin/regions/store'] = 'admin/Regions/store';
 $route['admin/regions/edit/(:any)'] = 'admin/Regions/edit/$1';
 $route['admin/regions/update/(:any)'] = 'admin/Regions/update/$1';
 $route['admin/regions/change-status/(:any)'] = 'admin/Regions/change_status/$1';
+
+//School Crud
+$route['admin/schools'] = 'admin/Schools';
+$route['admin/schools/create'] = 'admin/Schools/create';
+$route['admin/schools/store'] = 'admin/Schools/store';
+$route['admin/schools/edit/(:any)'] = 'admin/Schools/edit/$1';
+$route['admin/schools/update/(:any)'] = 'admin/Schools/update/$1';
+$route['admin/schools/change-status/(:any)'] = 'admin/Schools/change_status/$1';

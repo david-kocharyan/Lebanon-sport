@@ -107,9 +107,13 @@
 				</li>
 
 				<li class="devider"></li>
-				<li><a href="<?= base_url('admin/region') ?>" class="waves-effect"><i
+				<li><a href="<?= base_url('admin/regions') ?>" class="waves-effect"><i
 							class="mdi mdi-home fa-fw"></i> <span
 							class="hide-menu">Regions</span></a></li>
+
+				<li><a href="<?= base_url('admin/schools') ?>" class="waves-effect"><i
+							class="mdi mdi-home fa-fw"></i> <span
+							class="hide-menu">Schools</span></a></li>
 
 			</ul>
 
