@@ -70,3 +70,11 @@ $route['admin/settings/update/(:any)'] = 'admin/Admins/update/$1';
 //super admin routs for create users
 $route['admin/register-scout'] = 'admin/Admins/register_scout';
 $route['admin/register-admin'] = 'admin/Admins/register_scout';
+
+//Region Crud
+$route['admin/regions'] = 'admin/Regions';
+$route['admin/regions/create'] = 'admin/Regions/create';
+$route['admin/regions/store'] = 'admin/Regions/store';
+$route['admin/regions/edit/(:any)'] = 'admin/Regions/edit/$1';
+$route['admin/regions/update/(:any)'] = 'admin/Regions/update/$1';
+$route['admin/regions/change-status/(:any)'] = 'admin/Regions/change_status/$1';

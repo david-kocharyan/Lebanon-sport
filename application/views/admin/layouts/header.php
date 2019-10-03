@@ -105,10 +105,18 @@
 									class="hide-menu">Logout</span></a></li>
 					</ul>
 				</li>
+
+				<li class="devider"></li>
+				<li><a href="<?= base_url('admin/region') ?>" class="waves-effect"><i
+							class="mdi mdi-home fa-fw"></i> <span
+							class="hide-menu">Regions</span></a></li>
+
 			</ul>
+
+
 			<div class="sidebar-head">
 				<h3><span class="fa-fw open-close"><i class="ti-menu hidden-xs"></i><i class="ti-close visible-xs"></i></span>
-					<span class="hide-menu">Navigation</span></h3>
+					<span class="hide-menu">SPORT</span></h3>
 			</div>
 		</div>
 	</div>

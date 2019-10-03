@@ -10,7 +10,7 @@ class Admins extends CI_Controller
 		if (($this->session->userdata('user') == NULL OR !$this->session->userdata('user'))) {
 			redirect('/admin/login');
 		}
-		$this->load->model("Admin");
+		$this->load->model("admin/Admin");
 		$this->load->helper('layouts');
 	}
 
