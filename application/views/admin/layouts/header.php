@@ -35,6 +35,9 @@
 	<link href="<?= base_url('public/') ?>plugins/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
 	<link href="<?= base_url('public/') ?>plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
+	<!-- All Jquery -->
+	<!-- ============================================================== -->
+	<script src="<?= base_url('public/') ?>plugins/bower_components/jquery/dist/jquery.min.js"></script>
 </head>
 
 <body class="fix-header">
@@ -99,26 +102,31 @@
 
 				<li class="devider"></li>
 				<li><a href="<?= base_url('admin/regions') ?>" class="waves-effect"><i
-							class="mdi mdi-home fa-fw"></i> <span
+							class="mdi mdi-airplane-landing fa-fw"></i> <span
 							class="hide-menu">Regions</span></a></li>
 
 				<li><a href="<?= base_url('admin/schools') ?>" class="waves-effect"><i
-							class="mdi mdi-home fa-fw"></i> <span
+							class="mdi mdi-chair-school fa-fw"></i> <span
 							class="hide-menu">Schools</span></a></li>
 
 				<li><a href="<?= base_url('admin/sport-types') ?>" class="waves-effect"><i
-							class="mdi mdi-home fa-fw"></i> <span
+							class="mdi mdi-football fa-fw"></i> <span
 							class="hide-menu">Sport Types</span></a></li>
 
 				<li><a href="<?= base_url('admin/students') ?>" class="waves-effect"><i
-							class="mdi mdi-home fa-fw"></i> <span
+							class="mdi mdi-school fa-fw"></i> <span
 							class="hide-menu">Students</span></a></li>
 
 				<li><a href="<?= base_url('admin/coaches') ?>" class="waves-effect"><i
-							class="mdi mdi-home fa-fw"></i> <span
+							class="mdi mdi-account-settings-variant fa-fw"></i> <span
 							class="hide-menu">Coaches</span></a></li>
+
+				<li><a href="<?= base_url('admin/observers') ?>" class="waves-effect"><i
+							class="mdi mdi-account fa-fw"></i> <span
+							class="hide-menu">Observers (App Users)</span></a></li>
 			</ul>
 
+<!--			mdi-gamepad-variant-->
 
 			<div class="sidebar-head">
 				<h3><span class="fa-fw open-close"><i class="ti-menu hidden-xs"></i><i class="ti-close visible-xs"></i></span>

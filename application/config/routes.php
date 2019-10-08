@@ -75,8 +75,12 @@ $route['admin/coaches/edit/(:any)'] = 'admin/Coaches/edit/$1';
 $route['admin/coaches/update/(:any)'] = 'admin/Coaches/update/$1';
 $route['admin/coaches/change-status/(:any)'] = 'admin/Coaches/change_status/$1';
 
-$route['admin/register-observer'] = 'admin/Admins/register_scout';
-$route['admin/register-admin'] = 'admin/Admins/register_scout';
+$route['admin/observers'] = 'admin/Observers';
+$route['admin/observers/create'] = 'admin/Observers/create';
+$route['admin/observers/store'] = 'admin/Observers/store';
+$route['admin/observers/edit/(:any)'] = 'admin/Observers/edit/$1';
+$route['admin/observers/update/(:any)'] = 'admin/Observers/update/$1';
+$route['admin/observers/change-status/(:any)'] = 'admin/Observers/change_status/$1';
 
 //Students Crud
 $route['admin/students'] = 'admin/Students';

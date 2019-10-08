@@ -10,9 +10,7 @@
 <!-- End Wrapper -->
 <!-- ============================================================== -->
 <!-- ============================================================== -->
-<!-- All Jquery -->
-<!-- ============================================================== -->
-<script src="<?= base_url('public/') ?>plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
 <!-- Bootstrap Core JavaScript -->
 <script src="<?= base_url('public/') ?>bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Menu Plugin JavaScript -->
