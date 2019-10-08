@@ -29,7 +29,7 @@
 											<?= form_error('name_ar'); ?>
 										</div>
 									<?php } ?>
-									<input type="text" id="lastName" class="form-control" name="name_ar" value="<?= $this->input->post("name_ar"); ?>">
+									<input type="text" id="lastName" class="form-control" name="name_ar" value="<?= $this->input->post("name_ar"); ?>" style="direction: rtl">
 								</div>
 							</div>
 						</div>
@@ -44,8 +44,7 @@
 										</div>
 									<?php } ?>
 
-									<textarea name="desc_en" id="" cols="60" rows="10" class="form-control" style="resize: none;"><?= $this->input->post('desc_en'); ?>
-									</textarea>
+									<textarea name="desc_en" id="" cols="60" rows="10" class="form-control" style="resize: none; direction: ltr"><?= $this->input->post('desc_en'); ?></textarea>
 								</div>
 							</div>
 
@@ -57,8 +56,7 @@
 											<?= form_error('desc_ar'); ?>
 										</div>
 									<?php } ?>
-									<textarea name="desc_ar" id="" cols="60" rows="10" class="form-control" style="resize: none;"><?= $this->input->post('desc_ar'); ?>
-									</textarea>
+									<textarea name="desc_ar" id="" cols="60" rows="10" class="form-control" style="resize: none; direction: rtl"><?= $this->input->post('desc_ar'); ?></textarea>
 								</div>
 							</div>
 						</div>

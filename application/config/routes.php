@@ -68,8 +68,23 @@ $route['admin/settings'] = 'admin/Admins/settings';
 $route['admin/settings/update/(:any)'] = 'admin/Admins/update/$1';
 
 //super admin routs for create users
-$route['admin/register-scout'] = 'admin/Admins/register_scout';
+$route['admin/coaches'] = 'admin/Coaches';
+$route['admin/coaches/create'] = 'admin/Coaches/create';
+$route['admin/coaches/store'] = 'admin/Coaches/store';
+$route['admin/coaches/edit/(:any)'] = 'admin/Coaches/edit/$1';
+$route['admin/coaches/update/(:any)'] = 'admin/Coaches/update/$1';
+$route['admin/coaches/change-status/(:any)'] = 'admin/Coaches/change_status/$1';
+
+$route['admin/register-observer'] = 'admin/Admins/register_scout';
 $route['admin/register-admin'] = 'admin/Admins/register_scout';
+
+//Students Crud
+$route['admin/students'] = 'admin/Students';
+$route['admin/students/create'] = 'admin/Students/create';
+$route['admin/students/store'] = 'admin/Students/store';
+$route['admin/students/edit/(:any)'] = 'admin/Students/edit/$1';
+$route['admin/students/update/(:any)'] = 'admin/Students/update/$1';
+$route['admin/students/change-status/(:any)'] = 'admin/Students/change_status/$1';
 
 //Region Crud
 $route['admin/regions'] = 'admin/Regions';
@@ -95,3 +110,10 @@ $route['admin/sport-types/edit/(:any)'] = 'admin/SportTypes/edit/$1';
 $route['admin/sport-types/update/(:any)'] = 'admin/SportTypes/update/$1';
 $route['admin/sport-types/change-status/(:any)'] = 'admin/SportTypes/change_status/$1';
 
+//Students Crud
+$route['admin/students'] = 'admin/Students';
+$route['admin/students/create'] = 'admin/Students/create';
+$route['admin/students/store'] = 'admin/Students/store';
+$route['admin/students/edit/(:any)'] = 'admin/Students/edit/$1';
+$route['admin/students/update/(:any)'] = 'admin/Students/update/$1';
+$route['admin/students/change-status/(:any)'] = 'admin/Students/change_status/$1';

@@ -21,29 +21,20 @@
 	<link href="<?= base_url('public/') ?>plugins/bower_components/select2/dist/css/select2.min.css" rel="stylesheet"/>
 	<!--dropify-->
 	<link rel="stylesheet" href="<?= base_url('public/') ?>plugins/bower_components/dropify/dist/css/dropify.min.css">
-	<!-- toast CSS -->
-	<link href="<?= base_url('public/') ?>plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-	<!-- morris CSS -->
-	<link href="<?= base_url('public/') ?>plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
-	<!-- chartist CSS -->
-	<link href="<?= base_url('public/') ?>plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
-	<link
-		href="<?= base_url('public/') ?>plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css"
-		rel="stylesheet">
-	<!-- Calendar CSS -->
-	<link href="<?= base_url('public/') ?>plugins/bower_components/calendar/dist/fullcalendar.css" rel="stylesheet"/>
 	<!-- animation CSS -->
 	<link href="<?= base_url('public/') ?>css/animate.css" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link href="<?= base_url('public/') ?>css/style.css" rel="stylesheet">
 	<!-- color CSS -->
 	<link href="<?= base_url('public/') ?>css/colors/default.css" id="theme" rel="stylesheet">
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+	<!-- Color picker plugins css -->
+	<link href="<?= base_url('public/') ?>plugins/bower_components/jquery-asColorPicker-master/dist/css/asColorPicker.css" rel="stylesheet">
+	<!-- Date picker plugins css -->
+	<link href="<?= base_url('public/') ?>plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+	<!-- Daterange picker plugins css -->
+	<link href="<?= base_url('public/') ?>plugins/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+	<link href="<?= base_url('public/') ?>plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
 </head>
 
 <body class="fix-header">
@@ -119,6 +110,13 @@
 							class="mdi mdi-home fa-fw"></i> <span
 							class="hide-menu">Sport Types</span></a></li>
 
+				<li><a href="<?= base_url('admin/students') ?>" class="waves-effect"><i
+							class="mdi mdi-home fa-fw"></i> <span
+							class="hide-menu">Students</span></a></li>
+
+				<li><a href="<?= base_url('admin/coaches') ?>" class="waves-effect"><i
+							class="mdi mdi-home fa-fw"></i> <span
+							class="hide-menu">Coaches</span></a></li>
 			</ul>
 
 

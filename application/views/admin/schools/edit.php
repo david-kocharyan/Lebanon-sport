@@ -32,7 +32,7 @@
 										</div>
 									<?php } ?>
 									<input type="text" id="lastName" class="form-control" name="name_ar"
-										   value="<?= $school->name_ar ?>">
+										   value="<?= $school->name_ar ?>" style="direction: rtl">
 								</div>
 							</div>
 						</div>
@@ -60,7 +60,7 @@
 										</div>
 									<?php } ?>
 									<input type="text" id="lastName" class="form-control" name="address_ar"
-										   value="<?= $school->address_ar ?>">
+										   value="<?= $school->address_ar ?>" style="direction: rtl">
 								</div>
 							</div>
 						</div>

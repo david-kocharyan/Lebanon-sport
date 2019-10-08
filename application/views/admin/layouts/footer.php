@@ -24,20 +24,13 @@
 <script>
 $(document).ready(function() {
     $('.select_2_example').select2();
+    $(".select2-multiple").select2({
+        tags: true
+    });
 });
 </script>
 <!--Wave Effects -->
 <script src="<?= base_url('public/') ?>js/waves.js"></script>
-<!--Morris JavaScript -->
-<script src="<?= base_url('public/') ?>plugins/bower_components/raphael/raphael-min.js"></script>
-<script src="<?= base_url('public/') ?>plugins/bower_components/morrisjs/morris.js"></script>
-<!-- chartist chart -->
-<script src="<?= base_url('public/') ?>plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
-<script src="<?= base_url('public/') ?>plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-<!-- Calendar JavaScript -->
-<script src="<?= base_url('public/') ?>plugins/bower_components/moment/moment.js"></script>
-<script src='<?= base_url('public/') ?>plugins/bower_components/calendar/dist/fullcalendar.min.js'></script>
-<script src="<?= base_url('public/') ?>plugins/bower_components/calendar/dist/cal-init.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="<?= base_url('public/') ?>js/custom.min.js"></script>
 <!-- Custom tab JavaScript -->
@@ -67,7 +60,17 @@ $(document).ready(function() {
     })
 </script>
 
+<!-- Date Picker Plugin JavaScript -->
+<script src="<?= base_url('public/') ?>plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<!-- Date range Plugin JavaScript -->
+<script src="<?= base_url('public/') ?>plugins/bower_components/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="<?= base_url('public/') ?>plugins/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<script>
+    jQuery('#datepicker-autoclose').datepicker({
+        autoclose: true,
+    });
+</script>
 
 </body>
-
 </html>

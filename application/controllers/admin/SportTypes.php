@@ -137,7 +137,7 @@ class SportTypes extends CI_Controller
 
 		$path = FCPATH . "/plugins/images/sport";
 		$config['upload_path'] = $path;
-		$config['file_name'] = 'school_' . time() . '_' . rand();
+		$config['file_name'] = 'sport_' . time() . '_' . rand();
 		$config['allowed_types'] = 'jpg|png|jpeg';
 		$config['max_size'] = 100000;
 		$this->load->library('upload', $config);

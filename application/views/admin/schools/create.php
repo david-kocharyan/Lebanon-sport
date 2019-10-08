@@ -29,7 +29,7 @@
 											<?= form_error('name_ar'); ?>
 										</div>
 									<?php } ?>
-									<input type="text" id="lastName" class="form-control" name="name_ar" value="<?= $this->input->post("name_ar"); ?>">
+									<input type="text" id="lastName" class="form-control" name="name_ar" value="<?= $this->input->post("name_ar"); ?>" style="direction: rtl">
 								</div>
 							</div>
 						</div>
@@ -55,7 +55,7 @@
 											<?= form_error('address_ar'); ?>
 										</div>
 									<?php } ?>
-									<input type="text" id="lastName" class="form-control" name="address_ar" value="<?= $this->input->post('address_ar'); ?>">
+									<input type="text" id="lastName" class="form-control" name="address_ar" value="<?= $this->input->post('address_ar'); ?>" style="direction: rtl">
 								</div>
 							</div>
 						</div>

@@ -19,7 +19,7 @@
 										</div>
 									<?php } ?>
 									<input type="text" id="firstName" class="form-control" name="name_en"
-										   value="<?= $types->name_en ?>">
+										   value="<?= $types->name_en ?>" style="direction: ltr">
 								</div>
 							</div>
 
@@ -32,7 +32,7 @@
 										</div>
 									<?php } ?>
 									<input type="text" id="lastName" class="form-control" name="name_ar"
-										   value="<?= $types->name_ar ?>">
+										   value="<?= $types->name_ar ?>" style="direction: rtl">
 								</div>
 							</div>
 						</div>
@@ -48,8 +48,7 @@
 									<?php } ?>
 
 									<textarea name="desc_en" id="" cols="60" rows="10" class="form-control"
-											  style="resize: none;"><?= $types->desc_en ?>
-									</textarea>
+											  style="resize: none; direction: ltr"><?= $types->desc_en ?></textarea>
 								</div>
 							</div>
 
@@ -62,8 +61,7 @@
 										</div>
 									<?php } ?>
 									<textarea name="desc_ar" id="" cols="60" rows="10" class="form-control"
-											  style="resize: none;"><?= $types->desc_ar ?>
-									</textarea>
+											  style="resize: none; direction: rtl"><?= $types->desc_ar ?></textarea>
 								</div>
 							</div>
 						</div>
