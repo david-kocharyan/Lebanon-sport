@@ -17,7 +17,8 @@
 											<?= form_error('name_en'); ?>
 										</div>
 									<?php } ?>
-									<input type="text" id="firstName" class="form-control" name="name_en" value="<?= $this->input->post("name_en"); ?>">
+									<input type="text" id="firstName" class="form-control" name="name_en"
+										   value="<?= $this->input->post("name_en"); ?>">
 								</div>
 							</div>
 
@@ -29,7 +30,8 @@
 											<?= form_error('name_ar'); ?>
 										</div>
 									<?php } ?>
-									<input type="text" id="lastName" class="form-control" name="name_ar" value="<?= $this->input->post("name_ar"); ?>" style="direction: rtl">
+									<input type="text" id="lastName" class="form-control" name="name_ar"
+										   value="<?= $this->input->post("name_ar"); ?>" style="direction: rtl">
 								</div>
 							</div>
 						</div>
@@ -43,7 +45,8 @@
 											<?= form_error('address_en'); ?>
 										</div>
 									<?php } ?>
-									<input type="text" id="firstName" class="form-control" name="address_en" value="<?= $this->input->post('address_en'); ?>">
+									<input type="text" id="firstName" class="form-control" name="address_en"
+										   value="<?= $this->input->post('address_en'); ?>">
 								</div>
 							</div>
 
@@ -55,7 +58,8 @@
 											<?= form_error('address_ar'); ?>
 										</div>
 									<?php } ?>
-									<input type="text" id="lastName" class="form-control" name="address_ar" value="<?= $this->input->post('address_ar'); ?>" style="direction: rtl">
+									<input type="text" id="lastName" class="form-control" name="address_ar"
+										   value="<?= $this->input->post('address_ar'); ?>" style="direction: rtl">
 								</div>
 							</div>
 						</div>
@@ -77,6 +81,50 @@
 													<?= $key->id ?>
 													<option value="<?= $key->id ?>"><?= $key->username ?></option>
 												<?php } ?>
+											<?php } ?>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12 ">
+									<div class="form-group">
+										<label class="control-label">Choose region</label>
+										<?php if (!empty(form_error('region'))) { ?>
+											<div class="help-block with-errors text-danger">
+												<?= form_error('region'); ?>
+											</div>
+										<?php } ?>
+
+										<select name="region" id="select" class="form-control">
+											<?php foreach ($regions as $key) { ?>
+												<option value="<?= $key->id ?>">
+													<?= $key->name_en ?>
+												</option>
+											<?php } ?>
+										</select>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
+
+						<?php if ($user['role'] == 1) { ?>
+							<div class="row">
+								<div class="col-md-12 ">
+									<div class="form-group">
+										<label class="control-label">Choose region</label>
+										<?php if (!empty(form_error('region'))) { ?>
+											<div class="help-block with-errors text-danger">
+												<?= form_error('region'); ?>
+											</div>
+										<?php } ?>
+
+										<select name="region" id="select" class="form-control">
+											<?php foreach ($admins_region as $key) { ?>
+												<option value="<?= $key->id ?>">
+													<?= $key->name_en ?>
+												</option>
 											<?php } ?>
 										</select>
 									</div>

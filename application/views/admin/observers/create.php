@@ -1,6 +1,6 @@
 <div class="col-md-12 col-sm-12">
 	<div class="white-box">
-		<h3 class="box-title m-b-0">Create Students</h3>
+		<h3 class="box-title m-b-0">Create Observer</h3>
 
 		<div class="panel-wrapper collapse in" aria-expanded="true">
 			<div class="panel-body">

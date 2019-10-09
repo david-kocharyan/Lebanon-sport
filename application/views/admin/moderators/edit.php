@@ -1,6 +1,6 @@
 <div class="col-md-12 col-sm-12">
 	<div class="white-box">
-		<h3 class="box-title m-b-0">Create Admins</h3>
+		<h3 class="box-title m-b-0">Edit Admins</h3>
 
 		<div class="panel-wrapper collapse in" aria-expanded="true">
 			<div class="panel-body">

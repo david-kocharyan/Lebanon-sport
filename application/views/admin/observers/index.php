@@ -7,10 +7,10 @@ $this->lang->load("ar", "arabic");
 <div class="row">
 	<div class="col-sm-12">
 		<div class="white-box">
-			<h3 class="box-title m-b-0">Coaches Table</h3>
-			<p class="text-muted m-b-15">All Coaches in 1 place!!</p>
+			<h3 class="box-title m-b-0">Observer Table</h3>
+			<p class="text-muted m-b-15">All Observer in 1 place!!</p>
 			<p class="box-title m-b-30"><a href="<?= base_url("admin/observers/create") ?>" class="text-success">Add new
-					Coaches</a></p>
+					Observer</a></p>
 
 			<div class="table-responsive">
 				<table id="myTable" class="table table-striped">

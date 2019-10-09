@@ -16,6 +16,8 @@
 						<th>Name ar</th>
 						<th>Address en</th>
 						<th>Address ar</th>
+						<th>Region en</th>
+						<th>Region ar</th>
 						<th>Image</th>
 						<th>Status</th>
 						<th>Options</th>
@@ -27,8 +29,10 @@
 							<td><?= $key + 1 ?></td>
 							<td><?= $value->name_en; ?></td>
 							<td><?= $value->name_ar; ?></td>
-							<td><?= $value->address_en; ?></td>
 							<td><?= $value->address_ar; ?></td>
+							<td><?= $value->address_ar; ?></td>
+							<td><?= $value->reg_name_en; ?></td>
+							<td><?= $value->reg_name_ar; ?></td>
 							<td>
 								<img src="<?= base_url('/plugins/images/school/'). $value->image; ?>" alt="school image" width="150" height="150">
 							</td>

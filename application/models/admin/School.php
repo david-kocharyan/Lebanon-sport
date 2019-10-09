@@ -12,7 +12,16 @@ class School extends CI_Model
 
 	public function selectAll()
 	{
+		$this->db->select('regions.name_en as reg_name_en, regions.name_ar as reg_name_ar, schools.*');
+		$this->db->join('regions', 'regions.id = schools.region_id');
 		return $this->db->get($this->table)->result();
+	}
+
+	public function selectAllByAdmin($id)
+	{
+		$this->db->select('regions.name_en as reg_name_en, regions.name_ar as reg_name_ar, schools.*');
+		$this->db->join('regions', 'regions.id = schools.region_id');
+		return $this->db->get_where($this->table, array('admin_id' => $id))->result();
 	}
 
 	public function select($id)
@@ -33,18 +42,25 @@ class School extends CI_Model
 	public function changeStatus($id)
 	{
 		$data = $this->db->get_where($this->table, ["id" => $id])->row();
-		if(null == $data) {
+		if (null == $data) {
 			return;
 		}
 		$status = $data->status == 1 ? 0 : 1;
-		$this->db->update($this->table, array("status" => $status), ['id' => $id] );
+		$this->db->update($this->table, array("status" => $status), ['id' => $id]);
 	}
 
 	public function get_admin()
 	{
-		$this->db->select('admins.id as id, admins.*');
-		$this->db->join('regions', 'regions.id = admins.region_id');
-		return $this->db->get_where('admins', array('active' => 1, 'regions.status' => 1))->result();
+		return $this->db->get_where('admins', array('active' => 1))->result();
+	}
+
+	public function get_admins_region($id)
+	{
+		$this->db->select('admins_region.admin_id as id,
+		 admins_region.region_id as reg_id,
+		  regions.*');
+		$this->db->join('regions', 'admins_region.region_id = regions.id');
+		return $this->db->get_where('admins_region', array('admins_region.status' => 1, 'regions.status' => 1, "admins_region.admin_id" => $id))->result();
 	}
 
 }

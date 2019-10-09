@@ -122,7 +122,6 @@ class Moderators extends CI_Controller
 
 
 		if (empty($_POST["regions"]) OR $_POST["regions"] == NULL) {
-			var_dump(15151);die;
 			$this->session->set_flashdata('error_region', 'Regions was required');
 			$this->edit($id);
 			return;
@@ -151,8 +150,6 @@ class Moderators extends CI_Controller
 			redirect("admin/moderators");
 		}
 	}
-
-
 
 	public function change_status($id)
 	{

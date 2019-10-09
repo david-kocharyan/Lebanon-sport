@@ -17,7 +17,8 @@ class Schools extends CI_Controller
 
 	public function index()
 	{
-		$data['schools'] = $this->School->selectAll();
+		if ($this->session->userdata('user')['role'] == 2) $data['schools'] = $this->School->selectAll();
+		if ($this->session->userdata('user')['role'] == 1) $data['schools'] = $this->School->selectAllByAdmin($this->session->userdata('user')['id']);
 		$data['title'] = "Schools";
 		layouts($data, 'admin/schools/index.php');
 	}
@@ -26,6 +27,8 @@ class Schools extends CI_Controller
 	{
 		$data['title'] = "School create page";
 		$data['admins'] = $this->School->get_admin();
+		$data['regions'] = $this->db->get_where('regions', array('status' => 1))->result();
+		$data['admins_region'] = $this->School->get_admins_region($this->session->userdata('user')["id"]);
 		layouts($data, 'admin/schools/create.php');
 	}
 
@@ -35,6 +38,7 @@ class Schools extends CI_Controller
 		$name_ar = $this->input->post("name_ar");
 		$address_en = $this->input->post("address_en");
 		$address_ar = $this->input->post("address_ar");
+		$region = $this->input->post("region");
 
 		if ($this->input->post("admin") == NULL OR $this->input->post("admin") == "") {
 			$admin = $this->session->userdata('user')['id'];
@@ -46,7 +50,6 @@ class Schools extends CI_Controller
 		$this->form_validation->set_rules('name_ar', 'Region AR', 'required|trim');
 		$this->form_validation->set_rules('address_en', 'Address EN', 'required|trim');
 		$this->form_validation->set_rules('address_ar', 'Address AR', 'required|trim');
-		$this->form_validation->set_rules('admin', 'Admin', 'required|trim');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->create();
@@ -72,6 +75,7 @@ class Schools extends CI_Controller
 				"address_en" => $address_en,
 				"address_ar" => $address_ar,
 				"admin_id" => $admin,
+				"region_id" => $region,
 			);
 			if (isset($image)) $data['image'] = $image;
 
@@ -86,6 +90,8 @@ class Schools extends CI_Controller
 		$data['title'] = "School edit page";
 		$data['school'] = $this->School->select($id);
 		$data['admins'] = $this->School->get_admin();
+		$data['regions'] = $this->db->get_where('regions', array('status' => 1))->result();
+		$data['admins_region'] = $this->School->get_admins_region($this->session->userdata('user')["id"]);
 		layouts($data, 'admin/schools/edit.php');
 	}
 
@@ -95,6 +101,7 @@ class Schools extends CI_Controller
 		$name_ar = $this->input->post("name_ar");
 		$address_en = $this->input->post("address_en");
 		$address_ar = $this->input->post("address_ar");
+		$region = $this->input->post("region");
 
 		if ($this->input->post("admin") == NULL OR $this->input->post("admin") == "") {
 			$admin = $this->session->userdata('user')['id'];
@@ -106,7 +113,6 @@ class Schools extends CI_Controller
 		$this->form_validation->set_rules('name_ar', 'Region AR', 'required|trim');
 		$this->form_validation->set_rules('address_en', 'Address EN', 'required|trim');
 		$this->form_validation->set_rules('address_ar', 'Address AR', 'required|trim');
-		$this->form_validation->set_rules('admin', 'Admin', 'required|trim');
 
 		$school = $this->School->select($id);
 
@@ -132,6 +138,7 @@ class Schools extends CI_Controller
 				"address_en" => $address_en,
 				"address_ar" => $address_ar,
 				"admin_id" => $admin,
+				"region_id" => $region,
 			);
 			if (isset($image)) $data['image'] = $image;
 
