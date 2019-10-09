@@ -69,7 +69,7 @@ $route['admin/profile'] = 'admin/Admins/profile';
 $route['admin/settings'] = 'admin/Admins/settings';
 $route['admin/settings/update/(:any)'] = 'admin/Admins/update/$1';
 
-//create coaches crud
+//create admins (moderators) crud
 $route['admin/moderators'] = 'admin/Moderators';
 $route['admin/moderators/create'] = 'admin/Moderators/create';
 $route['admin/moderators/store'] = 'admin/Moderators/store';

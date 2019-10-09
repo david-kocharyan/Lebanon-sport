@@ -28,12 +28,17 @@
 	<!-- color CSS -->
 	<link href="<?= base_url('public/') ?>css/colors/default.css" id="theme" rel="stylesheet">
 	<!-- Color picker plugins css -->
-	<link href="<?= base_url('public/') ?>plugins/bower_components/jquery-asColorPicker-master/dist/css/asColorPicker.css" rel="stylesheet">
+	<link
+		href="<?= base_url('public/') ?>plugins/bower_components/jquery-asColorPicker-master/dist/css/asColorPicker.css"
+		rel="stylesheet">
 	<!-- Date picker plugins css -->
-	<link href="<?= base_url('public/') ?>plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url('public/') ?>plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css"
+		  rel="stylesheet" type="text/css"/>
 	<!-- Daterange picker plugins css -->
-	<link href="<?= base_url('public/') ?>plugins/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
-	<link href="<?= base_url('public/') ?>plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+	<link href="<?= base_url('public/') ?>plugins/bower_components/timepicker/bootstrap-timepicker.min.css"
+		  rel="stylesheet">
+	<link href="<?= base_url('public/') ?>plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css"
+		  rel="stylesheet">
 
 	<!-- All Jquery -->
 	<!-- ============================================================== -->
@@ -99,11 +104,18 @@
 									class="hide-menu">Logout</span></a></li>
 					</ul>
 				</li>
-
 				<li class="devider"></li>
-				<li><a href="<?= base_url('admin/regions') ?>" class="waves-effect"><i
-							class="mdi mdi-airplane-landing fa-fw"></i> <span
-							class="hide-menu">Regions</span></a></li>
+
+				<?php if ($user['role'] == 2) { ?>
+					<li><a href="<?= base_url('admin/regions') ?>" class="waves-effect"><i
+								class="mdi mdi-airplane-landing fa-fw"></i> <span
+								class="hide-menu">Regions</span></a></li>
+
+					<li><a href="<?= base_url('admin/moderators') ?>" class="waves-effect"><i
+								class="mdi mdi-account-key fa-fw"></i> <span
+								class="hide-menu">Admins</span></a></li>
+					<li class="devider"></li>
+				<?php } ?>
 
 				<li><a href="<?= base_url('admin/schools') ?>" class="waves-effect"><i
 							class="mdi mdi-chair-school fa-fw"></i> <span
@@ -124,9 +136,11 @@
 				<li><a href="<?= base_url('admin/observers') ?>" class="waves-effect"><i
 							class="mdi mdi-account fa-fw"></i> <span
 							class="hide-menu">Observers (App Users)</span></a></li>
+
+
 			</ul>
 
-<!--			mdi-gamepad-variant-->
+			<!--			mdi-gamepad-variant-->
 
 			<div class="sidebar-head">
 				<h3><span class="fa-fw open-close"><i class="ti-menu hidden-xs"></i><i class="ti-close visible-xs"></i></span>

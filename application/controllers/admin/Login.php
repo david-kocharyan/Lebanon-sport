@@ -24,7 +24,7 @@ class Login extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)  $this->load->view('login.php');
 		$check = $this->Admin->authenticate($username, $password);
 		if ($check === false){
-			$this->load->view('login.php');
+			$this->load->view('admin/login.php');
 		}
 		else{
 			$user = array(
