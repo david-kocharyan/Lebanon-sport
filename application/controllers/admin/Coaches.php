@@ -17,7 +17,8 @@ class Coaches extends CI_Controller
 
 	public function index()
 	{
-		$data['coaches'] = $this->Coach->selectAll();
+		if ($this->session->userdata('user')['role'] == 2) $data['coaches'] = $this->Coach->selectAll();
+		if ($this->session->userdata('user')['role'] == 1) $data['coaches'] = $this->Coach->selectAllByAdmin($this->session->userdata('user')['id']);
 		$data['title'] = "Coaches";
 		layouts($data, 'admin/coaches/index.php');
 	}
@@ -25,7 +26,8 @@ class Coaches extends CI_Controller
 	public function create()
 	{
 		$data['title'] = "Coaches create page";
-		$data['schools'] = $this->db->get_where('schools', array('status' => 1))->result();
+		if ($this->session->userdata('user')['role'] == 2) $data['schools'] = $this->db->get_where('schools', array('status' => 1) )->result();
+		if ($this->session->userdata('user')['role'] == 1) $data['schools'] = $this->db->get_where('schools', array('status' => 1, "admin_id" => $this->session->userdata('user')['id']) )->result();
 		layouts($data, 'admin/coaches/create.php');
 	}
 
@@ -61,8 +63,9 @@ class Coaches extends CI_Controller
 	public function edit($id)
 	{
 		$data['title'] = "Coaches edit page";
-		$data['schools'] = $this->db->get_where('schools', array('status' => 1))->result();
 		$data['coaches'] = $this->Coach->select($id);
+		if ($this->session->userdata('user')['role'] == 2) $data['schools'] = $this->db->get_where('schools', array('status' => 1) )->result();
+		if ($this->session->userdata('user')['role'] == 1) $data['schools'] = $this->db->get_where('schools', array('status' => 1, "admin_id" => $this->session->userdata('user')['id']) )->result();
 		layouts($data, 'admin/coaches/edit.php');
 	}
 
