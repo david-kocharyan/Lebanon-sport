@@ -114,16 +114,17 @@
 					<li><a href="<?= base_url('admin/moderators') ?>" class="waves-effect"><i
 								class="mdi mdi-account-key fa-fw"></i> <span
 								class="hide-menu">Admins</span></a></li>
+
+					<li><a href="<?= base_url('admin/sport-types') ?>" class="waves-effect"><i
+								class="mdi mdi-football fa-fw"></i> <span
+								class="hide-menu">Sport Types</span></a></li>
+
 					<li class="devider"></li>
 				<?php } ?>
 
 				<li><a href="<?= base_url('admin/schools') ?>" class="waves-effect"><i
 							class="mdi mdi-chair-school fa-fw"></i> <span
 							class="hide-menu">Schools</span></a></li>
-
-				<li><a href="<?= base_url('admin/sport-types') ?>" class="waves-effect"><i
-							class="mdi mdi-football fa-fw"></i> <span
-							class="hide-menu">Sport Types</span></a></li>
 
 				<li><a href="<?= base_url('admin/students') ?>" class="waves-effect"><i
 							class="mdi mdi-school fa-fw"></i> <span
@@ -136,7 +137,6 @@
 				<li><a href="<?= base_url('admin/observers') ?>" class="waves-effect"><i
 							class="mdi mdi-account fa-fw"></i> <span
 							class="hide-menu">Observers (App Users)</span></a></li>
-
 
 			</ul>
 

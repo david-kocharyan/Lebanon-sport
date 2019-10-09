@@ -17,7 +17,9 @@ class Students extends CI_Controller
 
 	public function index()
 	{
-		$data['students'] = $this->Student->selectAll();
+
+		if ($this->session->userdata('user')['role'] == 2) $data['students'] = $this->Student->selectAll();
+		if ($this->session->userdata('user')['role'] == 1) $data['students'] = $this->Student->selectAllByAdmin($this->session->userdata('user')['id']);
 		$data['title'] = "Students";
 		$data['sports'] = $this->Student->selectSports();
 		layouts($data, 'admin/students/index.php');
@@ -27,7 +29,8 @@ class Students extends CI_Controller
 	{
 		$data['title'] = "Students create page";
 		$data['sports'] = $this->db->get_where('sport_types', array('status' => 1))->result();
-		$data['schools'] = $this->db->get_where('schools', array('status' => 1))->result();
+		if ($this->session->userdata('user')['role'] == 2) $data['schools'] = $this->db->get_where('schools', array('status' => 1) )->result();
+		if ($this->session->userdata('user')['role'] == 1) $data['schools'] = $this->db->get_where('schools', array('status' => 1, "admin_id" => $this->session->userdata('user')['id']) )->result();
 		layouts($data, 'admin/students/create.php');
 	}
 
@@ -99,7 +102,8 @@ class Students extends CI_Controller
 		$data['student'] = $this->Student->select($id);
 		$data['student_sport'] = $this->db->get_where('students_sport', array('status' => 1, 'student_id' => $id))->result();
 		$data['sports'] = $this->db->get_where('sport_types', array('status' => 1))->result();
-		$data['schools'] = $this->db->get_where('schools', array('status' => 1))->result();
+		if ($this->session->userdata('user')['role'] == 2) $data['schools'] = $this->db->get_where('schools', array('status' => 1) )->result();
+		if ($this->session->userdata('user')['role'] == 1) $data['schools'] = $this->db->get_where('schools', array('status' => 1, "admin_id" => $this->session->userdata('user')['id']) )->result();
 		layouts($data, 'admin/students/edit.php');
 	}
 
