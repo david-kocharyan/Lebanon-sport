@@ -53,10 +53,12 @@ $route['default_controller'] = 'Admins';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//scout Api
-$route['api/scout/login'] = 'api/Scout_api/login';
-$route['api/scout/refresh-token'] = 'api/Scout_api/refresh_token';
+//users (observers) Api
+$route['api/users/login'] = 'api/Users_api/login';
+$route['api/users/refresh-token'] = 'api/Users_api/refresh_token';
+$route['api/users/logout'] = 'api/Users_api/logout';
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //admin panel
 $route['admin'] = 'admin/Admins';
 //admin logout
@@ -67,7 +69,15 @@ $route['admin/profile'] = 'admin/Admins/profile';
 $route['admin/settings'] = 'admin/Admins/settings';
 $route['admin/settings/update/(:any)'] = 'admin/Admins/update/$1';
 
-//super admin routs for create users
+//create coaches crud
+$route['admin/moderators'] = 'admin/Moderators';
+$route['admin/moderators/create'] = 'admin/Moderators/create';
+$route['admin/moderators/store'] = 'admin/Moderators/store';
+$route['admin/moderators/edit/(:any)'] = 'admin/Moderators/edit/$1';
+$route['admin/moderators/update/(:any)'] = 'admin/Moderators/update/$1';
+$route['admin/moderators/change-status/(:any)'] = 'admin/Moderators/change_status/$1';
+
+//create coaches crud
 $route['admin/coaches'] = 'admin/Coaches';
 $route['admin/coaches/create'] = 'admin/Coaches/create';
 $route['admin/coaches/store'] = 'admin/Coaches/store';
@@ -75,6 +85,7 @@ $route['admin/coaches/edit/(:any)'] = 'admin/Coaches/edit/$1';
 $route['admin/coaches/update/(:any)'] = 'admin/Coaches/update/$1';
 $route['admin/coaches/change-status/(:any)'] = 'admin/Coaches/change_status/$1';
 
+//create uses crud
 $route['admin/observers'] = 'admin/Observers';
 $route['admin/observers/create'] = 'admin/Observers/create';
 $route['admin/observers/store'] = 'admin/Observers/store';

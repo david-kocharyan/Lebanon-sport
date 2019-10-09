@@ -92,7 +92,6 @@ class Users_api extends REST_Controller
 
 	public function refresh_token_post()
 	{
-
 		if (null == $this->input->post("refresh_token")) {
 			$status = self::HTTP_UNPROCESSABLE_ENTITY;
 			$response = array(
@@ -138,6 +137,7 @@ class Users_api extends REST_Controller
 			$token = $headers['Authorize'];
 		}
 		$res = $this->db->get_where("tokens", array("token" => $token))->row_array();
+
 		if (null == $res || empty($res)) {
 			$data = array(
 				"success" => false,

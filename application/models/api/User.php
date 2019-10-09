@@ -11,11 +11,11 @@ class User extends CI_Model
 	}
 
 //	check user authenticate
-	public function authenticate($username, $password)
+	public function login($username, $password)
 	{
-		$getUser = $this->db->get_where('admins',["username"=>$username])->row();
+		$getUser = $this->db->get_where($this->table ,["username"=>$username])->row();
 		if (!$getUser) return false;
-		if (!$getUser->active) return false;
+		if (!$getUser->status) return false;
 
 		if (password_verify($password, $getUser->password)) return $getUser;
 		return false;
