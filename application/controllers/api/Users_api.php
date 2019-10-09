@@ -3,13 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require(APPPATH . '/libraries/REST_Controller.php');
 
 
-class Scout_api extends REST_Controller
+class Users_api extends REST_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->database();
-		$this->load->model("User");
+		$this->load->model("api/User");
 	}
 
 	/**
@@ -42,6 +42,7 @@ class Scout_api extends REST_Controller
 		}
 
 		$auth = $this->User->login($username, $password);
+
 		if (!$auth) {
 			$status = self::HTTP_UNPROCESSABLE_ENTITY;
 			$response = array(
@@ -63,13 +64,13 @@ class Scout_api extends REST_Controller
 
 			$user_data = array(
 				"user" => array(
-					"first_name" => $auth->first_name,
-					"last_name" => $auth->last_name,
-					"date_of_birth" => $auth->date_of_birth,
-					"mobile_number" => $auth->mobile_number,
+					"username" => $auth->username,
+					"name_en" => $auth->name_en,
+					"name_ar" => $auth->name_ar,
+					"gender" => $auth->gender,
 					"email" => $auth->email,
-					"reference_code" => $auth->reference_code == null ? "" : $auth->reference_code,
-					"coins" => $auth->coins,
+					"mobile_number" => $auth->mobile_number,
+					"region" => $auth->region_id,
 				),
 				"tokens" => array(
 					"token" => $token,
