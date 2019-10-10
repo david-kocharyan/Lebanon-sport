@@ -12,6 +12,7 @@ class Observers extends CI_Controller
 		}
 
 		$this->load->helper('layouts');
+		$this->load->helper('sendEmail');
 		$this->load->model('admin/Observer');
 	}
 
@@ -84,6 +85,11 @@ class Observers extends CI_Controller
 				$this->db->insert("users_sport", array("user_id" => $id, 'sport_id' => $key));
 			}
 			$this->db->trans_complete();
+
+			if ($id != NULL OR $id != "") {
+				$message = "Your username and password for Mehe application`  Usernaem - " . $username . ",  and password - " . $password . " ";
+				send_email($email, $message);
+			}
 
 			redirect("admin/observers");
 		}
