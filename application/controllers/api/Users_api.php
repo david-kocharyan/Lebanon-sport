@@ -62,15 +62,18 @@ class Users_api extends REST_Controller
 				'refresh_token' => $data['refresh_token']
 			);
 
+			$gender = "";
+			if ($auth->gender == 1) $gender = 'Male';
+			if ($auth->gender == 0) $gender = 'Female';
+
 			$user_data = array(
 				"user" => array(
 					"username" => $auth->username,
-					"name_en" => $auth->name_en,
-					"name_ar" => $auth->name_ar,
-					"gender" => $auth->gender,
+					"name" => $auth->name_en,
+					"gender" => $gender,
 					"email" => $auth->email,
 					"mobile_number" => $auth->mobile_number,
-					"region" => $auth->region_id,
+					"region" => $auth->region_name,
 				),
 				"tokens" => array(
 					"token" => $token,
@@ -166,51 +169,121 @@ class Users_api extends REST_Controller
 	}
 
 
-//	public function getUser_get()
-//	{
-//		//        the function would return current user's id, if the token would be approved
-//		$res = $this->verify_get_request();
-//		if (gettype($res) != 'string') {
-//			$data = array(
-//				"success" => false,
-//				"data" => array(),
-//				"msg" => $res['msg']
-//			);
-//			$this->response($data, $res['status']);
-//			return;
-//		}
-//
-//		$this->db->select('username, first_name, last_name, date_of_birth, mobile_number, email, coins, reference_code');
-//		$user = $this->db->get_where("users", ['id' => $res])->row();
-//
-//		if (null == $user) {
-//			$data = array(
-//				"success" => false,
-//				"data" => array(),
-//				"msg" => "User not found !"
-//			);
-//			$this->response($data, REST_Controller::HTTP_BAD_REQUEST);
-//			return;
-//		}
-//
-//		$response = array(
-//			"msg" => '',
-//			"data" => array(
-//				"user" => array(
-//					"first_name" => $user->first_name,
-//					"last_name" => $user->last_name,
-//					"date_of_birth" => $user->date_of_birth,
-//					"mobile_number" => $user->mobile_number,
-//					"email" => $user->email,
-//					"reference_code" => $user->reference_code == null ? "" : $user->reference_code,
-//					"coins" => $user->coins,
-//				),
-//			),
-//			"success" => true
-//		);
-//		$this->response($response, REST_Controller::HTTP_OK);
-//	}
-//
+	public function get_user_get()
+	{
+		$res = $this->verify_get_request();
+		if (gettype($res) != 'string') {
+			$data = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => $res['msg']
+			);
+			$this->response($data, $res['status']);
+			return;
+		}
+
+		$user = $this->User->getUser($res);
+
+		if (null == $user) {
+			$data = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "User not found !"
+			);
+			$this->response($data, REST_Controller::HTTP_BAD_REQUEST);
+			return;
+		}
+
+		$gender = "";
+		if ($user->gender == 1) $gender = 'Male';
+		if ($user->gender == 0) $gender = 'Female';
+
+		$response = array(
+			"msg" => '',
+			"data" => array(
+				"user" => array(
+					"username" => $user->username,
+					"name" => $user->name_en,
+					"gender" => $gender,
+					"email" => $user->email,
+					"mobile_number" => $user->mobile_number,
+					"region" => $user->region_name,
+				),
+			),
+			"success" => true
+		);
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+
+//	forgot passowrd
+	public function forgot_password_post()
+	{
+		$email = $this->input->post('email');
+		if (null == $email) {
+			$response = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Provide Email"
+			);
+			$this->response($response, REST_Controller::HTTP_UNPROCESSABLE_ENTITY);
+			return;
+		}
+
+		$check = $this->User->check_email($email);
+		if (null == $check) {
+			$data = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "User not found!"
+			);
+			$this->response($data, REST_Controller::HTTP_BAD_REQUEST);
+			return;
+		}
+
+		$new_password = $this->generatePassword(10);
+		$change = $this->User->change_pass($email, $new_password);
+		if ($change == false) {
+			$response = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Server error, try again. (change)"
+			);
+			$this->response($response, REST_Controller::HTTP_INTERNAL_SERVER_ERROR);
+		}
+
+		$this->load->helper('sendEmail');
+		$message = "Your changed password id` " . $new_password . " ";
+		$subject = 'Mehe chaneg password';
+		$send = send_email($email, $message, $subject);
+		if ($send == True) {
+			$response = array(
+				"success" => true,
+				"data" => array(),
+				"msg" => 'Your New Password was sent to your MEHE email.',
+			);
+			$this->response($response, REST_Controller::HTTP_OK);
+		}
+		else{
+			$data = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Server error, try again. (email)"
+			);
+			$this->response($data, REST_Controller::HTTP_INTERNAL_SERVER_ERROR);
+			return;
+		}
+	}
+
+	private function generatePassword($length = 8)
+	{
+		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+		$count = mb_strlen($chars);
+		for ($i = 0, $result = ''; $i < $length; $i++) {
+			$index = rand(0, $count - 1);
+			$result .= mb_substr($chars, $index, 1);
+		}
+		return $result;
+	}
 
 }
 

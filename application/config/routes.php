@@ -55,8 +55,11 @@ $route['translate_uri_dashes'] = FALSE;
 
 //users (observers) Api
 $route['api/users/login'] = 'api/Users_api/login';
+$route['api/users/forgot-password'] = 'api/Users_api/forgot_password';
+$route['api/users/get-user'] = 'api/Users_api/get_user';
 $route['api/users/refresh-token'] = 'api/Users_api/refresh_token';
 $route['api/users/logout'] = 'api/Users_api/logout';
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //admin panel
@@ -132,3 +135,11 @@ $route['admin/students/store'] = 'admin/Students/store';
 $route['admin/students/edit/(:any)'] = 'admin/Students/edit/$1';
 $route['admin/students/update/(:any)'] = 'admin/Students/update/$1';
 $route['admin/students/change-status/(:any)'] = 'admin/Students/change_status/$1';
+
+//Students Crud
+$route['admin/teams'] = 'admin/Teams';
+$route['admin/teams/create'] = 'admin/Teams/create';
+$route['admin/teams/store'] = 'admin/Teams/store';
+$route['admin/teams/edit/(:any)'] = 'admin/Teams/edit/$1';
+$route['admin/teams/update/(:any)'] = 'admin/Teams/update/$1';
+$route['admin/teams/change-status/(:any)'] = 'admin/Teams/change_status/$1';

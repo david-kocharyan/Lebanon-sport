@@ -88,7 +88,8 @@ class Observers extends CI_Controller
 
 			if ($id != NULL OR $id != "") {
 				$message = "Your username and password for Mehe application`  Usernaem - " . $username . ",  and password - " . $password . " ";
-				send_email($email, $message);
+				$subject = 'Mehe App account access';
+				send_email($email, $message, $subject);
 			}
 
 			redirect("admin/observers");

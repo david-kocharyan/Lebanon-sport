@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 if (!function_exists('send_email')) {
-	function send_email($to, $message)
+	function send_email($to, $message, $subject)
 	{
 		$ci =& get_instance();
 
@@ -20,17 +20,16 @@ if (!function_exists('send_email')) {
 		$ci->email->initialize($mail_config);
 
 		$ci->email->set_newline("\r\n");
-		$ci->email->from("MEHE", "Observer account access!");
+		$ci->email->from("MEHE", "MEHE App");
 		$ci->email->to($to);
 
-		$ci->email->subject('Mehe App Observer account');
+		$ci->email->subject($subject);
 		$ci->email->message($message);
 
 		if ($ci->email->send()) {
-			echo 'true';
+			return True;
 		} else {
-			var_dump($ci->email->print_debugger());
-			die;
+			return False;
 		}
 	}
 
