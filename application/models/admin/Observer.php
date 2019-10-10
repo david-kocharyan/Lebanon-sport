@@ -17,6 +17,14 @@ class Observer extends CI_Model
 		return $this->db->get($this->table)->result();
 	}
 
+	public function selectAllByAdmin($id)
+	{
+		$this->db->select('regions.name_en as region_name_en, regions.name_ar as region_name_ar, users.*');
+		$this->db->join('regions', 'regions.id = users.region_id');
+		$this->db->join('admins_region', 'admins_region.region_id = regions.id');
+		return $this->db->get_where($this->table, array('admins_region.admin_id' => $id))->result();
+	}
+
 	public function selectSports()
 	{
 		$this->db->select("sport_types.name_en as name, sport_types.id as id, users_sport.user_id ");
@@ -62,6 +70,20 @@ class Observer extends CI_Model
 			}
 		}
 
+	}
+
+	public function get_admin()
+	{
+		return $this->db->get_where('admins', array('active' => 1))->result();
+	}
+
+	public function get_admins_region($id)
+	{
+		$this->db->select('admins_region.admin_id as id,
+		 admins_region.region_id as reg_id,
+		  regions.*');
+		$this->db->join('regions', 'admins_region.region_id = regions.id');
+		return $this->db->get_where('admins_region', array('admins_region.status' => 1, 'regions.status' => 1, "admins_region.admin_id" => $id))->result();
 	}
 
 }

@@ -94,6 +94,7 @@
 							</div>
 						<?php } ?>
 
+						<?php if ($user['role'] == 2) { ?>
 							<div class="row">
 								<div class="col-md-12 ">
 									<div class="form-group">
@@ -106,8 +107,7 @@
 
 										<select name="region" id="select" class="form-control">
 											<?php foreach ($regions as $key) { ?>
-												<option value="<?= $key->id ?>"
-												<?php if ($key->id == $school->region_id) echo 'selected'; ?>>
+												<option value="<?= $key->id ?>">
 													<?= $key->name_en ?>
 												</option>
 											<?php } ?>
@@ -115,6 +115,30 @@
 									</div>
 								</div>
 							</div>
+						<?php } ?>
+
+						<?php if ($user['role'] == 1) { ?>
+							<div class="row">
+								<div class="col-md-12 ">
+									<div class="form-group">
+										<label class="control-label">Choose region</label>
+										<?php if (!empty(form_error('region'))) { ?>
+											<div class="help-block with-errors text-danger">
+												<?= form_error('region'); ?>
+											</div>
+										<?php } ?>
+
+										<select name="region" id="select" class="form-control">
+											<?php foreach ($admins_region as $key) { ?>
+												<option value="<?= $key->id ?>">
+													<?= $key->name_en ?>
+												</option>
+											<?php } ?>
+										</select>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
 
 						<div class="row">
 							<div class="col-md-12 ">

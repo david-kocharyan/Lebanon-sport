@@ -38,25 +38,55 @@
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-md-12 ">
-							<div class="form-group">
-								<label class="control-label">Region</label>
-								<?php if (!empty(form_error('region'))) { ?>
-									<div class="help-block with-errors text-danger">
-										<?= form_error('region'); ?>
-									</div>
-								<?php } ?>
-								<select name="region" id="region" class="form-control">
-									<?php foreach ($regions as $key) { ?>
-										<option value="<?= $key->id ?>"
-											<?php if ($observer->region_id == $key->id) echo 'selected' ?>
-										><?= $key->name_en ?></option>
+					<?php if ($user['role'] == 2) { ?>
+						<div class="row">
+							<div class="col-md-12 ">
+								<div class="form-group">
+									<label class="control-label">Choose region</label>
+									<?php if (!empty(form_error('region'))) { ?>
+										<div class="help-block with-errors text-danger">
+											<?= form_error('region'); ?>
+										</div>
 									<?php } ?>
-								</select>
+
+									<select name="region" id="select" class="form-control">
+										<?php foreach ($regions as $key) { ?>
+											<option value="<?= $key->id ?>"
+												<?php if ($observer->region_id == $key->id) echo 'selected' ?>
+											>
+												<?= $key->name_en ?>
+											</option>
+										<?php } ?>
+									</select>
+								</div>
 							</div>
 						</div>
-					</div>
+					<?php } ?>
+
+					<?php if ($user['role'] == 1) { ?>
+						<div class="row">
+							<div class="col-md-12 ">
+								<div class="form-group">
+									<label class="control-label">Choose region</label>
+									<?php if (!empty(form_error('region'))) { ?>
+										<div class="help-block with-errors text-danger">
+											<?= form_error('region'); ?>
+										</div>
+									<?php } ?>
+
+									<select name="region" id="select" class="form-control">
+										<?php foreach ($admins_region as $key) { ?>
+											<option value="<?= $key->id ?>"
+												<?php if ($observer->region_id == $key->id) echo 'selected' ?>
+											>
+												<?= $key->name_en ?>
+											</option>
+										<?php } ?>
+									</select>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
 
 					<div class="row">
 						<div class="col-md-12">

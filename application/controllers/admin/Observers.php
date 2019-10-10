@@ -17,7 +17,8 @@ class Observers extends CI_Controller
 
 	public function index()
 	{
-		$data['observers'] = $this->Observer->selectAll();
+		if ($this->session->userdata('user')['role'] == 2) $data['observers'] = $this->Observer->selectAll();
+		if ($this->session->userdata('user')['role'] == 1) $data['observers'] = $this->Observer->selectAllByAdmin($this->session->userdata('user')['id']);
 		$data['sport'] = $this->Observer->selectSports();
 		$data['title'] = "Observer";
 		layouts($data, 'admin/observers/index.php');
@@ -26,7 +27,8 @@ class Observers extends CI_Controller
 	public function create()
 	{
 		$data['sports'] = $this->db->get_where('sport_types', array('status' => 1))->result();
-		$data['region'] = $this->db->get_where('regions', array('status' => 1))->result();
+		$data['regions'] = $this->db->get_where('regions', array('status' => 1))->result();
+		$data['admins_region'] = $this->Observer->get_admins_region($this->session->userdata('user')["id"]);
 		$data['title'] = "Observer create page";
 		layouts($data, 'admin/observers/create.php');
 	}
@@ -91,6 +93,7 @@ class Observers extends CI_Controller
 	{
 		$data['title'] = "Observer edit page";
 		$data['regions'] = $this->db->get_where('regions', array('status' => 1))->result();
+		$data['admins_region'] = $this->Observer->get_admins_region($this->session->userdata('user')["id"]);
 		$data['observer_sport'] = $this->db->get_where('users_sport', array('status' => 1, 'user_id' => $id))->result();
 		$data['sports'] = $this->db->get_where('sport_types', array('status' => 1))->result();
 		$data['observer'] = $this->Observer->select($id);

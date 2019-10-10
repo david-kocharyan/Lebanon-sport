@@ -17,7 +17,6 @@ class Students extends CI_Controller
 
 	public function index()
 	{
-
 		if ($this->session->userdata('user')['role'] == 2) $data['students'] = $this->Student->selectAll();
 		if ($this->session->userdata('user')['role'] == 1) $data['students'] = $this->Student->selectAllByAdmin($this->session->userdata('user')['id']);
 		$data['title'] = "Students";
