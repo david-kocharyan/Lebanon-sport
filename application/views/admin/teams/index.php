@@ -2,9 +2,9 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="white-box">
-			<h3 class="box-title m-b-0">Schools Table</h3>
-			<p class="text-muted m-b-15">All Schools in 1 place!!</p>
-			<p class="box-title m-b-30"><a href="<?= base_url("admin/schools/create") ?>" class="text-success">Add new
+			<h3 class="box-title m-b-0">Teams Table</h3>
+			<p class="text-muted m-b-15">All Teams in 1 place!!</p>
+			<p class="box-title m-b-30"><a href="<?= base_url("admin/teams/create") ?>" class="text-success">Add new
 					School</a></p>
 
 			<div class="table-responsive">
@@ -24,7 +24,7 @@
 					</tr>
 					</thead>
 					<tbody>
-					<?php foreach ($schools as $key => $value) { ?>
+					<?php foreach ($teams as $key => $value) { ?>
 						<tr>
 							<td><?= $key + 1 ?></td>
 							<td><?= $value->name_en; ?></td>

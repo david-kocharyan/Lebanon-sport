@@ -138,9 +138,15 @@
 							class="mdi mdi-account fa-fw"></i> <span
 							class="hide-menu">Observers (App Users)</span></a></li>
 
-			</ul>
+				<li><a href="<?= base_url('admin/teams') ?>" class="waves-effect"><i
+							class="mdi mdi-account-multiple fa-fw"></i> <span
+							class="hide-menu">Teams</span></a></li>
 
-			<!--			mdi-gamepad-variant-->
+				<li><a href="<?= base_url('admin/games') ?>" class="waves-effect"><i
+							class="mdi mdi-gamepad-variant fa-fw"></i> <span
+							class="hide-menu">Game</span></a></li>
+
+			</ul>
 
 			<div class="sidebar-head">
 				<h3><span class="fa-fw open-close"><i class="ti-menu hidden-xs"></i><i class="ti-close visible-xs"></i></span>
