@@ -43,6 +43,10 @@
 	<!-- All Jquery -->
 	<!-- ============================================================== -->
 	<script src="<?= base_url('public/') ?>plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
+	<!--multiselect-->
+	<link href="<?= base_url('public/') ?>/plugins/bower_components/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="<?= base_url('public/') ?>plugins/bower_components/multiselect/js/jquery.multi-select.js"></script>
 </head>
 
 <body class="fix-header">
