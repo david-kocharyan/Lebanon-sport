@@ -136,7 +136,15 @@ $route['admin/students/edit/(:any)'] = 'admin/Students/edit/$1';
 $route['admin/students/update/(:any)'] = 'admin/Students/update/$1';
 $route['admin/students/change-status/(:any)'] = 'admin/Students/change_status/$1';
 
-//Students Crud
+//Referees Crud
+$route['admin/referees'] = 'admin/Referees';
+$route['admin/referees/create'] = 'admin/Referees/create';
+$route['admin/referees/store'] = 'admin/Referees/store';
+$route['admin/referees/edit/(:any)'] = 'admin/Referees/edit/$1';
+$route['admin/referees/update/(:any)'] = 'admin/Referees/update/$1';
+$route['admin/referees/change-status/(:any)'] = 'admin/Referees/change_status/$1';
+
+//Teams Crud
 $route['admin/teams'] = 'admin/Teams';
 $route['admin/teams/create'] = 'admin/Teams/create';
 $route['admin/teams/store'] = 'admin/Teams/store';

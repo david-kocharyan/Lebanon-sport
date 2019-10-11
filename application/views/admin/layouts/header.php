@@ -130,6 +130,10 @@
 							class="mdi mdi-school fa-fw"></i> <span
 							class="hide-menu">Students</span></a></li>
 
+				<li><a href="<?= base_url('admin/referees') ?>" class="waves-effect"><i
+							class="mdi mdi-flag-checkered fa-fw"></i> <span
+							class="hide-menu">Refeeres</span></a></li>
+
 				<li><a href="<?= base_url('admin/coaches') ?>" class="waves-effect"><i
 							class="mdi mdi-account-settings-variant fa-fw"></i> <span
 							class="hide-menu">Coaches</span></a></li>
@@ -145,7 +149,6 @@
 				<li><a href="<?= base_url('admin/games') ?>" class="waves-effect"><i
 							class="mdi mdi-gamepad-variant fa-fw"></i> <span
 							class="hide-menu">Game</span></a></li>
-
 			</ul>
 
 			<div class="sidebar-head">
