@@ -66,6 +66,7 @@ $(document).ready(function() {
 
 <script>
     jQuery('#datepicker-autoclose').datepicker({
+        format: "yyyy-mm-dd",
         autoclose: true,
     });
 </script>

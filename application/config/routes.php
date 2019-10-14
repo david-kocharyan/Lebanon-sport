@@ -147,6 +147,7 @@ $route['admin/referees/change-status/(:any)'] = 'admin/Referees/change_status/$1
 //Teams Crud
 $route['admin/teams'] = 'admin/Teams';
 $route['admin/teams/create'] = 'admin/Teams/create';
+$route['admin/teams/get-students'] = 'admin/Teams/get_students';
 $route['admin/teams/store'] = 'admin/Teams/store';
 $route['admin/teams/edit/(:any)'] = 'admin/Teams/edit/$1';
 $route['admin/teams/update/(:any)'] = 'admin/Teams/update/$1';

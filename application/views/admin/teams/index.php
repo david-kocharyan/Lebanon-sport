@@ -27,10 +27,18 @@
 							<td><?= $key + 1 ?></td>
 							<td><?= $value->name; ?></td>
 							<td><?= $value->age_group; ?></td>
-							<td><?= $value->gender; ?></td>
+							<td>
+								<?php if($value->gender == 2){
+									echo "Both";
+								}
+								elseif ($value->gender == 1){
+									echo "Male";
+								}else{
+									echo "Female";
+								}?>
+							</td>
 							<td><?= $value->sport; ?></td>
 							<td><?= $value->school; ?></td>
-							<td><?= $value->status; ?></td>
 							<td><?= $value->status; ?></td>
 							<td>
 								<a href="<?= base_url("admin/teams/edit/$value->id") ?>" data-toggle="tooltip"

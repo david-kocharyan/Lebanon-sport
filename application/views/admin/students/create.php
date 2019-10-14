@@ -82,7 +82,7 @@
 									</div>
 								<?php } ?>
 								<input type="text" class="form-control complex-colorpicker" id="datepicker-autoclose"
-									   placeholder="mm/dd/yyyy" name="birthday"
+									   placeholder="yyyy-mm-dd" name="birthday"
 									   value="<?= $this->input->post("birthday") ?>">
 							</div>
 						</div>
