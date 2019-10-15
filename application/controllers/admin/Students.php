@@ -122,7 +122,7 @@ class Students extends CI_Controller
 
 		if (empty($_POST["sport"]) OR $_POST["sport"] == NULL){
 			$this->session->set_flashdata('error_sport', 'Sport types was required');
-			$this->create();
+			$this->edit($id);
 			return;
 		}
 		$sport = $_POST["sport"];

@@ -39,7 +39,7 @@
 											name="students[]">
 										<?php foreach ($team_students as $key => $val) { ?>
 											<option value="<?= $val->student_id ?>"
-												<?php if ($val->status == 1) echo 'selected' ?>><?= $val->name_en . " / " . $val->name_ar ?></option>
+												<?php if ($val->student_status == 1) echo 'selected' ?>><?= $val->name_en . " / " . $val->name_ar ?></option>
 										<?php } ?>
 									</select>
 								</div>

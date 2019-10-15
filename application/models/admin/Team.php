@@ -30,7 +30,7 @@ class Team extends CI_Model
 
 	public function selectTeam($id)
 	{
-		$this->db->select('students.*, students.id as student_id, students_team.team_id as team_id, students_team.id as student_team_id');
+		$this->db->select('students.*,students_team.status as student_status, students.id as student_id, students_team.team_id as team_id, students_team.id as student_team_id');
 		$this->db->join('students', 'students.id = students_team.student_id');
 		return $this->db->get_where('students_team', array('team_id' => $id))->result();
 	}
@@ -53,4 +53,24 @@ class Team extends CI_Model
 		$status = $data->status == 1 ? 0 : 1;
 		$this->db->update($this->table, array("status" => $status), ['id' => $id]);
 	}
+
+	public function update($data, $id)
+	{
+		$this->db->update($this->table, $data, array("id" => $id));
+	}
+
+	public function updateSport($data, $id)
+	{
+		$this->db->update("students_team", array("status" => 0), array("team_id" => $id));
+
+		foreach ($data as $d) {
+			$find_amenity = $this->db->get_where("students_team", array("student_id" => $d, "team_id" => $id))->row();
+			if (null != $find_amenity) {
+				$this->db->update("students_team", array("status" => 1), array("student_id" => $d, "team_id" => $id));
+			} else {
+				$this->db->insert("students_team", array("student_id" => $d, "team_id" => $id));
+			}
+		}
+	}
+
 }

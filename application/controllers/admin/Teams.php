@@ -94,10 +94,30 @@ class Teams extends CI_Controller
 		$data["age"] = $this->db->get_where("age_group", array('status' => 1))->result();
 		$data["team"] = $this->Team->select($id);
 		$data["team_students"] = $this->Team->selectTeam($id);
-
 		layouts($data, 'admin/teams/edit.php');
 	}
 
+	public function update($id)
+	{
+		$name = $this->input->post('name');
+
+		if (empty($_POST["students"]) OR $_POST["students"] == NULL){
+			$this->session->set_flashdata('error_sport', 'Sport types was required');
+			$this->edit($id);
+			return;
+		}
+		$students = $_POST["students"];
+
+		$data = array(
+			"name" => $name,
+		);
+		$this->db->trans_start();
+		$this->Team->update($data, $id);
+		$this->Team->updateSport($students, $id);
+		$this->db->trans_complete();
+
+		redirect("admin/teams");
+	}
 
 	public function change_status($id)
 	{
