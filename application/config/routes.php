@@ -61,7 +61,8 @@ $route['api/users/refresh-token'] = 'api/Users_api/refresh_token';
 $route['api/users/logout'] = 'api/Users_api/logout';
 
 //game Api
-$route['api/games/get-sport-type'] = 'api/Games_api/sport_type';
+$route['api/games/get-sport-type'] = 'api/Sport_api';
+$route['api/games/get-games'] = 'api/Games_api';
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
