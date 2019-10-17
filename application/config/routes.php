@@ -60,6 +60,9 @@ $route['api/users/get-user'] = 'api/Users_api/get_user';
 $route['api/users/refresh-token'] = 'api/Users_api/refresh_token';
 $route['api/users/logout'] = 'api/Users_api/logout';
 
+//game Api
+$route['api/games/get-sport-type'] = 'api/Games_api/sport_type';
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //admin panel
@@ -152,3 +155,10 @@ $route['admin/teams/store'] = 'admin/Teams/store';
 $route['admin/teams/edit/(:any)'] = 'admin/Teams/edit/$1';
 $route['admin/teams/update/(:any)'] = 'admin/Teams/update/$1';
 $route['admin/teams/change-status/(:any)'] = 'admin/Teams/change_status/$1';
+
+//Teams Crud
+$route['admin/games'] = 'admin/Games';
+$route['admin/games/create'] = 'admin/Games/create';
+$route['admin/games/get-teams'] = 'admin/Games/get_teams';
+$route['admin/games/store'] = 'admin/Games/store';
+$route['admin/games/change-status/(:any)'] = 'admin/Games/change_status/$1';

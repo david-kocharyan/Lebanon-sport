@@ -220,14 +220,14 @@ class Users_api extends REST_Controller
 	{
 		$email = $this->input->post('email');
 		if (null == $email) {
-			$response = array(
-				"success" => false,
-				"data" => array(),
-				"msg" => "Provide Email"
-			);
-			$this->response($response, REST_Controller::HTTP_UNPROCESSABLE_ENTITY);
-			return;
-		}
+		$response = array(
+			"success" => false,
+			"data" => array(),
+			"msg" => "Provide Email"
+		);
+		$this->response($response, REST_Controller::HTTP_UNPROCESSABLE_ENTITY);
+		return;
+	}
 
 		$check = $this->User->check_email($email);
 		if (null == $check) {

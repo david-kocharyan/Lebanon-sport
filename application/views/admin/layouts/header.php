@@ -40,9 +40,16 @@
 	<link href="<?= base_url('public/') ?>plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css"
 		  rel="stylesheet">
 
+	<!-- Date time picker plugins css -->
+	<link href="<?= base_url('public/') ?>plugins/datetimepicker/css/bootstrap-datetimepicker.min.css"
+		  rel="stylesheet" type="text/css"/>
+
 	<!-- All Jquery -->
 	<!-- ============================================================== -->
 	<script src="<?= base_url('public/') ?>plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
+	<!-- Date time picker plugins js -->
+	<script src="<?= base_url('public/') ?>plugins/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 
 	<!--multiselect-->
 	<link href="<?= base_url('public/') ?>/plugins/bower_components/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
