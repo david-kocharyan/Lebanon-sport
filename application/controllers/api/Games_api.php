@@ -50,7 +50,7 @@ class Games_api extends REST_Controller
 	{
 		$this->db->select("games.id as id, place, time, active, school_1.name_en as school_1_name, school_2.name_en as school_2_name");
 		$this->join($res);
-		if ($this->input->get('action') !== null) $this->db->where(array("sport_type" => $this->input->get("action")));
+		if ($this->input->get('id') !== null) $this->db->where(array("sport_type" => $this->input->get("id")));
 		$this->db->where(array("observer_id" => $res, "games.status" => 1));
 		$this->db->group_by("games.id");
 		$this->db->order_by("games.id DESC");
@@ -62,7 +62,7 @@ class Games_api extends REST_Controller
 	private function get_pages($res)
 	{
 		$this->db->select("count(games.id) as page");
-		if ($this->input->get('action') !== null) $this->db->where(array("sport_type" => $this->input->get("action")));
+		if ($this->input->get('id') !== null) $this->db->where(array("sport_type" => $this->input->get("id")));
 		$this->db->where(array("observer_id" => $res, "status" => 1));
 		$this->db->group_by("games.id");
 		$subquery = $this->db->get_compiled_select("games");
