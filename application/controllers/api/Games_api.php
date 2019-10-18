@@ -146,9 +146,13 @@ class Games_api extends REST_Controller
 
 	private function game_team_students($id)
 	{
-		$this->db->select("students.id as id, name_en as name");
+		$this->db->select("students.id as id, students.name_en as name, birthday, 
+		CASE WHEN gender = 1 THEN 'Male' WHEN gender = 0 THEN 'Female' END as gender,
+		concat('plugins/images/student/', students.image) as image, schools.name_en as school_name,
+		");
 
 		$this->db->join("students", "students.id = students_team.student_id");
+		$this->db->join("schools", "schools.id = students.school_id");
 		$data = $this->db->get_where("students_team", array("team_id" => $id))->result();
 		return $data != null ? $data : array();
 	}
