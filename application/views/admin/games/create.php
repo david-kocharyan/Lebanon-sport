@@ -201,21 +201,22 @@
 </script>
 
 
-<!--<script>-->
-<!--    var socket = io('http://' + document.domain + ':2022');-->
-<!--    socket.on('connect', function () {-->
-<!--        console.log('connect success');-->
-<!--    });-->
-<!---->
-<!--    $('.save').click(function () {-->
-<!--        var x = $('.x').val();-->
-<!--        var y = $('.y').val();-->
-<!---->
-<!--        var m = {x, y};-->
-<!--        socket.emit('msg', m);-->
-<!--    });-->
-<!---->
-<!--    socket.on('typing', function (data) {-->
-<!--        console.log(data);-->
-<!--    });-->
-<!--</script>-->
+<script src="<?= base_url('public/')?>plugins/socket/2.3.0/socket_io.js"></script>
+<script>
+    var socket = io('http://' + document.domain + ':2022');
+    socket.on('connect', function () {
+        console.log('connect success');
+    });
+
+    $('.save').click(function () {
+        var x = $('.x').val();
+        var y = $('.y').val();
+
+        var m = {x, y};
+        socket.emit('msg', m);
+    });
+
+    socket.on('typing', function (data) {
+        console.log(data);
+    });
+</script>
