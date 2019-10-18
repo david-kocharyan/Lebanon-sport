@@ -48,7 +48,7 @@ class Games_api extends REST_Controller
 
 	private function get_games($res)
 	{
-		$this->db->select("games.id as id, place, time, active, school_1.name_en as school_1_name, school_2.name_en as school_2_name");
+		$this->db->select("games.id as id, place, time, active, team_1.name as team_1_name, team_2.name as team_2_name");
 		$this->join($res);
 		if ($this->input->get('id') !== null) $this->db->where(array("sport_type" => $this->input->get("id")));
 		$this->db->where(array("observer_id" => $res, "games.status" => 1));
@@ -79,9 +79,78 @@ class Games_api extends REST_Controller
 
 	private function join()
 	{
-		$this->db->join("game_schools", "games.id = game_schools.game_id");
-		$this->db->join("schools as school_1", "school_1.id = game_schools.school_id_1");
-		$this->db->join("schools as school_2", "school_2.id = game_schools.school_id_2");
+		$this->db->join("game_teams", "games.id = game_teams.game_id");
+		$this->db->join("teams as team_1", "team_1.id = game_teams.team_1");
+		$this->db->join("teams as team_2", "team_2.id = game_teams.team_2");
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function team_students_get()
+	{
+		$res = $this->verify_get_request();
+		if (gettype($res) != 'string') {
+			$data = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => $res['msg']
+			);
+			$this->response($data, $res['status']);
+			return;
+		}
+
+		$game_id = $this->input->get('id');
+		if (null == $game_id) {
+			$response = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Provide Game"
+			);
+			$this->response($response, REST_Controller::HTTP_UNPROCESSABLE_ENTITY);
+			return;
+		}
+
+		$game_t = $this->db->get_where("game_teams", array("game_id" => $game_id))->row();
+
+		$team_1 = $this->game_team($game_t->team_1);
+		$team_2 = $this->game_team($game_t->team_2);
+
+		$team_1_students = $this->game_team_students($game_t->team_2);
+		$team_2_students = $this->game_team_students($game_t->team_2);
+
+		$response = array(
+			"success" => true,
+			"data" => array(
+				"team_1" => array(
+					"id" => $team_1->id ,
+					"name" => $team_1->name,
+					"students" => $team_1_students
+				),
+				"team_2" => array(
+					"id" => $team_2->id,
+					"name" => $team_2->name,
+					"students" => $team_2_students
+				),
+			),
+			"msg" => "",
+		);
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+
+	private function game_team($id)
+	{
+		$this->db->select("id, name");
+		$data = $this->db->get_where("teams", array("id" => $id))->row();
+		return $data != null ? $data : array();
+	}
+
+	private function game_team_students($id)
+	{
+		$this->db->select("students.id as id, name_en as name");
+
+		$this->db->join("students", "students.id = students_team.student_id");
+		$data = $this->db->get_where("students_team", array("team_id" => $id))->result();
+		return $data != null ? $data : array();
 	}
 
 }

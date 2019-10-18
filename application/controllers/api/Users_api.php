@@ -220,14 +220,14 @@ class Users_api extends REST_Controller
 	{
 		$email = $this->input->post('email');
 		if (null == $email) {
-		$response = array(
-			"success" => false,
-			"data" => array(),
-			"msg" => "Provide Email"
-		);
-		$this->response($response, REST_Controller::HTTP_UNPROCESSABLE_ENTITY);
-		return;
-	}
+			$response = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Provide Email"
+			);
+			$this->response($response, REST_Controller::HTTP_UNPROCESSABLE_ENTITY);
+			return;
+		}
 
 		$check = $this->User->check_email($email);
 		if (null == $check) {
@@ -262,8 +262,7 @@ class Users_api extends REST_Controller
 				"msg" => 'Your New Password was sent to your MEHE email.',
 			);
 			$this->response($response, REST_Controller::HTTP_OK);
-		}
-		else{
+		} else {
 			$data = array(
 				"success" => false,
 				"data" => array(),
