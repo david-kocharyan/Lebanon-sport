@@ -48,7 +48,9 @@ class Games_api extends REST_Controller
 
 	private function get_games($res)
 	{
-		$this->db->select("games.id as id, place, time, active, team_1.name as team_1_name, team_2.name as team_2_name");
+		$this->db->select("games.id as id, place, time, active, 
+		team_1.name as team_1_name, team_2.name as team_2_name,
+		schools_1.name_en as school_1_name, schools_2.name_en as school_2_name");
 		$this->join($res);
 		if ($this->input->get('id') !== null) $this->db->where(array("sport_type" => $this->input->get("id")));
 		$this->db->where(array("observer_id" => $res, "games.status" => 1));
@@ -82,6 +84,13 @@ class Games_api extends REST_Controller
 		$this->db->join("game_teams", "games.id = game_teams.game_id");
 		$this->db->join("teams as team_1", "team_1.id = game_teams.team_1");
 		$this->db->join("teams as team_2", "team_2.id = game_teams.team_2");
+
+		$this->db->join("game_schools", "games.id = game_schools.game_id");
+		$this->db->join("schools as schools_1", "schools_1.id = game_schools.school_id_1");
+		$this->db->join("schools as schools_2", "schools_2.id = game_schools.school_id_2");
+
+
+
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
