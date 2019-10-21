@@ -61,7 +61,28 @@
 							</div>
 						</div>
 
+					</div>
+
 						<div class="row">
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="control-label">Points</label>
+									<?php if (!empty($this->session->flashdata('points'))) { ?>
+										<div class="help-block with-errors text-danger">
+											<?= $this->session->flashdata('points') ?>
+										</div>
+									<?php } ?>
+									<select class="select2 m-b-10 select2-multiple" multiple="multiple"
+											data-placeholder="Choose" style="width: 100%;" name="points[]">
+										<option value="1">1 pt</option>
+										<option value="2">2 pt</option>
+										<option value="3">3 pt</option>
+									</select>
+								</div>
+							</div>
+
+
 							<div class="col-md-12 ">
 								<div class="form-group">
 									<label class="control-label">Image</label>

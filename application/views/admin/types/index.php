@@ -16,6 +16,7 @@
 						<th>Name ar</th>
 						<th>Description en</th>
 						<th>Description ar</th>
+						<th>Points</th>
 						<th>Image</th>
 						<th>Status</th>
 						<th>Options</th>
@@ -29,6 +30,12 @@
 							<td><?= $value->name_ar; ?></td>
 							<td><?= $value->desc_en; ?></td>
 							<td><?= $value->desc_ar; ?></td>
+							<td>
+								<?php foreach ($points as $key => $val ){
+									if ($value->id == $val->sport_type_id){ ?>
+										 <?= $val->value . " pt". "<br />"; ?>
+									<?php }	}?>
+							</td>
 							<td>
 								<img src="<?= base_url('/plugins/images/sport/'). $value->image; ?>" alt="school image" width="150" height="150">
 							</td>

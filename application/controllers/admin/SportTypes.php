@@ -18,6 +18,7 @@ class SportTypes extends CI_Controller
 	public function index()
 	{
 		$data['types'] = $this->SportType->selectAll();
+		$data['points'] = $this->SportType->selectpoints();
 		$data['title'] = "Sport Types";
 		layouts($data, 'admin/types/index.php');
 	}
@@ -34,6 +35,14 @@ class SportTypes extends CI_Controller
 		$name_ar = $this->input->post("name_ar");
 		$desc_en = $this->input->post("desc_en");
 		$desc_ar = $this->input->post("desc_ar");
+
+
+		if (empty($_POST["points"]) OR $_POST["points"] == NULL){
+			$this->session->set_flashdata('points', 'Sport points was required');
+			$this->create();
+			return;
+		}
+		$points = $_POST["points"];
 
 		$this->form_validation->set_rules('name_en', 'Region EN', 'required|trim');
 		$this->form_validation->set_rules('name_ar', 'Region AR', 'required|trim');
@@ -66,7 +75,15 @@ class SportTypes extends CI_Controller
 			);
 			if (isset($image)) $data['image'] = $image;
 
+			$this->db->trans_start();
 			$this->SportType->insert($data);
+			$id = $this->db->insert_id();
+
+			foreach ($points as $key)
+			{
+				$this->db->insert("sport_points", array("sport_type_id" => $id, 'value' => $key));
+			}
+			$this->db->trans_complete();
 
 			redirect("admin/sport-types");
 		}
@@ -76,6 +93,7 @@ class SportTypes extends CI_Controller
 	{
 		$data['title'] = "Sport types edit page";
 		$data['types'] = $this->SportType->select($id);
+		$data['points'] = $this->db->get_where('sport_points', array('status' => 1, 'sport_type_id' => $id))->result();
 		layouts($data, 'admin/types/edit.php');
 	}
 
@@ -117,7 +135,14 @@ class SportTypes extends CI_Controller
 			);
 			if (isset($image)) $data['image'] = $image;
 
+
+			$this->db->trans_start();
 			$this->SportType->update($data, $id);
+			if (!empty($_POST["points"]) OR $_POST["points"] != NULL){
+				$points = $_POST["points"];
+			}
+			$this->SportType->updatePoints($points, $id);
+			$this->db->trans_complete();
 
 			redirect("admin/sport-types");
 		}
