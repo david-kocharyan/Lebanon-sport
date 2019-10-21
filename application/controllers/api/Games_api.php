@@ -45,7 +45,6 @@ class Games_api extends REST_Controller
 		$this->response($response, REST_Controller::HTTP_OK);
 	}
 
-
 	private function get_games($res)
 	{
 		$this->db->select("games.id as id, place, time, active, 
@@ -164,6 +163,64 @@ class Games_api extends REST_Controller
 		$this->db->join("schools", "schools.id = students.school_id");
 		$data = $this->db->get_where("students_team", array("team_id" => $id))->result();
 		return $data != null ? $data : array();
+	}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function referee_get()
+	{
+		$res = $this->verify_get_request();
+		if (gettype($res) != 'string') {
+			$data = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => $res['msg']
+			);
+			$this->response($data, $res['status']);
+			return;
+		}
+
+		$limit = (null !== $this->input->get('limit') && is_numeric($this->input->get("limit"))) ? intval($this->input->get('limit')) : 10;
+		$offset = (null !== $this->input->get('offset') && is_numeric($this->input->get("offset"))) ? $this->input->get('offset') * $limit : 0;
+
+		$data = $this->get_referees();
+		$pages = ($limit !== 0 || null !== $limit) ? ceil($this->get_ref_pages()->pages / $limit) : 0;
+
+		$response = array(
+			"success" => true,
+			"data" => array(
+				"referees" => $data,
+				"meta" => array(
+					"limit" => $limit,
+					"offset" => $offset,
+					"pages" => $pages,
+				),
+			),
+			"msg" => "",
+		);
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+
+	private function get_referees()
+	{
+		$this->db->select("*");
+		$this->limits_ref();
+		$data = $this->db->get_where("referees", array("status" => 1))->result();
+		return $data != null ? $data : array();
+	}
+
+	private function get_ref_pages()
+	{
+		$this->db->select("count(id) as pages");
+		$data = $this->db->get("referees", array("status" => 1))->row();
+		return $data != null ? $data : 0;
+	}
+
+	private function limits_ref()
+	{
+		$limit = (null !== $this->input->get('limit') && is_numeric($this->input->get("limit"))) ? $this->input->get('limit') : 10;
+		$offset = (null !== $this->input->get('offset') && is_numeric($this->input->get("offset"))) ? $this->input->get('offset') * $limit : 0;
+		$this->db->limit($limit, $offset);
 	}
 
 }

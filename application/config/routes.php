@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Admins';
-$route['404_override'] = '';
+$route['404_override'] = 'Errors/_404';
 $route['translate_uri_dashes'] = FALSE;
 
 //users (observers) Api
@@ -64,6 +64,7 @@ $route['api/users/logout'] = 'api/Users_api/logout';
 $route['api/games/get-sport-type'] = 'api/Sport_api';
 $route['api/games/get-games'] = 'api/Games_api';
 $route['api/games/get-game-students'] = 'api/Games_api/team_students';
+$route['api/games/get-referee'] = 'api/Games_api/referee';
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

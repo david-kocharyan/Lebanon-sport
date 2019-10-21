@@ -32,20 +32,18 @@
 <section id="wrapper" class="new-login-register">
 	<div class="lg-info-panel">
 		<div class="inner-panel">
-			<a href="javascript:void(0)" class="p-20 di"><img
-					src="<?= base_url('public/') ?>plugins/images/admin-logo.png"></a>
 			<div class="lg-content">
-				<h2>THE ULTIMATE & MULTIPURPOSE ADMIN TEMPLATE OF 2019</h2>
-				<p class="text-muted">with this admin you can get 2000+ pages, 500+ ui component, 2000+ icons, different
-					demos and many more... </p>
+				<h2>IMPERIUM</h2>
+				<p class="text-muted">Imperium is a Latin word which, in a broad sense, translates roughly as 'power to command'.
+					NOVA4 brings you the IMPERIUM CMS system, empowering you with the ability to control every single aspect of your website.</p>
 			</div>
 		</div>
 	</div>
 	<div class="new-login-box">
 		<div class="white-box">
-			<h3 class="box-title m-b-0">Sign In to Admin</h3>
-			<small>Enter your details below</small>
-
+			<div class="col-md-12 m-b-30">
+				<img src="<?= base_url('public/') ?>plugins/images/logo_imp.png" width="100%">
+			</div>
 			<form class="form-horizontal new-lg-form" id="loginform" action="<?php echo base_url() ?>admin/Login/login"
 				  method="post">
 
