@@ -202,7 +202,7 @@ class Games_api extends REST_Controller
 
 	private function get_referees()
 	{
-		$this->db->select("*");
+		$this->db->select("id, name_en as name, mobile_number");
 		$this->limits_ref();
 		$data = $this->db->get_where("referees", array("status" => 1))->result();
 		return $data != null ? $data : array();
