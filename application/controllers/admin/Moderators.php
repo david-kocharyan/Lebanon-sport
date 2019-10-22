@@ -64,6 +64,7 @@ class Moderators extends CI_Controller
 				"mobile_number" => $mobile_number,
 				"username" => $username,
 				"password" => hash("SHA512", $password),
+				"role" => 1,
 			);
 
 			$this->db->trans_start();

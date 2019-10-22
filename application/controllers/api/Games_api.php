@@ -89,7 +89,6 @@ class Games_api extends REST_Controller
 		$this->db->join("schools as schools_2", "schools_2.id = game_schools.school_id_2");
 
 
-
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -130,7 +129,7 @@ class Games_api extends REST_Controller
 			"success" => true,
 			"data" => array(
 				"team_1" => array(
-					"id" => $team_1->id ,
+					"id" => $team_1->id,
 					"name" => $team_1->name,
 					"students" => $team_1_students
 				),
@@ -223,4 +222,43 @@ class Games_api extends REST_Controller
 		$this->db->limit($limit, $offset);
 	}
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function points_get()
+	{
+		$res = $this->verify_get_request();
+		if (gettype($res) != 'string') {
+			$data = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => $res['msg']
+			);
+			$this->response($data, $res['status']);
+			return;
+		}
+
+		$game_id = $this->input->get('id');
+		if (null == $game_id) {
+			$response = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Provide Game"
+			);
+			$this->response($response, REST_Controller::HTTP_UNPROCESSABLE_ENTITY);
+			return;
+		}
+
+		$this->db->select("sport_points.value");
+		$this->db->join("sport_points", "sport_points.sport_type_id = games.sport_type");
+		$data = $this->db->get_where('games', array('games.id' => $game_id))->result();
+
+		$response = array(
+			"success" => true,
+			"data" => array(
+				"points" => $data != null ? $data : array(),
+			),
+			"msg" => "",
+		);
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
 }

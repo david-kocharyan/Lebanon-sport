@@ -65,7 +65,7 @@ $route['api/games/get-sport-type'] = 'api/Sport_api';
 $route['api/games/get-games'] = 'api/Games_api';
 $route['api/games/get-game-students'] = 'api/Games_api/team_students';
 $route['api/games/get-referee'] = 'api/Games_api/referee';
-
+$route['api/games/get-points'] = 'api/Games_api/points';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //admin panel
@@ -121,6 +121,7 @@ $route['admin/regions/change-status/(:any)'] = 'admin/Regions/change_status/$1';
 //School Crud
 $route['admin/schools'] = 'admin/Schools';
 $route['admin/schools/create'] = 'admin/Schools/create';
+$route['admin/schools/get-region'] = 'admin/Schools/get_region';
 $route['admin/schools/store'] = 'admin/Schools/store';
 $route['admin/schools/edit/(:any)'] = 'admin/Schools/edit/$1';
 $route['admin/schools/update/(:any)'] = 'admin/Schools/update/$1';

@@ -75,7 +75,8 @@
 											</div>
 										<?php } ?>
 
-										<select name="admin" id="select" class="form-control">
+										<select name="admin" id="select" class="form-control admins">
+											<option>Choose</option>
 											<?php foreach ($admins as $key) { ?>
 												<?php if ($key->role == 1) { ?>
 													<?= $key->id ?>
@@ -87,7 +88,7 @@
 								</div>
 							</div>
 
-							<div class="row">
+							<div class="row reg" style="display: none;">
 								<div class="col-md-12 ">
 									<div class="form-group">
 										<label class="control-label">Choose region</label>
@@ -96,13 +97,7 @@
 												<?= form_error('region'); ?>
 											</div>
 										<?php } ?>
-
-										<select name="region" id="select" class="form-control">
-											<?php foreach ($regions as $key) { ?>
-												<option value="<?= $key->id ?>">
-													<?= $key->name_en ?>
-												</option>
-											<?php } ?>
+										<select name="region" id="select" class="form-control regions">
 										</select>
 									</div>
 								</div>
@@ -157,3 +152,30 @@
 		</div>
 	</div>
 </div>
+
+
+<script>
+    $(document).ready(function () {
+
+        $(".admins").change(function () {
+            var admin = $(this).val();
+
+            $.ajax({
+                type: "POST",
+                url: '<?php echo base_url(); ?>admin/schools/get-region',
+                dataType: "JSON",
+                data: {admin},
+                success: function (res) {
+                    $('.regions').empty();
+                    for (let i = 0; i < res.length; i++) {
+                        var $option = $('<option></option>')
+                            .attr('value', res[i].id)
+                            .text(res[i].name_en);
+                        $('.regions').append($option);
+                        $('.reg').css({"display": "block"});
+                    }
+                }
+            })
+        })
+    })
+</script>

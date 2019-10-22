@@ -32,6 +32,17 @@ class Schools extends CI_Controller
 		layouts($data, 'admin/schools/create.php');
 	}
 
+	public function get_region()
+	{
+		$admin = $this->input->post("admin");
+
+		$this->db->select('regions.*');
+		$this->db->join('regions', "regions.id = admins_region.region_id");
+		$data = $this->db->get_where("admins_region", array('admin_id' => $admin))->result();
+
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
+	}
+
 	public function store()
 	{
 		$name_en = $this->input->post("name_en");

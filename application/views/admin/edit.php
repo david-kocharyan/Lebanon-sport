@@ -24,20 +24,33 @@
 				</div>
 
 				<div class="form-group">
-					<label>Full Name</label>
+					<label>First Name</label>
 					<div>
-						<input type="text" value="<?= $admin->full_name ?>" name="full_name"
+						<input type="text" value="<?= $admin->first_name ?>" name="first_name"
 							   class="form-control form-control-line">
 					</div>
-					<?php if (!empty(form_error('full_name'))) { ?>
+					<?php if (!empty(form_error('first_name'))) { ?>
 						<div class="help-block with-errors text-danger">
-							<?= form_error('full_name'); ?>
+							<?= form_error('first_name'); ?>
 						</div>
 					<?php } ?>
 				</div>
 
 				<div class="form-group">
-					<label>email</label>
+					<label>Last Name</label>
+					<div>
+						<input type="text" value="<?= $admin->last_name ?>" name="last_name"
+							   class="form-control form-control-line">
+					</div>
+					<?php if (!empty(form_error('last_name'))) { ?>
+						<div class="help-block with-errors text-danger">
+							<?= form_error('last_name'); ?>
+						</div>
+					<?php } ?>
+				</div>
+
+				<div class="form-group">
+					<label>Email</label>
 					<div>
 						<input type="text" value="<?= $admin->email ?>" name="email"
 							   class="form-control form-control-line">
@@ -50,13 +63,14 @@
 				</div>
 
 				<div class="form-group">
-					<label for="input-file-now">Logo</label>
-					<input type="file" id="input-file-now" name="logo" class="dropify" data-max-file-size="15M">
-					<img src="<?= base_url('plugins/images/Logo/') ?><?= $admin->logo ?> " class="m-t-15 "
-						 alt="logo" width="200" height="200">
-					<?php if (!empty(form_error('logo'))) { ?>
+					<label>Mobile number</label>
+					<div>
+						<input type="text" value="<?= $admin->mobile_number ?>" name="mobile_number"
+							   class="form-control form-control-line">
+					</div>
+					<?php if (!empty(form_error('mobile_number'))) { ?>
 						<div class="help-block with-errors text-danger">
-							<?= form_error('logo'); ?>
+							<?= form_error('mobile_number'); ?>
 						</div>
 					<?php } ?>
 				</div>
