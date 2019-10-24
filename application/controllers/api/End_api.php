@@ -37,6 +37,19 @@ class End_api extends REST_Controller
 		$this->insert_games_media($game_id);
 
 		$this->db->trans_complete();
+		$status = $this->db->trans_status();
+
+		if ($status == false)
+		{
+			$response = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Something went wrong. Please try again!!",
+			);
+			$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
+			return;
+		}
+
 
 		$response = array(
 			"success" => true,
@@ -108,7 +121,11 @@ class End_api extends REST_Controller
 				$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
 				return;
 			} else {
-				$this->db->insert_batch('end_game_signature', $image);
+				foreach ($image as $key => $val)
+				{
+					$this->db->insert('end_game_signature', array('game_id' => $val['game_id'], 'name' => $val['name'], 'image' => $val['image']));
+				}
+//				$this->db->insert_batch('end_game_signature', $image);
 			}
 		}
 		$this->db->trans_complete();
