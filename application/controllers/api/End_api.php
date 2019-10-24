@@ -12,7 +12,7 @@ class End_api extends REST_Controller
 	}
 
 
-	public function index_post()
+	public function end_post()
 	{
 		$res = $this->verify_get_request();
 		if (gettype($res) != 'string') {
@@ -27,6 +27,9 @@ class End_api extends REST_Controller
 
 		$game_id = $this->input->post('id');
 
+		$team_1_id = $this->input->post('team_1_id');
+		$team_2_id = $this->input->post('team_2_id');
+
 		$team_1 = $this->input->post('team_1[]');
 		$team_2 = $this->input->post('team_2[]');
 
@@ -38,16 +41,22 @@ class End_api extends REST_Controller
 		$info = $this->input->post('info');
 
 		$signature_name  = $this->input->post('signature_name[]');
-		$signature_image  = $this->input->post('signature_image[]');
+		$signature_image  = $_FILES['signature_image'];
 
 		$referee = $this->input->post('referee');
 
-		$game_images = $this->input->post('game_images[]');
-		$game_videos = $this->input->post('game_videos[]');
+		$game_images = $_FILES['game_images'];
+		$game_videos = $_FILES['game_videos'];
 
+//		var_dump($game_id, $team_1_id, $team_2_id, $team_1, $team_2, $team_1_best, $team_2_best, $team_1_point, $team_2_point, $info, $signature_name, $signature_image, $referee, $game_images, $game_videos);
+//die;
+		$response = array(
+			"success" => true,
+			"data" => array(),
+			"msg" => "Game saved success",
+		);
+		$this->response($response, REST_Controller::HTTP_OK);
 
-		echo '<pre>';
-		var_dump($game_id, $team_1, $team_2, $team_1_best, $team_2_best, $team_1_point, $team_2_point, $info, $signature_name, $signature_image, $referee, $game_images, $game_videos);
 	}
 
 

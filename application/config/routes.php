@@ -66,7 +66,7 @@ $route['api/games/get-games'] = 'api/Games_api';
 $route['api/games/get-game-students'] = 'api/Games_api/team_students';
 $route['api/games/get-referee'] = 'api/Games_api/referee';
 $route['api/games/get-points'] = 'api/Games_api/points';
-$route['api/games/end'] = 'api/End_api';
+$route['api/games/end'] = 'api/End_api/end';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
