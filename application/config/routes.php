@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Admins';
+$route['default_controller'] = 'Home';
 $route['404_override'] = 'Errors/_404';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -66,8 +66,18 @@ $route['api/games/get-games'] = 'api/Games_api';
 $route['api/games/get-game-students'] = 'api/Games_api/team_students';
 $route['api/games/get-referee'] = 'api/Games_api/referee';
 $route['api/games/get-points'] = 'api/Games_api/points';
+$route['api/games/end'] = 'api/End_api';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Site
+$route['news'] = 'site/News';
+$route['upcoming'] = 'site/Upcoming';
+$route['activites'] = 'site/Activites';
+$route['contact-us'] = 'site/Contact';
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //admin panel
 $route['admin'] = 'admin/Admins';
 //admin logout
