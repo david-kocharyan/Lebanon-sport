@@ -24,10 +24,6 @@ class End_api extends REST_Controller
 			return;
 		}
 
-		$this->response($_FILES);
-		return;
-
-
 		$game_id = $this->input->post('id');
 
 		$this->db->trans_start();
@@ -124,11 +120,11 @@ class End_api extends REST_Controller
 				$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
 				return;
 			} else {
-				foreach ($image as $key => $val)
-				{
-					$this->db->insert('end_game_signature', array('game_id' => $val['game_id'], 'name' => $val['name'], 'image' => $val['image']));
-				}
-//				$this->db->insert_batch('end_game_signature', $image);
+//				foreach ($image as $key => $val)
+//				{
+//					$this->db->insert('end_game_signature', array('game_id' => $val['game_id'], 'name' => $val['name'], 'image' => $val['image']));
+//				}
+				$this->db->insert_batch('end_game_signature', $image);
 			}
 		}
 		$this->db->trans_complete();
