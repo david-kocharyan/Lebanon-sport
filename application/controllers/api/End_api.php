@@ -24,6 +24,10 @@ class End_api extends REST_Controller
 			return;
 		}
 
+		$this->response($_FILES);
+		return;
+
+
 		$game_id = $this->input->post('id');
 
 		$this->db->trans_start();
@@ -46,8 +50,7 @@ class End_api extends REST_Controller
 				"data" => array(),
 				"msg" => "Something went wrong. Please try again!!",
 			);
-			$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
-			return;
+ccccccc			return;
 		}
 
 
