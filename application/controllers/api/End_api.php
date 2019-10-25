@@ -24,7 +24,7 @@ class End_api extends REST_Controller
 			return;
 		}
 
-		$this->response($_FILES[]);
+		$this->response($_FILES);
 		return;
 
 
