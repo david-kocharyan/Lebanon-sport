@@ -132,7 +132,7 @@ class End_api extends REST_Controller
 		}
 		$config = array(
 			'upload_path' => FCPATH . "/plugins/images/end/signature/",
-			'allowed_types' => 'jpg|jpeg|png',
+			'allowed_types' => '*',
 			'max_size' => 100000000000,
 			'overwrite' => 1
 		);
@@ -211,7 +211,7 @@ class End_api extends REST_Controller
 		}
 		$config = array(
 			'upload_path' => FCPATH . $path,
-			'allowed_types' => 'jpg|jpeg|png|mov|avi|flv|wmv|mp3|mp4',
+			'allowed_types' => '*',
 			'max_size' => 1000000000,
 			'overwrite' => 1
 		);
