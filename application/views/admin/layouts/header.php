@@ -44,6 +44,13 @@
 	<link href="<?= base_url('public/') ?>plugins/datetimepicker/css/bootstrap-datetimepicker.min.css"
 		  rel="stylesheet" type="text/css"/>
 
+	<!-- carousel -->
+	<link href="<?= base_url('public/') ?>plugins/bower_components/owl.carousel/owl.carousel.min.css" rel="stylesheet"
+		  type="text/css"/>
+	<link href="<?= base_url('public/') ?>plugins/bower_components/owl.carousel/owl.theme.default.css" rel="stylesheet"
+		  type="text/css"/>
+
+
 	<!-- All Jquery -->
 	<!-- ============================================================== -->
 	<script src="<?= base_url('public/') ?>plugins/bower_components/jquery/dist/jquery.min.js"></script>
@@ -132,6 +139,11 @@
 
 					<li class="devider"></li>
 				<?php } ?>
+
+				<li><a href="<?= base_url('admin/blog') ?>" class="waves-effect"><i
+							class="mdi mdi-blogger fa-fw"></i> <span
+							class="hide-menu">Blog</span></a></li>
+				<li class="devider"></li>
 
 				<li><a href="<?= base_url('admin/schools') ?>" class="waves-effect"><i
 							class="mdi mdi-chair-school fa-fw"></i> <span

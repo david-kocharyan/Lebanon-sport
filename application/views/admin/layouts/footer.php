@@ -71,5 +71,10 @@ $(document).ready(function() {
     });
 </script>
 
+
+<!-- jQuery for carousel -->
+<script src="<?= base_url('public/') ?>plugins/bower_components/owl.carousel/owl.carousel.min.js"></script>
+<script src="<?= base_url('public/') ?>plugins/bower_components/owl.carousel/owl.custom.js"></script>
+
 </body>
 </html>

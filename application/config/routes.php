@@ -176,3 +176,13 @@ $route['admin/games/create'] = 'admin/Games/create';
 $route['admin/games/get-teams'] = 'admin/Games/get_teams';
 $route['admin/games/store'] = 'admin/Games/store';
 $route['admin/games/change-status/(:any)'] = 'admin/Games/change_status/$1';
+
+//Blog Crud
+$route['admin/blog'] = 'admin/Blogs';
+$route['admin/blog/create'] = 'admin/Blogs/create';
+$route['admin/blog/store'] = 'admin/Blogs/store';
+$route['admin/blog/edit/(:any)'] = 'admin/Blogs/edit/$1';
+$route['admin/blog/show/(:any)'] = 'admin/Blogs/show/$1';
+$route['admin/blog/update/(:any)'] = 'admin/Blogs/update/$1';
+$route['admin/blog/change-status/(:any)'] = 'admin/Blogs/change_status/$1';
+$route['admin/blog/change-image-status/(:any)'] = 'admin/Blogs/change_image_status/$1';
