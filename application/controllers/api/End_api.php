@@ -32,24 +32,32 @@ class End_api extends REST_Controller
 		$this->insert_best($game_id);
 		$this->insert_teams($game_id);
 
-		$this->insert_signature($game_id);
-		$this->insert_games_images($game_id);
-		$this->insert_games_media($game_id);
-
-		$this->db->trans_complete();
-		$status = $this->db->trans_status();
-
-		if ($status == false)
-		{
+		if ($this->db->trans_status() === FALSE) {
+			$this->db->trans_rollback();
 			$response = array(
 				"success" => false,
 				"data" => array(),
 				"msg" => "Something went wrong. Please try again!!",
 			);
+			$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
 			return;
+		} else {
+			$this->db->trans_commit();
 		}
 
+		$signature = $this->insert_signature($game_id);
+		$image = $this->insert_games_images($game_id);
+		$video = $this->insert_games_media($game_id);
 
+		if($signature === false || $image === false || $video === false){
+			$response = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Something went wrong. Please try again!!",
+			);
+			$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
+			return;
+		}
 		$response = array(
 			"success" => true,
 			"data" => array(),
@@ -107,27 +115,14 @@ class End_api extends REST_Controller
 ////////////////////////insert_signature/////////////////////////////////
 	private function insert_signature($game_id)
 	{
-		$this->db->trans_start();
-
-		if (!empty($_FILES['signature_image']['name'][0]) || null != $_FILES['signature_image']['name'][0]) {
+		if (isset($_FILES['signature_image']) && (!empty($_FILES['signature_image']['name'][0]) || null != $_FILES['signature_image']['name'][0])) {
 			$image = $this->upload_files_signature($_FILES["signature_image"], $game_id);
-			if (isset($images['err'])) {
-				$response = array(
-					"success" => false,
-					"data" => array(),
-					"msg" => "Something went wrong, please try again",
-				);
-				$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
-				return;
+			if (isset($image['err'])) {
+				return false;
 			} else {
-//				foreach ($image as $key => $val)
-//				{
-//					$this->db->insert('end_game_signature', array('game_id' => $val['game_id'], 'name' => $val['name'], 'image' => $val['image']));
-//				}
 				$this->db->insert_batch('end_game_signature', $image);
 			}
 		}
-		$this->db->trans_complete();
 	}
 
 	private function upload_files_signature($files, $id)
@@ -156,10 +151,14 @@ class End_api extends REST_Controller
 			$fileName = 'signature_' . time() . '_' . uniqid() . "." . $ext;
 
 			$signature_name = $this->input->post('signature_name[]');
-
-			$images[$key]['name'] = $signature_name[$key];
-			$images[$key]['game_id'] = $id;
-			$images[$key]['image'] = $fileName;
+			if ($signature_name != NULL) {
+				$images[$key]['name'] = $signature_name[$key];
+				$images[$key]['game_id'] = $id;
+				$images[$key]['image'] = $fileName;
+			} else {
+				$data['err'] = "signature name can't be empty";
+				return $data;
+			}
 
 			$config['file_name'] = $fileName;
 
@@ -176,52 +175,33 @@ class End_api extends REST_Controller
 	}
 
 ////////////////////MEDIA/////////////////////////////////////////////////////
-
 	private function insert_games_images($game_id)
 	{
-		$this->db->trans_start();
-
-		if (!empty($_FILES['game_images']['name'][0]) || null != $_FILES['game_images']['name'][0]) {
+		if (isset($_FILES['game_images']) && (!empty($_FILES['game_images']['name'][0]) || null != $_FILES['game_images']['name'][0])) {
 			$path = "/plugins/images/end/images/";
 			$name = 'image';
 			$images = $this->upload_files($_FILES['game_images'], $game_id, $path, $name);
 			if (isset($images['err'])) {
-				$response = array(
-					"success" => false,
-					"data" => array(),
-					"msg" => "Something went wrong, please try again",
-				);
-				$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
-				return;
+				return false;
 			} else {
 				$this->db->insert_batch('end_game_image', $images);
 			}
 		}
-		$this->db->trans_complete();
 	}
 
 
 	private function insert_games_media($game_id)
 	{
-		$this->db->trans_start();
-
-		if (!empty($_FILES['game_videos']['name'][0]) || null != $_FILES['game_videos']['name'][0]) {
+		if (isset($_FILES['game_images']) && (!empty($_FILES['game_videos']['name'][0]) || null != $_FILES['game_videos']['name'][0])) {
 			$path = "/plugins/images/end/media/";
 			$name = 'media';
 			$images = $this->upload_files($_FILES['game_videos'], $game_id, $path, $name);
 			if (isset($images['err'])) {
-				$response = array(
-					"success" => false,
-					"data" => array(),
-					"msg" => "Something went wrong, please try again",
-				);
-				$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
-				return;
+				return false;
 			} else {
 				$this->db->insert_batch('end_game_media', $images);
 			}
 		}
-		$this->db->trans_complete();
 	}
 
 	private function upload_files($files, $id, $path, $name)
