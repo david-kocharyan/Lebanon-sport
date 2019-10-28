@@ -8,6 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 For runing websocket server use this command
+
 For Windows
 ```
 php index.php welcome index
