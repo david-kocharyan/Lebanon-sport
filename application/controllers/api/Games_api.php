@@ -121,29 +121,40 @@ class Games_api extends REST_Controller
 
 		$game_t = $this->db->get_where("game_teams", array("game_id" => $game_id))->row();
 
-		$team_1 = $this->game_team($game_t->team_1);
-		$team_2 = $this->game_team($game_t->team_2);
+		if ($game_t != null) {
+			$team_1 = $this->game_team($game_t->team_1);
+			$team_2 = $this->game_team($game_t->team_2);
 
-		$team_1_students = $this->game_team_students($game_t->team_2);
-		$team_2_students = $this->game_team_students($game_t->team_2);
+			$team_1_students = $this->game_team_students($game_t->team_2);
+			$team_2_students = $this->game_team_students($game_t->team_2);
 
-		$response = array(
-			"success" => true,
-			"data" => array(
-				"team_1" => array(
-					"id" => $team_1->id,
-					"name" => $team_1->name,
-					"students" => $team_1_students
+
+			$response = array(
+				"success" => true,
+				"data" => array(
+					"team_1" => array(
+						"id" => $team_1 != null ? $team_1->id : "",
+						"name" => $team_1 != null ? $team_1->name : "",
+						"students" => $team_1 != null ? $team_1_students : "",
+					),
+					"team_2" => array(
+						"id" => $team_2 != null ? $team_2->id : "",
+						"name" => $team_2 != null ? $team_2->name : "",
+						"students" => $team_2 != null ? $team_2_students : ""
+					),
 				),
-				"team_2" => array(
-					"id" => $team_2->id,
-					"name" => $team_2->name,
-					"students" => $team_2_students
-				),
-			),
-			"msg" => "",
-		);
-		$this->response($response, REST_Controller::HTTP_OK);
+				"msg" => "",
+			);
+			$this->response($response, REST_Controller::HTTP_OK);
+		} else {
+			$response = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Please Provide correct game",
+			);
+			$this->response($response, REST_Controller::HTTP_OK);
+		}
+
 	}
 
 	private function game_team($id)
