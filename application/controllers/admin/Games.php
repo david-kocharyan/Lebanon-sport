@@ -16,7 +16,7 @@ class Games extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = "Coaches create page";
+		$data['title'] = "All Games";
 		if ($this->session->userdata('user')['role'] == 2) $data['game'] = $this->Game->selectAll();
 		if ($this->session->userdata('user')['role'] == 1) $data['game'] = $this->Game->selectAllByAdmin($this->session->userdata('user')['id']);
 		layouts($data, 'admin/games/index.php');

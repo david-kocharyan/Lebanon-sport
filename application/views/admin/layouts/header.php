@@ -172,6 +172,11 @@
 				<li><a href="<?= base_url('admin/games') ?>" class="waves-effect"><i
 							class="mdi mdi-gamepad-variant fa-fw"></i> <span
 							class="hide-menu">Game</span></a></li>
+
+				<li class="devider"></li>
+				<li><a href="<?= base_url('admin/check') ?>" class="waves-effect"><i
+							class="mdi mdi-bookmark-check fa-fw"></i> <span
+							class="hide-menu">Observed games (wait for confirm)</span></a></li>
 			</ul>
 
 			<div class="sidebar-head">
