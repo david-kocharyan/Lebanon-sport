@@ -75,6 +75,9 @@ $route['news'] = 'site/News';
 $route['upcoming'] = 'site/Upcoming';
 $route['activites'] = 'site/Activites';
 $route['contact-us'] = 'site/Contact';
+$route['send-msg'] = 'site/Contact/send';
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

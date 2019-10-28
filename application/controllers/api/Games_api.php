@@ -29,6 +29,7 @@ class Games_api extends REST_Controller
 
 		$data = $this->get_games($res);
 		$pages = ($limit !== 0 || null !== $limit) ? ceil($this->get_pages($res)->pages / $limit) : 0;
+		$count = intval($this->get_pages($res)->pages);
 
 		$response = array(
 			"success" => true,
@@ -38,6 +39,7 @@ class Games_api extends REST_Controller
 					"limit" => $limit,
 					"offset" => $offset,
 					"pages" => $pages,
+					"total_count" => $count,
 				),
 			),
 			"msg" => "",

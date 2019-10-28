@@ -7,11 +7,13 @@ class Home extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper('layouts_site');
+		$this->load->model('site/Homes');
 	}
 
 	public function index()
 	{
 		$data['title'] = 'Home';
+		$data['blog'] = $this->Homes->select();
 		layouts_site($data, 'site/home.php');
 	}
 
