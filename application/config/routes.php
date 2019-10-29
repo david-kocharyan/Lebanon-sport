@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Home';
+$route['^(en|ar)'] = $route['default_controller'];
 $route['404_override'] = 'Errors/_404';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -71,13 +72,12 @@ $route['api/games/end'] = 'api/End_api/end';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Site
-$route['news'] = 'site/News';
-$route['upcoming'] = 'site/Upcoming';
-$route['activites'] = 'site/Activites';
-$route['contact-us'] = 'site/Contact';
-$route['send-msg'] = 'site/Contact/send';
-
-
+$route['^(en|ar)/news'] = 'site/News';
+$route['^(en|ar)/upcoming'] = 'site/Upcoming';
+$route['^(en|ar)/activites'] = 'site/Activites';
+$route['^(en|ar)/contact-us'] = 'site/Contact';
+$route['^(en|ar)/send-msg'] = 'site/Contact/send';
+$route['change'] = 'Home/change';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
