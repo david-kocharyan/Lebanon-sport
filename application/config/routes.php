@@ -72,12 +72,16 @@ $route['api/games/end'] = 'api/End_api/end';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Site
-$route['^(en|ar)/news'] = 'site/News';
-$route['^(en|ar)/upcoming'] = 'site/Upcoming';
+//$route['^(en|ar)/news'] = 'site/News';
+//$route['^(en|ar)/upcoming'] = 'site/Upcoming';
 $route['^(en|ar)/activites'] = 'site/Activites';
-$route['^(en|ar)/contact-us'] = 'site/Contact';
+//$route['^(en|ar)/contact-us'] = 'site/Contact';
+
 $route['^(en|ar)/send-msg'] = 'site/Contact/send';
+
 $route['change'] = 'Home/change';
+$route['^(en|ar)/observers'] = 'site/Observers';
+$route['^(en|ar)/referee'] = 'site/Referees';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

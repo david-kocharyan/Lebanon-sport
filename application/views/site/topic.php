@@ -1,5 +1,5 @@
 <div class="container main-content">
-	<div class="heading"><h2>Blogs</h2></div>
+	<div class="heading" id="news"><h2>Blogs</h2></div>
 	<section class="main-baner">
 		<figure>
 			<img class="hidden-xs" src="<?= base_url('public/site/')?>images/baner.png" alt="activity-baner">

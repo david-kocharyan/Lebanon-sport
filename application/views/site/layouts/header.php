@@ -31,10 +31,10 @@
 							<a href="<?= base_url("$lang/") ?>"><?= lang('home'); ?></a>
 						</li>
 						<li class="title">
-							<a href="<?= base_url("$lang/news") ?>"><?= lang('news'); ?></a>
+							<a href="#news" ><?= lang('news'); ?></a>
 						</li>
 						<li class="title">
-							<a href="<?= base_url("$lang/upcoming") ?>"><?= lang('upcoming'); ?></a>
+							<a href="#games"><?= lang('upcoming'); ?></a>
 						</li>
 						<li class="title dropdown">
 							<a href="<?= base_url("$lang/activites") ?>" class="dropdown-toggle"
@@ -50,7 +50,7 @@
 							</ul>
 						</li>
 						<li class="title">
-							<a href="<?= base_url("$lang/contact-us") ?>"><?= lang('contact'); ?></a>
+							<a href="#contact"><?= lang('contact'); ?></a>
 						</li>
 					</ul>
 					<select name="language" id="lang" style="position: absolute; right: -25%;">

@@ -1,6 +1,6 @@
 <section class="main-baner generic-banner">
 	<figure>
-		<img class="hidden-xs" src="<?= base_url('public/site/') ?>images/main-banner1.png" alt="activity-baner">
+		<img class="hidden-xs" src="<?= base_url('public/site/') ?>images/main-banner1.jpg" alt="activity-baner">
 		<figcaption>
 			<p>
 				U Sports&nbsp;(stylized as&nbsp;U SPORTS) is the national&nbsp;sport governing body&nbsp;of university
@@ -12,8 +12,8 @@
 		</figcaption>
 	</figure>
 </section>
-<br>
-<br>
+
+<div id="news" style="height: 40px;"></div>
 <div class="heading"><h2>Blogs</h2></div>
 <div class="container main-content">
 	<section class="main-baner">
@@ -139,6 +139,7 @@
 	<br>
 	<br>
 </div>
+<div id="games" style="height: 40px;"></div>
 <div class="heading"><h2>Upcoming Games</h2></div>
 <div class="container">
 	<div class="row">
@@ -203,8 +204,7 @@
 </div>
 <br>
 <br>
-
-<div class="heading"><h2>Contact US</h2></div>
+<div class="heading" id="contact"><h2>Contact US</h2></div>
 <div class="generic-form">
 	<div class="container">
 		<div class="row">
