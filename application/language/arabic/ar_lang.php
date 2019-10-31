@@ -13,4 +13,7 @@ $lang['news'] = "أخبار";
 $lang['upcoming'] = "الألعاب القادمة";
 $lang['activites'] = "نشاطات رياضية";
 $lang['contact'] = "اتصل بنا";
-
+$lang['referee'] = "حكم";
+$lang['observers'] = "المراقبين";
+$lang['copyright'] = "حقوق الطبع والنشر جميع الحقوق محفوظة";
+$lang['follow'] = "تابعنا";

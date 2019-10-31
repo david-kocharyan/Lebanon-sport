@@ -1,5 +1,6 @@
 <?php $lang = $this->session->userdata("lang"); ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item title">
+						<li class="title">
 							<a href="<?= base_url("$lang/") ?>"><?= lang('home'); ?></a>
 						</li>
 						<li class="title">
@@ -35,16 +36,28 @@
 						<li class="title">
 							<a href="<?= base_url("$lang/upcoming") ?>"><?= lang('upcoming'); ?></a>
 						</li>
-						<li class="title">
-							<a href="<?= base_url("$lang/activites") ?>"><?= lang('activites'); ?></a>
+						<li class="title dropdown">
+							<a href="<?= base_url("$lang/activites") ?>" class="dropdown-toggle"
+							   data-toggle="dropdown"><?= lang('activites'); ?><b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<?php foreach ($sport_types as $key => $value) { ?>
+									<?php if ($lang == 'ar') { ?>
+										<li><a href="<?= $lang."/activites/". $value->id; ?>"> <?= $value->name_en ?> </a></li>
+									<?php } else { ?>
+										<li><a href="<?= $lang."/activites/". $value->id; ?>"> <?= $value->name_ar ?> </a></li>
+									<?php }
+								} ?>
+							</ul>
 						</li>
 						<li class="title">
 							<a href="<?= base_url("$lang/contact-us") ?>"><?= lang('contact'); ?></a>
 						</li>
 					</ul>
 					<select name="language" id="lang" style="position: absolute; right: -25%;">
-						<option value="en" <?php if ($this->session->userdata("lang") == "en") echo "selected"; ?>>EN</option>
-						<option value="ar" <?php if ($this->session->userdata("lang") == "ar") echo "selected"; ?>>AR</option>
+						<option value="en" <?php if ($this->session->userdata("lang") == "en") echo "selected"; ?>>EN
+						</option>
+						<option value="ar" <?php if ($this->session->userdata("lang") == "ar") echo "selected"; ?>>AR
+						</option>
 					</select>
 				</div>
 		</div>

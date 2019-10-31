@@ -5,6 +5,8 @@ if (!function_exists('layouts_site')) {
 	{
 		$ci =& get_instance();
 
+		$data['sport_types'] = $ci->db->get('sport_types')->result();
+
 		$ci->load->view('site/layouts/header.php', $data);
 		if ($url != null){
 			$ci->load->view($url);
