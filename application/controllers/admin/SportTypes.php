@@ -140,8 +140,8 @@ class SportTypes extends CI_Controller
 			$this->SportType->update($data, $id);
 			if ($this->input->post("points") != NULL){
 				$points = $this->input->post("points");
+				$this->SportType->updatePoints($points, $id);
 			}
-			$this->SportType->updatePoints($points, $id);
 			$this->db->trans_complete();
 
 			redirect("admin/sport-types");
