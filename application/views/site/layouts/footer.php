@@ -21,7 +21,7 @@
 						<a href="<?= base_url("$lang/") ?>"><?= lang('home'); ?></a>
 					</li>
 					<li>
-						<a href="<?= base_url("$lang/contact-us") ?>"><?= lang('contact'); ?></a>
+						<a href="#contact"><?= lang('contact'); ?></a>
 					</li>
 
 				</ul>
@@ -29,10 +29,10 @@
 			<div class="col-lg-4">
 				<ul>
 					<li>
-						<a href="<?= base_url("$lang/news") ?>"><?= lang('news'); ?></a>
+						<a href="#"><?= lang('news'); ?></a>
 					</li>
 					<li>
-						<a href="<?= base_url("$lang/upcoming") ?>"><?= lang('upcoming'); ?></a>
+						<a href="#"><?= lang('upcoming'); ?></a>
 					</li>
 					<li>
 						<a href="<?= base_url("$lang/referee") ?>"><?= lang('referee'); ?></a>

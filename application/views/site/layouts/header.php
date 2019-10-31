@@ -26,7 +26,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
+					<ul class="navbar-nav nav">
 						<li class="title">
 							<a href="<?= base_url("$lang/") ?>"><?= lang('home'); ?></a>
 						</li>
@@ -37,14 +37,14 @@
 							<a href="#games"><?= lang('upcoming'); ?></a>
 						</li>
 						<li class="title dropdown">
-							<a href="<?= base_url("$lang/activites") ?>" class="dropdown-toggle"
-							   data-toggle="dropdown"><?= lang('activites'); ?><b class="caret"></b></a>
+							<a href="<?= base_url("$lang/activites") ?>" class="dropdown-toggle" ><?= lang('activites'); ?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
+<!--								$lang."/activites/". $value->id;-->
 								<?php foreach ($sport_types as $key => $value) { ?>
 									<?php if ($lang == 'ar') { ?>
-										<li><a href="<?= $lang."/activites/". $value->id; ?>"> <?= $value->name_ar ?> </a></li>
+										<li><a href="<?= base_url("$lang/activites") ?>"> <?= $value->name_ar ?> </a></li>
 									<?php } else { ?>
-										<li><a href="<?= $lang."/activites/". $value->id; ?>"> <?= $value->name_en ?> </a></li>
+										<li><a href="<?= base_url("$lang/activites") ?>"> <?= $value->name_en ?> </a></li>
 									<?php }
 								} ?>
 							</ul>
@@ -88,5 +88,12 @@
                     }
                 })
             })
+
+            $('ul.nav li.dropdown').hover(function() {
+                $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
+            }, function() {
+                $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
+            });
+
         })
 	</script>
