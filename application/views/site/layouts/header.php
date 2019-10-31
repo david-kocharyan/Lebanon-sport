@@ -42,9 +42,9 @@
 							<ul class="dropdown-menu">
 								<?php foreach ($sport_types as $key => $value) { ?>
 									<?php if ($lang == 'ar') { ?>
-										<li><a href="<?= $lang."/activites/". $value->id; ?>"> <?= $value->name_en ?> </a></li>
-									<?php } else { ?>
 										<li><a href="<?= $lang."/activites/". $value->id; ?>"> <?= $value->name_ar ?> </a></li>
+									<?php } else { ?>
+										<li><a href="<?= $lang."/activites/". $value->id; ?>"> <?= $value->name_en ?> </a></li>
 									<?php }
 								} ?>
 							</ul>
