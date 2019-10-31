@@ -138,7 +138,7 @@ class SportTypes extends CI_Controller
 
 			$this->db->trans_start();
 			$this->SportType->update($data, $id);
-			if (isset($_POST["points"]) OR $_POST["points"] != NULL){
+			if (!empty($this->input->post("points")) OR $this->input->post("points") != NULL){
 				$points = $_POST["points"];
 			}
 			$this->SportType->updatePoints($points, $id);
