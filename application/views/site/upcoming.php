@@ -1,241 +1,134 @@
-<div class="wrapper">
-	<section class="main-baner">
-		<figure>
-			<img class="hidden-xs" src="<?= base_url('public/site/')?>images/main-banner1.png" alt="activity-baner">
-			<figcaption>
-				<p>
-					U Sports&nbsp;(stylized as&nbsp;U SPORTS) is the national&nbsp;sport governing body&nbsp;of university sport in Canada, comprising the majority of degree-
-					granting universities in the country. Its equivalent body for organized sports at&nbsp;colleges&nbsp;in Canada is the Canadian Collegiate Athletic Association&nbsp;(CCAA). Some institutions are members of both bodies for different sports
-				</p>
-			</figcaption>
-		</figure>
-	</section>
-	<br>
-	<br>
-	<div class="heading"><h2>Blogs</h2></div>
-	<div class="container main-content">
-		<section class="main-baner">
-			<figure>
-				<img class="hidden-xs" src="<?= base_url('public/site/')?>images/baner.png" alt="activity-baner">
-				<figcaption>
-					<p>
-						U Sports&nbsp;(stylized as&nbsp;U SPORTS) is the national&nbsp;sport governing body&nbsp;of university sport in Canada, comprising the majority of degree-
-					</p>
-				</figcaption>
-			</figure>
-		</section>
+<div class="container main-content">
+	<div class="heading"><h2>Game Result</h2></div>
+	<div class="result-banner">
 		<div class="row">
-			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('public/site/')?>images/right-baner2.png" alt="">
-				<figcaption>
-					<p>
-						 	Sport is one of those things that
-						you’ll have to go a long way to find
-						somebody that has no interest in.
-					</p>
-				</figcaption>
-			</div>
-			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('public/site/')?>images/right-baner3.png" alt="">
-				<figcaption>
-					<p>
-						 	Sport is one of those things that
-						you’ll have to go a long way to find
-						somebody that has no interest in.
-					</p>
-				</figcaption>
-			</div>
-			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('public/site/')?>images/right-baner1.png" alt="">
-				<figcaption>
-					<p>
-						 	Sport is one of those things that
-						you’ll have to go a long way to find
-						somebody that has no interest in.
-					</p>
-				</figcaption>
-			</div>
-			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('public/site/')?>images/right-baner3.png" alt="">
-				<figcaption>
-					<p>
-						 	Sport is one of those things that
-						you’ll have to go a long way to find
-						somebody that has no interest in.
-					</p>
-				</figcaption>
-			</div>
-			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('public/site/')?>images/right-baner1.png" alt="">
-				<figcaption>
-					<p>
-						 	Sport is one of those things that
-						you’ll have to go a long way to find
-						somebody that has no interest in.
-					</p>
-				</figcaption>
-			</div>
-			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('public/site/')?>images/right-baner2.png" alt="">
-				<figcaption>
-					<p>
-						 	Sport is one of those things that
-						you’ll have to go a long way to find
-						somebody that has no interest in.
-					</p>
-				</figcaption>
-			</div>
-		</div>
-		<figure>
-			<img class="hidden-xs" src="<?= base_url('public/site/')?>images/baner.png" alt="activity-baner">
-			<figcaption>
-				<p>
-					U Sports&nbsp;(stylized as&nbsp;U SPORTS) is the national&nbsp;sport governing body&nbsp;of university sport in Canada, comprising the majority of degree-
-					granting universities in the country. Its equivalent body for organized sports at&nbsp;colleges&nbsp;in Canada is the Canadian Collegiate Athletic Association&nbsp;(CCAA). Some institutions are members of both bodies for different sports
-				</p>
-			</figcaption>
-		</figure>
-		<div class="row">
-			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('public/site/')?>images/right-baner2.png" alt="">
-				<figcaption>
-					<p>
-						 	Sport is one of those things that
-						you’ll have to go a long way to find
-						somebody that has no interest in.
-					</p>
-				</figcaption>
-			</div>
-			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('public/site/')?>images/right-baner3.png" alt="">
-				<figcaption>
-					<p>
-						 	Sport is one of those things that
-						you’ll have to go a long way to find
-						somebody that has no interest in.
-					</p>
-				</figcaption>
-			</div>
-			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('public/site/')?>images/right-baner1.png" alt="">
-				<figcaption>
-					<p>
-						 	Sport is one of those things that
-						you’ll have to go a long way to find
-						somebody that has no interest in.
-					</p>
-				</figcaption>
-			</div>
-			<div class="view-more-btn"><a href="#">View More</a></div>
-		</div>
-		<br>
-		<br>
-	</div>
-	<div class="heading"><h2>Upcoming Games</h2></div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-lg-6">
-				<div class="game-details">
-					<div class="game-details-top">
-						<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-						<span class="game-date">Fri 20th Sep 7:00 PM</span>
-					</div>
-					<div class="flex-container game-details-content">
-						<p class="">Celtics 2 - 1 Boston </p>
-					</div>
-					<div class="game-details-footer">
-						<a href="#">See Details &gt;</a>
-					</div>
-				</div>
-				<div class="game-details">
-					<div class="game-details-top">
-						<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-						<span class="game-date">Fri 20th Sep 7:00 PM</span>
-					</div>
-					<div class="flex-container game-details-content">
-						<p class="">Celtics 2 - 1 Boston </p>
-					</div>
-					<div class="game-details-footer">
-						<a href="#">See Details &gt;</a>
-					</div>
-				</div>
-				<div class="game-details">
-					<div class="game-details-top">
-						<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-						<span class="game-date">Fri 20th Sep 7:00 PM</span>
-					</div>
-					<div class="flex-container game-details-content">
-						<p class="">Celtics 2 - 1 Boston </p>
-					</div>
-					<div class="game-details-footer">
-						<a href="#">See Details &gt; </a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-8 col-lg-6">
-				<div class="game-details">
-					<div class="game-details-top">
-						<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-						<span class="game-date">Fri 20th Sep 7:00 PM</span>
-					</div>
-					<div class="flex-container game-details-content">
-						<p class="">Celtics 2 - 1 Boston </p>
-					</div>
-					<div class="game-details-footer">
-						<a href="#">See Details &gt;</a>
-					</div>
-				</div>
-				<div class="game-details">
-					<div class="game-details-top">
-						<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-						<span class="game-date">Fri 20th Sep 7:00 PM</span>
-					</div>
-					<div class="flex-container game-details-content">
-						<p class="">Celtics 2 - 1 Boston </p>
-					</div>
-					<div class="game-details-footer">
-						<a href="#">See Details &gt;</a>
-					</div>
-				</div>
-				<div class="game-details">
-					<div class="game-details-top">
-						<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-						<span class="game-date">Fri 20th Sep 7:00 PM</span>
-					</div>
-					<div class="flex-container game-details-content">
-						<p class="">Celtics 2 - 1 Boston </p>
-					</div>
-					<div class="game-details-footer">
-						<a href="#">See Details &gt; </a>
-					</div>
-				</div>
-			</div>
+			<div class="col-lg-4"><?= $game->team_1_name; ?></div>
+			<div class="col-lg-4 text-center">0 - 0</div>
+			<div class="col-lg-4 text-center"><?= $game->team_1_name; ?></div>
 		</div>
 	</div>
-	<div class="generic-form">
+	<div class="heading"><h2>Team Details</h2></div>
+	<div class="col-lg-12">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-lg-6">
-					<div class="container">
-						<form action="/action_page.php">
-							<div class="form-group">
-								<input type="text" class="form-control"  placeholder="First Name">
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control"  placeholder="Last Name">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control"  placeholder="Email">
-							</div>
-						</form>
-					</div>
+
+			<section class="gerneric-banner"><?= $game->team_1_name; ?></section>
+			<div class="carousel">
+				<div class="slideControls">
+					<a class="slidePrev">
+					</a>
+					<a class="slideNext">
+					</a>
 				</div>
-				<div class="col-md-8 col-lg-6">
-					<div class="container">
-						<textarea></textarea>
-					</div>
+				<ul id="light-slider">
+					<?php foreach ($team_1 as $key => $value) { ?>
+						<li>
+							<div class="slider-inner">
+								<img src="<?= base_url() . $value->image ?>" alt="First slide" width="200" height="200">
+							</div>
+							<div class="slider-inner-box">
+								<p>
+									<?php if ($lang == 'ar') { ?>
+										<?= $value->name_ar; ?>
+									<?php } else { ?>
+										<?= $value->name_en; ?>
+									<?php } ?>
+								</p>
+								<p>
+									<?php if ($value->gender == 1) { ?>
+										<?= lang('male'); ?>
+									<?php } else { ?>
+										<?= lang('female'); ?>
+									<?php } ?>
+								</p>
+								<p>
+									<?= $value->birthday ?>
+								</p>
+							</div>
+						</li>
+					<?php } ?>
+				</ul>
+			</div>
+
+			<section class="gerneric-banner"><?= $game->team_2_name; ?></section>
+			<div class="carousel">
+				<div class="slideControls2">
+					<a data-id="slider2Left" class="slidePrev">
+						<i class="fa fa-angle-left"></i>
+					</a>
+					<a data-id="slider2right" class="slideNext">
+						<i class="fa fa-angle-right"></i>
+					</a>
 				</div>
+				<ul id="light-slider-2">
+
+					<?php foreach ($team_2 as $key=>$value) { ?>
+						<li>
+							<div class="slider-inner">
+								<img src="<?= base_url() . $value->image ?>" alt="First slide" width="200" height="200">
+							</div>
+							<div class="slider-inner-box">
+								<p>
+									<?php if ($lang == 'ar') { ?>
+										<?= $value->name_ar; ?>
+									<?php } else { ?>
+										<?= $value->name_en; ?>
+									<?php } ?>
+								</p>
+								<p>
+									<?php if ($value->gender == 1) { ?>
+										<?= lang('male'); ?>
+									<?php } else { ?>
+										<?= lang('female'); ?>
+									<?php } ?>
+								</p>
+								<p>
+									<?= $value->birthday ?>
+								</p>
+							</div>
+						</li>
+					<?php } ?>
+
+				</ul>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<script src="<?= base_url('public/site/') ?>js/lightslider.js"></script>
+<script>
+    $(document).ready(function () {
+        var slider = $("#light-slider").lightSlider({
+            controls: false,
+            item: 4,
+            auto: true,
+            loop: true
+
+        });
+        $('.slideControls .slidePrev').click(function () {
+            slider.goToPrevSlide();
+        });
+
+        $('.slideControls .slideNext').click(function () {
+            slider.goToNextSlide();
+        });
+
+        // new slide control
+        var slider2 = $("#light-slider-2").lightSlider({
+            controls: false,
+            auto: true,
+            item: 4,
+            loop: true
+        });
+        $('.slideControls2 .slidePrev').click(function () {
+            slider2.goToPrevSlide();
+        });
+
+        $('.slideControls2 .slideNext').click(function () {
+            slider2.goToNextSlide();
+        });
+        // new slide control
+
+
+    });
+</script>
