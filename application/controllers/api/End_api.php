@@ -162,7 +162,7 @@ class End_api extends REST_Controller
 			$ext = explode(".", $image)[1];
 			$fileName = 'signature_' . time() . '_' . uniqid() . "." . $ext;
 
-			$signature_name = $this->input->post('signature_name[]');
+			$signature_name = $this->input->post('signature_name');
 			if ($signature_name != NULL) {
 				$images[$key]['name'] = $signature_name[$key];
 				$images[$key]['game_id'] = $id;
