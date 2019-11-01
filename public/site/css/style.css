@@ -1069,4 +1069,57 @@ table{
 .calendar .datepicker table {
 			width: 100%;
 			}
-	
+.result-banner{
+    background: #4DA998;
+    padding: 34px;
+    color: #fff;
+    font-size: 26px;
+    margin-bottom: 50px;
+    height: 110px;
+	position: relative;
+}
+.result-banner:before, .result-banner:after{
+	content: "";
+	background: url("../images/pattern.png") no-repeat;
+	position: absolute;
+	left:0;
+	top: 0;
+	width: 43%;
+    height: 100%;
+    background-size: cover;
+}
+.result-banner .row{
+	z-index: 1;
+	position:relative;
+}
+.result-banner:after{
+	transform: rotate(180deg);
+	right: 0;
+	left: auto;
+}
+.refer-banner{
+	background: url("../images/refer-bg.png") no-repeat center center white;
+	border-radius: 150px;
+	margin-bottom: 50px;
+}
+.refer-banner .col-lg-4{
+	padding: 0;
+}
+.refer-banner img{
+	border-radius: 999px;
+}
+.refer-text{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+    align-self: center;
+}
+.refer-text p{
+	flex: 0 0 100%;
+	font-size: 15px;
+	margin: 0;
+}
+.refer-text .refer-name{
+	font-size: 20px;	
+	color: white;
+}

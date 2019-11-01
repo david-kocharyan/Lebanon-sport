@@ -16,124 +16,21 @@
 <div id="news" style="height: 40px;"></div>
 <div class="heading"><h2>Blogs</h2></div>
 <div class="container main-content">
-	<section class="main-baner">
-		<figure>
-			<img class="hidden-xs" src="<?= base_url('public/site/') ?>images/baner.png" alt="activity-baner">
-			<figcaption>
-				<p>
-					U Sports&nbsp;(stylized as&nbsp;U SPORTS) is the national&nbsp;sport governing body&nbsp;of
-					university sport in Canada, comprising the majority of degree-
-				</p>
-			</figcaption>
-		</figure>
-	</section>
 	<div class="row">
-		<div class="col-md-4 col-lg-4 right-baner">
-			<img src="<?= base_url('public/site/') ?>images/right-baner2.png" alt="">
-			<figcaption>
-				<p>
-					  Sport is one of those things that
-					you’ll have to go a long way to find
-					somebody that has no interest in.
-				</p>
-			</figcaption>
-		</div>
-		<div class="col-md-4 col-lg-4 right-baner">
-			<img src="<?= base_url('public/site/') ?>images/right-baner3.png" alt="">
-			<figcaption>
-				<p>
-					  Sport is one of those things that
-					you’ll have to go a long way to find
-					somebody that has no interest in.
-				</p>
-			</figcaption>
-		</div>
-		<div class="col-md-4 col-lg-4 right-baner">
-			<img src="<?= base_url('public/site/') ?>images/right-baner1.png" alt="">
-			<figcaption>
-				<p>
-					  Sport is one of those things that
-					you’ll have to go a long way to find
-					somebody that has no interest in.
-				</p>
-			</figcaption>
-		</div>
-		<div class="col-md-4 col-lg-4 right-baner">
-			<img src="<?= base_url('public/site/') ?>images/right-baner3.png" alt="">
-			<figcaption>
-				<p>
-					  Sport is one of those things that
-					you’ll have to go a long way to find
-					somebody that has no interest in.
-				</p>
-			</figcaption>
-		</div>
-		<div class="col-md-4 col-lg-4 right-baner">
-			<img src="<?= base_url('public/site/') ?>images/right-baner1.png" alt="">
-			<figcaption>
-				<p>
-					  Sport is one of those things that
-					you’ll have to go a long way to find
-					somebody that has no interest in.
-				</p>
-			</figcaption>
-		</div>
-		<div class="col-md-4 col-lg-4 right-baner">
-			<img src="<?= base_url('public/site/') ?>images/right-baner2.png" alt="">
-			<figcaption>
-				<p>
-					  Sport is one of those things that
-					you’ll have to go a long way to find
-					somebody that has no interest in.
-				</p>
-			</figcaption>
-		</div>
-	</div>
-	<section class="main-baner">
-		<figure>
-			<img class="hidden-xs" src="<?= base_url('public/site/') ?>images/baner.png" alt="activity-baner">
-			<figcaption>
-				<p>
-					U Sports&nbsp;(stylized as&nbsp;U SPORTS) is the national&nbsp;sport governing body&nbsp;of
-					university sport in Canada, comprising the majority of degree-
-					granting universities in the country. Its equivalent body for organized sports at&nbsp;colleges&nbsp;in
-					Canada is the Canadian Collegiate Athletic Association&nbsp;(CCAA). Some institutions are members of
-					both bodies for different sports
-				</p>
-			</figcaption>
-		</figure>
-	</section>
-	<div class="row">
-		<div class="col-md-4 col-lg-4 right-baner">
-			<img src="<?= base_url('public/site/') ?>images/right-baner2.png" alt="">
-			<figcaption>
-				<p>
-					  Sport is one of those things that
-					you’ll have to go a long way to find
-					somebody that has no interest in.
-				</p>
-			</figcaption>
-		</div>
-		<div class="col-md-4 col-lg-4 right-baner">
-			<img src="<?= base_url('public/site/') ?>images/right-baner3.png" alt="">
-			<figcaption>
-				<p>
-					  Sport is one of those things that
-					you’ll have to go a long way to find
-					somebody that has no interest in.
-				</p>
-			</figcaption>
-		</div>
-		<div class="col-md-4 col-lg-4 right-baner">
-			<img src="<?= base_url('public/site/') ?>images/right-baner1.png" alt="">
-			<figcaption>
-				<p>
-					  Sport is one of those things that
-					you’ll have to go a long way to find
-					somebody that has no interest in.
-				</p>
-			</figcaption>
-		</div>
+		<?php foreach ($blogs as $key => $value) { ?>
+			<div class="col-md-4 col-lg-4 right-baner">
+				<img src="<?= base_url('plugins/images/blog/') . $value->image ?>" alt="blog_image">
+				<figcaption>
+					<p>
+						 <?php if ($lang == 'ar') { ?>
+							<?= $value->title_ar ?>
+						<?php } else { ?>
+							<?= $value->title_en ?>
+						<?php } ?>
+					</p>
+				</figcaption>
+			</div>
+		<?php } ?>
 		<div class="view-more-btn"><a href="#">View More</a></div>
 	</div>
 	<br>
@@ -143,62 +40,32 @@
 <div class="heading"><h2>Upcoming Games</h2></div>
 <div class="container">
 	<div class="row">
-		<div class="col-md-8 col-lg-6">
-			<div class="game-details">
-				<div class="game-details-top">
-					<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-					<span class="game-date">Fri 20th Sep 7:00 PM</span>
-				</div>
-				<div class="flex-container game-details-content">
-					<p class="">Celtics 2 - 1 Boston </p>
-				</div>
-				<div class="game-details-footer">
-					<a href="#">See Details &gt;</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-8 col-lg-6">
-			<div class="game-details">
-				<div class="game-details-top">
-					<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-					<span class="game-date">Fri 20th Sep 7:00 PM</span>
-				</div>
-				<div class="flex-container game-details-content">
-					<p class="">Celtics 2 - 1 Boston </p>
-				</div>
-				<div class="game-details-footer">
-					<a href="#">See Details &gt;</a>
+		<?php foreach ($upcoming as $key => $value) { ?>
+			<div class="col-md-8 col-lg-6">
+				<div class="game-details">
+					<div class="game-details-top">
+						<h3 class="team-name">
+							<?php if ($lang == 'ar') { ?>
+								<?= $value->schools_1_name_ar . " - " . $value->schools_2_name_ar ?>
+							<?php } else { ?>
+								<?= $value->schools_1_name_en . " - " . $value->schools_2_name_en ?>
+							<?php } ?>
+						</h3>
+						<span class="game-date">
+							<?= $value->time; ?>
+						</span>
+					</div>
+					<div class="flex-container game-details-content">
+						<p class="">
+							<?= $value->teams_1_name . " - " . $value->teams_2_name ?>
+						</p>
+					</div>
+					<div class="game-details-footer">
+						<a href="<?= base_url("$lang/")."upcoming-game/".$value->id ?>">See Details &gt;</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-8 col-lg-6">
-			<div class="game-details">
-				<div class="game-details-top">
-					<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-					<span class="game-date">Fri 20th Sep 7:00 PM</span>
-				</div>
-				<div class="flex-container game-details-content">
-					<p class="">Celtics 2 - 1 Boston </p>
-				</div>
-				<div class="game-details-footer">
-					<a href="#">See Details &gt;</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-8 col-lg-6">
-			<div class="game-details">
-				<div class="game-details-top">
-					<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-					<span class="game-date">Fri 20th Sep 7:00 PM</span>
-				</div>
-				<div class="flex-container game-details-content">
-					<p class="">Celtics 2 - 1 Boston </p>
-				</div>
-				<div class="game-details-footer">
-					<a href="#">See Details &gt;</a>
-				</div>
-			</div>
-		</div>
+		<?php } ?>
 		<div class="view-more-btn"><a href="#">View More</a></div>
 	</div>
 </div>
@@ -210,26 +77,56 @@
 		<div class="row">
 			<div class="col-md-8 col-lg-6">
 				<div class="container">
-					<form action="/action_page.php">
+
+					<form action="send-msg" method="post">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="First Name">
+							<?php if (!empty(form_error('first_name'))) { ?>
+								<div class="help-block with-errors text-danger">
+									<?= form_error('first_name'); ?>
+								</div>
+							<?php } ?>
+							<input type="text" class="form-control" placeholder="First Name" name="first_name"
+								   value="<?= $this->input->post('first_name') ?>" required>
 						</div>
+
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Last Name">
+							<?php if (!empty(form_error('last_name'))) { ?>
+								<div class="help-block with-errors text-danger">
+									<?= form_error('last_name'); ?>
+								</div>
+							<?php } ?>
+							<input type="text" class="form-control" placeholder="Last Name" name="last_name"
+								   value="<?= $this->input->post('last_name') ?>" required>
 						</div>
+
 						<div class="form-group">
-							<input type="password" class="form-control" placeholder="Email">
+							<?php if (!empty(form_error('email'))) { ?>
+								<div class="help-block with-errors text-danger">
+									<?= form_error('email'); ?>
+								</div>
+							<?php } ?>
+							<input type="email" class="form-control" placeholder="Email" name="email"
+								   value="<?= $this->input->post('email') ?>" required>
 						</div>
-					</form>
+
+						<div class="form-group">
+							<button type="submit" class="form-control btn btn-success">Send</button>
+						</div>
 				</div>
 			</div>
 			<div class="col-md-8 col-lg-6">
 				<div class="container">
-					<textarea></textarea>
+					<?php if (!empty(form_error('msg'))) { ?>
+						<div class="help-block with-errors text-danger">
+							<?= form_error('msg'); ?>
+						</div>
+					<?php } ?>
+					<textarea name="msg"><?= $this->input->post('msg') ?></textarea>
 				</div>
 			</div>
 		</div>
 	</div>
+	</form>
 </div>
 
 

@@ -17,18 +17,13 @@ class Contact extends CI_Controller
 		}
 	}
 
-	public function index()
-	{
-		$data['title'] = 'Contact Us';
-		layouts_site($data, 'site/contact.php');
-	}
-
 	public function send()
 	{
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
 		$email = $this->input->post('email');
 		$msg = $this->input->post('msg');
+		$lang = $this->session->userdata("lang");
 
 
 		$this->form_validation->set_rules('first_name', 'First Name', 'required|trim');
@@ -64,7 +59,7 @@ class Contact extends CI_Controller
 			$this->email->message($msg);
 
 			$this->email->send($msg);
-			redirect('contact-us');
+			redirect("$lang/");
 		}
 	}
 }

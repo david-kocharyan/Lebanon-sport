@@ -1,11 +1,13 @@
-
 <section class="main-baner generic-banner">
 	<figure>
 		<img class="hidden-xs" src="<?= base_url('public/site/') ?>images/main-banner1.jpg" alt="activity-baner">
 		<figcaption>
 			<p>
-				U Sports (stylized as U SPORTS) is the national sport governing body of university sport in Canada, comprising the majority of degree-
-				granting universities in the country. Its equivalent body for organized sports at colleges in Canada is the Canadian Collegiate Athletic Association (CCAA). Some institutions are members of both bodies for different sports
+				U Sports (stylized as U SPORTS) is the national sport governing body of university sport in Canada,
+				comprising the majority of degree-
+				granting universities in the country. Its equivalent body for organized sports at colleges in Canada is
+				the Canadian Collegiate Athletic Association (CCAA). Some institutions are members of both bodies for
+				different sports
 			</p>
 		</figcaption>
 	</figure>
@@ -15,43 +17,33 @@
 
 	<div class="row">
 		<div class="col-md-8 col-lg-7">
-			<div class="game-details">
-				<div class="game-details-top">
-					<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-					<span class="game-date">Fri 20th Sep 7:00 PM</span>
+			<?php foreach ($game as $key => $value) { ?>
+				<div class="game-details">
+					<div class="game-details-top">
+						<h3 class="team-name">
+							<?php if ($lang == 'ar') { ?>
+								<?= $value->schools_1_name_ar . " - " . $value->schools_2_name_ar ?>
+							<?php } else { ?>
+								<?= $value->schools_1_name_en . " - " . $value->schools_2_name_en ?>
+							<?php } ?>
+						</h3>
+						<span class="game-date">
+							<?= $value->time; ?>
+						</span>
+					</div>
+					<div class="flex-container game-details-content">
+						<p class="">
+							<?= $value->teams_1_name . " - " . $value->teams_2_name ?>
+						</p>
+					</div>
+					<div class="game-details-footer">
+						<a href="<?= base_url("$lang/") . "game/" . $value->id ?>">See Details &gt;</a>
+					</div>
 				</div>
-				<div class="flex-container game-details-content">
-					<p class="">Celtics 2 - 1 Boston </p>
-				</div>
-				<div class="game-details-footer">
-					<a href="#">See Details ></a>
-				</div>
-			</div>
-			<div class="game-details">
-				<div class="game-details-top">
-					<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-					<span class="game-date">Fri 20th Sep 7:00 PM</span>
-				</div>
-				<div class="flex-container game-details-content">
-					<p class="">Celtics 2 - 1 Boston </p>
-				</div>
-				<div class="game-details-footer">
-					<a href="#">See Details ></a>
-				</div>
-			</div>
-			<div class="game-details">
-				<div class="game-details-top">
-					<h3 class="team-name">Grande Lycee Franco-Libanais</h3>
-					<span class="game-date">Fri 20th Sep 7:00 PM</span>
-				</div>
-				<div class="flex-container game-details-content">
-					<p class="">Celtics 2 - 1 Boston </p>
-				</div>
-				<div class="game-details-footer">
-					<a href="#">See Details > </a>
-				</div>
-			</div>
+			<?php } ?>
 		</div>
+
+<!--search part-->
 		<div class="col-md-8 col-lg-4 right-banner">
 			<div class="app mb50">
 				<div class="app__main">
@@ -65,15 +57,18 @@
 				<!-- Default checked -->
 				<form action="/action_page.php" class="row">
 					<div class="col-md-8 col-lg-4 custom-control custom-radio">
-						<input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios">
+						<input type="radio" class="custom-control-input" id="defaultChecked"
+							   name="defaultExampleRadios">
 						<label class="custom-control-label" for="defaultChecked">Male</label>
 					</div><!-- Default unchecked -->
 					<div class="col-md-8 col-lg-4 custom-control custom-radio">
-						<input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+						<input type="radio" class="custom-control-input" id="defaultUnchecked"
+							   name="defaultExampleRadios">
 						<label class="custom-control-label" for="defaultUnchecked">Female</label>
 					</div>
 					<div class="col-md-8 col-lg-4 custom-control custom-radio">
-						<input type="radio" class="custom-control-input" id="defaultUnchecked5" name="defaultExampleRadios">
+						<input type="radio" class="custom-control-input" id="defaultUnchecked5"
+							   name="defaultExampleRadios">
 						<label class="custom-control-label" for="defaultUnchecked5">Both</label>
 					</div>
 				</form>
@@ -169,4 +164,4 @@
 	</div>
 </div>
 
-<script src="<?= base_url('public/site/')?>js/datapicker.js"></script>
+<script src="<?= base_url('public/site/') ?>js/datapicker.js"></script>

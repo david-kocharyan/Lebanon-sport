@@ -73,7 +73,7 @@ class Games extends CI_Controller
 		$gender = $this->input->post("gender");
 		$game_type = $this->input->post("game_type");
 		$place = $this->input->post("place");
-		$date = $this->input->post("date");
+		$date = strtotime($this->input->post("date"));
 		$team_1 = $this->input->post("team_1");
 		$team_2 = $this->input->post("team_2");
 		$observer = $this->input->post("observer");

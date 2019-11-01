@@ -21,7 +21,9 @@ class Home extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Home';
-		$data['blog'] = $this->Homes->select();
+		$data['blogs'] = $this->Homes->selectBlog();
+		$data['upcoming'] = $this->Homes->selectUpcoming();
+		$data['lang'] = $this->session->userdata("lang");
 		layouts_site($data, 'site/home.php');
 	}
 

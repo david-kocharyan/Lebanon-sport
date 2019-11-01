@@ -8,6 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['ar_male'] = 'الذكر';
 $lang['ar_female'] = 'أنثى';
 
+$lang['male'] = 'الذكر';
+$lang['female'] = 'أنثى';
+
 $lang['home'] = "الصفحة الرئيسية";
 $lang['news'] = "أخبار";
 $lang['upcoming'] = "الألعاب القادمة";

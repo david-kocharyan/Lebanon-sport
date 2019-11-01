@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/site/') ?>css/font-awesome.min.css"/>
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/site/') ?>css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/site/') ?>css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="<?= base_url('public/site/') ?>css/lightslider.css"/>
 	<script src="<?= base_url('public/site/') ?>js/jquery.min.js"></script>
 	<script src="<?= base_url('public/site/') ?>js/bootstrap.js"></script>
 </head>
@@ -37,14 +38,13 @@
 							<a href="#games"><?= lang('upcoming'); ?></a>
 						</li>
 						<li class="title dropdown">
-							<a href="<?= base_url("$lang/activites") ?>" class="dropdown-toggle" ><?= lang('activites'); ?><b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" ><?= lang('activites'); ?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
-<!--								$lang."/activites/". $value->id;-->
 								<?php foreach ($sport_types as $key => $value) { ?>
 									<?php if ($lang == 'ar') { ?>
-										<li><a href="<?= base_url("$lang/activites") ?>"> <?= $value->name_ar ?> </a></li>
+										<li><a href="<?= base_url("$lang/activites/$value->id") ?>"> <?= $value->name_ar ?> </a></li>
 									<?php } else { ?>
-										<li><a href="<?= base_url("$lang/activites") ?>"> <?= $value->name_en ?> </a></li>
+										<li><a href="<?= base_url("$lang/activites/$value->id") ?>"> <?= $value->name_en ?> </a></li>
 									<?php }
 								} ?>
 							</ul>
