@@ -19,16 +19,18 @@
 	<div class="row">
 		<?php foreach ($blogs as $key => $value) { ?>
 			<div class="col-md-4 col-lg-4 right-baner">
-				<img src="<?= base_url('plugins/images/blog/') . $value->image ?>" alt="blog_image">
-				<figcaption>
-					<p>
-						 <?php if ($lang == 'ar') { ?>
-							<?= $value->title_ar ?>
-						<?php } else { ?>
-							<?= $value->title_en ?>
-						<?php } ?>
-					</p>
-				</figcaption>
+				<a href="<?= base_url("$lang/topic/") . $value->blog_id ?>">
+					<img src="<?= base_url('plugins/images/blog/') . $value->image ?>" alt="blog_image">
+					<figcaption>
+						<p>
+							 <?php if ($lang == 'ar') { ?>
+								<?= $value->title_ar ?>
+							<?php } else { ?>
+								<?= $value->title_en ?>
+							<?php } ?>
+						</p>
+					</figcaption>
+				</a>
 			</div>
 		<?php } ?>
 		<div class="view-more-btn"><a href="#">View More</a></div>
@@ -61,7 +63,7 @@
 						</p>
 					</div>
 					<div class="game-details-footer">
-						<a href="<?= base_url("$lang/")."upcoming-game/".$value->id ?>">See Details &gt;</a>
+						<a href="<?= base_url("$lang/") . "upcoming-game/" . $value->id ?>">See Details &gt;</a>
 					</div>
 				</div>
 			</div>

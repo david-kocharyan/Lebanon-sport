@@ -17,9 +17,21 @@ class Blogs extends CI_Controller
 		}
 	}
 
-	public function index()
+	public function topic($id)
 	{
 		$data['title'] = 'Blogs';
-		layouts_site($data, 'site/news.php');
+		$data['topic'] = $this->db->get_where('blog', array('id' => $id))->row();
+		$data['image'] = $this->db->get_where('blog_images', array('blog_id' => $id))->row();
+
+
+		$this->db->select('blog.id as blog_id, blog.*, blog_images.*');
+		$this->db->join('blog_images', 'blog_id = blog.id');
+		$this->db->group_by('blog.id');
+		$this->db->order_by('blog.id DESC');
+		$this->db->limit(3);
+		$data['other'] = $this->db->get_where('blog', array('blog.status' => 1))->result();
+
+		$data['lang'] = $this->session->userdata("lang");
+		layouts_site($data, 'site/topic.php');
 	}
 }

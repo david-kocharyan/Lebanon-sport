@@ -12,6 +12,7 @@ class Homes extends CI_Model
 
 	public function selectBlog()
 	{
+		$this->db->select('blog.id as blog_id, blog.*, blog_images.*');
 		$this->db->join('blog_images', 'blog_id = blog.id');
 		$this->db->group_by('blog.id');
 		$this->db->order_by('blog.id DESC');
