@@ -91,8 +91,8 @@ class End_api extends REST_Controller
 
 	private function insert_best($game_id)
 	{
-		$team_1_best = $this->input->post('team_1_best[]');
-		$team_2_best = $this->input->post('team_2_best[]');
+		$team_1_best = $this->input->post('team_1_best');
+		$team_2_best = $this->input->post('team_2_best');
 		if ($team_1_best != NULL OR !empty($team_1_best)){
 			for ($i = 0; $i < count($team_1_best); $i++) {
 				$this->db->insert("end_game_best_players", array('game_id' => $game_id, 'student_id' => $team_1_best[$i]));
