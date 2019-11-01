@@ -107,8 +107,8 @@ class End_api extends REST_Controller
 
 	private function insert_teams($game_id)
 	{
-		$team_1 = $this->input->post('team_1[]');
-		$team_2 = $this->input->post('team_2[]');
+		$team_1 = $this->input->post('team_1');
+		$team_2 = $this->input->post('team_2');
 		$team_1_id = $this->input->post('team_1_id');
 		$team_2_id = $this->input->post('team_2_id');
 		if ($team_1 != NULL OR !empty($team_1)){
