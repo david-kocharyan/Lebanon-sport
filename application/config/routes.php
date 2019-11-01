@@ -72,8 +72,8 @@ $route['api/games/end'] = 'api/End_api/end';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Site
-//$route['^(en|ar)/news'] = 'site/News';
 //$route['^(en|ar)/upcoming'] = 'site/Upcoming';
+$route['^(en|ar)/topic/(:any)'] = 'site/Blogs/$2';
 $route['^(en|ar)/activites/(:any)'] = 'site/Activites/get_game/$2';
 $route['^(en|ar)/game/(:any)'] = 'site/Activites/game/$2';
 $route['^(en|ar)/send-msg'] = 'site/Contact/send';
