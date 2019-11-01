@@ -69,14 +69,17 @@ class End_api extends REST_Controller
 
 	private function insert_game($game_id)
 	{
+		if($this->input->post('referee') != NULL) $referee_id = $this->input->post('referee');
+		if($this->input->post('id') != NULL) $game_id = $this->input->post('id');
+
 		$end_game_data = array(
-			"game_id" => $this->input->post('id') != NULL ? $this->input->post('id') : 0,
+			"game_id" => $game_id,
 			"team_1_id" => $this->input->post('team_1_id') != NULL ? $this->input->post('team_1_id') : 0,
 			"team_2_id" => $this->input->post('team_2_id') != NULL ? $this->input->post('team_2_id') : 0,
 			"score_1" => $this->input->post('team_1_score') != NULL ? $this->input->post('team_1_score') : 0,
 			"score_2" => $this->input->post('team_2_score') != NULL ? $this->input->post('team_2_score') : 0,
-			"referee_id" => $this->input->post('referee') != NULL ? $this->input->post('referee') : 0,
-			"info" => $this->input->post('info') != NULL ? $this->input->post('info') : 0
+			"referee_id" => $referee_id,
+			"info" => $this->input->post('info') != NULL ? $this->input->post('info') : "",
 		);
 
 		$this->db->insert("end_game", $end_game_data);
@@ -90,11 +93,15 @@ class End_api extends REST_Controller
 	{
 		$team_1_best = $this->input->post('team_1_best[]');
 		$team_2_best = $this->input->post('team_2_best[]');
-		for ($i = 0; $i < count($team_1_best); $i++) {
-			$this->db->insert("end_game_best_players", array('game_id' => $game_id, 'student_id' => $team_1_best[$i]));
+		if ($team_1_best != NULL OR !empty($team_1_best)){
+			for ($i = 0; $i < count($team_1_best); $i++) {
+				$this->db->insert("end_game_best_players", array('game_id' => $game_id, 'student_id' => $team_1_best[$i]));
+			}
 		}
-		for ($i = 0; $i < count($team_2_best); $i++) {
-			$this->db->insert("end_game_best_players", array('game_id' => $game_id, 'student_id' => $team_2_best[$i]));
+		if ($team_1_best != NULL OR !empty($team_1_best)) {
+			for ($i = 0; $i < count($team_2_best); $i++) {
+				$this->db->insert("end_game_best_players", array('game_id' => $game_id, 'student_id' => $team_2_best[$i]));
+			}
 		}
 	}
 
@@ -104,12 +111,17 @@ class End_api extends REST_Controller
 		$team_2 = $this->input->post('team_2[]');
 		$team_1_id = $this->input->post('team_1_id');
 		$team_2_id = $this->input->post('team_2_id');
-		for ($i = 0; $i < count($team_1); $i++) {
-			$this->db->insert("end_game_teams", array('game_id' => $game_id, 'team_id' => $team_1_id, 'student_id' => $team_1[$i]));
+		if ($team_1 != NULL OR !empty($team_1)){
+			for ($i = 0; $i < count($team_1); $i++) {
+				$this->db->insert("end_game_teams", array('game_id' => $game_id, 'team_id' => $team_1_id, 'student_id' => $team_1[$i]));
+			}
 		}
-		for ($i = 0; $i < count($team_2); $i++) {
-			$this->db->insert("end_game_teams", array('game_id' => $game_id, 'team_id' => $team_2_id, 'student_id' => $team_2[$i]));
+		if ($team_2 != NULL OR !empty($team_2)){
+			for ($i = 0; $i < count($team_2); $i++) {
+				$this->db->insert("end_game_teams", array('game_id' => $game_id, 'team_id' => $team_2_id, 'student_id' => $team_2[$i]));
+			}
 		}
+
 	}
 
 ////////////////////////insert_signature/////////////////////////////////
