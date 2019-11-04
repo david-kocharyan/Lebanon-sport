@@ -1810,7 +1810,7 @@ $.fn.notes = function(name){
 			if(field.val() != '' && field.val() != prevHtml) {
 				var html = "<li><span>"+ (time.val() ? time.val() : "00:00") +"</span>"+field.val()+"</li>";
 				prevHtml = field.val();
-				
+
 				list.append(html);
 
 				setInterval(function(){
@@ -1820,62 +1820,9 @@ $.fn.notes = function(name){
 
 			return false;
 		});
-	});	
+	});
 }
 
 $(function(){
 	$(".b-notes").notes(".b-notes");
-
-	$("#calendar").datepicker({
-		todayHighlight: true,
-		weekStart: 1
-	}).on({
-
-		'changeDate': function(e) {
-
-			if(typeof(e.date) == "undefined") return false;
-
-			var milliseconds = Date.parse(e.date);
-
-			setCelendarDay(milliseconds);
-		}
-
-	});
-
-	var today = new Date();
-	var milliseconds = Date.parse(today);
-
-	setCelendarDay(milliseconds);
-
-	function setCelendarDay(milliseconds){
-		var date = new Date(milliseconds).format("dd/mm/yyyy");
-		var formatTitle = new Date(milliseconds).format("dddd, <b>d mmmm</b>");
-		var list = $(".b-notes__list");
-		var title = $(".b-app__title");
-
-		$.getJSON("https://dl.dropboxusercontent.com/u/27474693/db.json", function(data) {
-
-			$.each(data.days, function(){
-				var obj = this;
-				
-				if(date == obj.day) {
-					var items = obj.data;
-					
-					list.html('');
-
-					$.each(items, function(){
-						var html = "<li><span>"+ this.time +"</span>"+this.title+"</li>";
-						list.append(html);
-					});
-
-					return false;
-				} else {
-					list.html('');
-				}
-
-				title.html(formatTitle);
-			})
-
-		});
-	}
 });
