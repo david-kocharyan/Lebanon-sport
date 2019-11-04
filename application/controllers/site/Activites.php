@@ -34,6 +34,7 @@ class Activites extends CI_Controller
 				$this->db->where("games.gender", $gender);
 			}
 			if ($date != NULL) {
+				$date = strtotime($date);
 				$this->db->where("FROM_UNIXTIME(games.time, '%D %M %Y') = FROM_UNIXTIME($date, '%D %M %Y')");
 			}
 			$this->db->where("sport_type", $id);

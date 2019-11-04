@@ -148,8 +148,7 @@
                     mnth = ("0" + (date.getMonth() + 1)).slice(-2),
                     day = ("0" + date.getDate()).slice(-2);
                 var time = [date.getFullYear(), mnth, day].join("-");
-                var milliseconds = Date.parse(time) / 1000;
-                params.date = milliseconds;
+                params.date = time;
             }
         });
 
