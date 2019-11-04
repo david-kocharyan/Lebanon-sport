@@ -144,13 +144,16 @@
         }).on({
             'changeDate': function (e) {
                 if (typeof (e.date) == "undefined") return false;
-                var milliseconds = Date.parse(e.date);
-                params.date = milliseconds / 1000;
+                var date = new Date(e.date),
+                    mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                    day = ("0" + date.getDate()).slice(-2);
+                var time = [date.getFullYear(), mnth, day].join("-");
+                var milliseconds = Date.parse(time) / 1000;
+                params.date = milliseconds;
             }
         });
 
         function filter() {
-
             var type = new Array();
             var age = new Array();
             var regions = new Array();
