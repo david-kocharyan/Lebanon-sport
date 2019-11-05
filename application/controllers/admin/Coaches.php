@@ -47,12 +47,27 @@ class Coaches extends CI_Controller
 			$this->create();
 			return;
 		} else {
+			if (!empty($_FILES['image']['name']) || null != $_FILES['image']['name']) {
+				$image = $this->uploadImage('image');
+				if (isset($image['error'])) {
+					$this->session->set_flashdata('error', $image['error']);
+					$this->create();
+					return;
+				}
+				$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+			} else {
+				$this->session->set_flashdata('error', 'Image was required');
+				$this->create();
+				return;
+			}
+
 			$data = array(
 				"name_en" => $name_en,
 				"name_ar" => $name_ar,
 				"school_id" => $school_id,
 				"gender" => $gender,
 			);
+			if (isset($image)) $data['image'] = $image;
 
 			$this->Coach->insert($data);
 
@@ -81,16 +96,31 @@ class Coaches extends CI_Controller
 		$this->form_validation->set_rules('school', 'School', 'required|trim');
 		$this->form_validation->set_rules('gender', 'Gender', 'required|trim');
 
+		$coach = $this->Coach->select($id);
+
 		if ($this->form_validation->run() == FALSE) {
 			$this->edit($id);
 			return;
 		} else {
+			if (!empty($_FILES['image']['name']) || null != $_FILES['image']['name']) {
+				unlink(FCPATH . "/plugins/images/referee/" . $coach->image);
+
+				$image = $this->uploadImage('image');
+				if (isset($image['error'])) {
+					$this->session->set_flashdata('error', $image['error']);
+					$this->edit($id);
+					return;
+				}
+				$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+			}
+
 			$data = array(
 				"name_en" => $name_en,
 				"name_ar" => $name_ar,
 				"school_id" => $school_id,
 				"gender" => $gender,
 			);
+			if (isset($image)) $data['image'] = $image;
 
 			$this->Coach->update($data, $id);
 
@@ -98,12 +128,57 @@ class Coaches extends CI_Controller
 		}
 	}
 
-
 	public function change_status($id)
 	{
 		$this->Coach->changeStatus($id);
 		redirect("admin/coaches");
 	}
 
+	private function uploadImage($image)
+	{
+		if (!is_dir(FCPATH . "/plugins/images/coaches")) {
+			mkdir(FCPATH . "/plugins/images/coaches", 0755, true);
+		}
+
+		$path = FCPATH . "/plugins/images/coaches";
+		$config['upload_path'] = $path;
+		$config['file_name'] = 'coaches_' . time() . '_' . rand();
+		$config['allowed_types'] = 'jpg|png|jpeg';
+		$config['max_size'] = 100000;
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload($image)) {
+			$errorStrings = strip_tags($this->upload->display_errors());
+			$error = array('error' => $errorStrings, 'image' => $image);
+			return $error;
+		} else {
+			$uploadedImage = $this->upload->data();
+			$this->resizeImage($uploadedImage['file_name'], $path);
+			$data = array('data' => $uploadedImage);
+			return $data;
+		}
+	}
+
+	private function resizeImage($filename, $path)
+	{
+		$source_path = $path . "/" . $filename;
+		$target_path = $path . "/" . $filename;
+		$config_manip = array(
+			'image_library' => 'gd2',
+			'source_image' => $source_path,
+			'new_image' => $target_path,
+			'maintain_ratio' => TRUE,
+			'create_thumb' => FALSE,
+			'width' => 1000,
+			'height' => 1000,
+		);
+		$this->load->library('image_lib');
+		$this->image_lib->initialize($config_manip);
+
+		if (!$this->image_lib->resize()) {
+			echo $this->image_lib->display_errors();
+		}
+		$this->image_lib->clear();
+	}
 
 }

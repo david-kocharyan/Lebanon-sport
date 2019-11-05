@@ -16,6 +16,7 @@
 						<th>School name ar</th>
 						<th>Coaches name en</th>
 						<th>Coaches name ar</th>
+						<th>Image</th>
 						<th>Gender</th>
 						<th>Status</th>
 						<th>Options</th>
@@ -29,6 +30,9 @@
 							<td><?= $value->school_name_ar; ?></td>
 							<td><?= $value->name_en; ?></td>
 							<td><?= $value->name_ar; ?></td>
+							<td>
+								<img src="<?= base_url('plugins/images/coaches/'). $value->image; ?>" alt="referee" class="img-responsive" width="300">
+							</td>
 							<td><?= $value->gender; ?></td>
 							<td><?= $value->status; ?></td>
 							<td>
