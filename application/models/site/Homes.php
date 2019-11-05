@@ -63,8 +63,8 @@ class Homes extends CI_Model
 	public function get_ended_game($id)
 	{
 		$this->db->select('end_game.game_id as id, score_1, score_2,
-		referees.name_en as ref_name_en, referees.name_ar as ref_name_ar,
-		users.name_en as observer_en, users.name_ar as observer_ar,
+		referees.name_en as ref_name_en, referees.name_ar as ref_name_ar, concat("plugins/images/referee/", referees.image) as ref_image, 
+		users.name_en as observer_en, users.name_ar as observer_ar, concat("plugins/images/users/", users.image) as observer_image,
 		teams_1.name as team_1_name, teams_2.name as team_2_name,
 		teams_1.id as team_1_id, teams_2.id as team_2_id,');
 

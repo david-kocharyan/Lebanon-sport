@@ -12,7 +12,9 @@
 		<div class="row">
 			<div class="col-lg-5">
 				<div class="row">
-					<div class="col-lg-6"><img src="<?= base_url('public/site/') ?>images/profile.png" alt=""></div>
+					<div class="col-lg-6">
+						<img src="<?= base_url() . $game->ref_image ?>" alt="Referee" width="200" height="200">
+					</div>
 					<div class="col-lg-6 refer-text">
 						<p class="refer-name">
 							<?php if ($lang == 'ar') { ?>
@@ -39,8 +41,9 @@
 						</p>
 						<p>Observer</p>
 					</div>
-					<div class="col-lg-6 text-right"><img src="<?= base_url('public/site/') ?>images/profile.png"
-														  alt=""></div>
+					<div class="col-lg-6 text-right">
+						<img src="<?= base_url() . $game->observer_image ?>" alt="Observer" width="200" height="200">
+					</div>
 				</div>
 			</div>
 		</div>
