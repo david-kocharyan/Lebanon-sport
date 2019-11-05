@@ -20,6 +20,7 @@ $this->lang->load("ar", "arabic");
 						<th>Username</th>
 						<th>Observer Name en</th>
 						<th>Observer Name ar</th>
+						<th>Image</th>
 						<th>Gender En</th>
 						<th>Gender AR</th>
 						<th>Email</th>
@@ -37,6 +38,9 @@ $this->lang->load("ar", "arabic");
 							<td><?= $value->username; ?></td>
 							<td><?= $value->name_en; ?></td>
 							<td><?= $value->name_ar; ?></td>
+							<td>
+								<img src="<?= base_url('plugins/images/users/'). $value->image; ?>" alt="referee" class="img-responsive" width="300">
+							</td>
 							<td>
 								<?php echo $value->gender == 1 ? lang('en_male') : lang('en_female'); ?>
 							</td>

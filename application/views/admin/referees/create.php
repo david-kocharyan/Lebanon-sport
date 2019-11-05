@@ -54,6 +54,20 @@
 						</div>
 					</div>
 
+					<div class="row">
+						<div class="col-md-12 ">
+							<div class="form-group">
+								<label class="control-label">Image</label>
+								<?php if (!empty($this->session->flashdata('error'))) { ?>
+									<div class="help-block with-errors text-danger">
+										<?= $this->session->flashdata('error') ?>
+									</div>
+								<?php } ?>
+								<input type="file" class="form-control" name="image">
+							</div>
+						</div>
+					</div>
+
 					<div class="form-actions">
 						<button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Save</button>
 					</div>
