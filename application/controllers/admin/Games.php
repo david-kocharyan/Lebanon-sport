@@ -52,7 +52,7 @@ class Games extends CI_Controller
 
 		$this->db->where('region_id', $region_1);
 		$this->db->or_where('region_id', $region_2);
-		$observer = $this->db->get('users')->result();
+		$observer = $this->db->get_where('users', array('status' => 1))->result();
 
 		if ($team_1 == NULL OR $team_2 == NULL OR $observer == NULL) {
 			$data['success'] = 'Teams or observer not found';
@@ -80,8 +80,6 @@ class Games extends CI_Controller
 
 		$region_1 = $this->Game->regionBySchool($school_1)->region_id;
 		$region_2 = $this->Game->regionBySchool($school_2)->region_id;
-
-//		validate TODO
 
 		$data = array(
 			'place' => $place,

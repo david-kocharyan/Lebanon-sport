@@ -105,19 +105,6 @@
 									</div>
 								</div>
 
-								<div class="col-md-12 ">
-									<div class="form-group">
-										<label class="control-label">Team 1</label>
-										<select name="team_1" id="team_1" class="form-control"></select>
-									</div>
-								</div>
-
-								<div class="col-md-12 ">
-									<div class="form-group">
-										<label class="control-label">Team 2</label>
-										<select name="team_2" id="team_2" class="form-control"></select>
-									</div>
-								</div>
 
 								<div class="col-md-12 ">
 									<div class="form-group">
@@ -126,6 +113,19 @@
 									</div>
 								</div>
 
+								<div class="col-md-12 ">
+									<div class="form-group">
+										<label class="control-label">Team 1</label>
+										<select name="team_1" id="team_1" class="form-control"></select>
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="control-label">Team 2</label>
+										<select name="team_2" id="team_2" class="form-control"></select>
+									</div>
+								</div>
 							</div>
 
 							<div class="form-actions">
@@ -142,6 +142,30 @@
 
 <script type="text/javascript">
     $(".form_datetime").datetimepicker({format: 'mm/dd/yyyy hh:ii'});
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(document).on('change', '#team_1', function () {
+            var first = $(this).val()
+            $("#team_2 > option").each(function () {
+                $(this).attr("disabled", false);
+                if (this.value == first) {
+                    $(this).attr("disabled", true);
+                }
+            });
+        });
+
+        $(document).on('change', '#team_2', function () {
+            var first = $(this).val()
+            $("#team_1 > option").each(function () {
+                $(this).attr("disabled", false);
+                if (this.value == first) {
+                    $(this).attr("disabled", true);
+                }
+            });
+        });
+    })
 </script>
 
 <script>
@@ -167,12 +191,14 @@
                         $('.err').append(res.success);
                         $('.err').css({'display': 'block'})
                     } else {
+                        $('#team_1').append("<option>Choose Tema 1</option>");
                         for (let i = 0; i < res['team_1'].length; i++) {
                             var $option = $('<option></option>')
                                 .attr('value', res['team_1'][i].id)
                                 .text(res['team_1'][i].name);
                             $('#team_1').append($option);
                         }
+                        $('#team_2').append("<option>Choose Tema 2</option>");
                         for (let i = 0; i < res['team_2'].length; i++) {
                             var $option = $('<option></option>')
                                 .attr('value', res['team_2'][i].id)
