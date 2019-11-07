@@ -33,7 +33,7 @@
 				</a>
 			</div>
 		<?php } ?>
-		<div class="view-more-btn"><a href="#">View More</a></div>
+		<div class="view-more-btn"><a href="<?= base_url("$lang/all-news")?>">View More</a></div>
 	</div>
 	<br>
 	<br>
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 		<?php } ?>
-		<div class="view-more-btn"><a href="#">View More</a></div>
+		<div class="view-more-btn"><a href="<?= base_url("$lang/all-upcoming-games")?>">View More</a></div>
 	</div>
 </div>
 <br>
