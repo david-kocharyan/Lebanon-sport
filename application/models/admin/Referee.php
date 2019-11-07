@@ -12,6 +12,8 @@ class Referee extends CI_Model
 
 	public function selectAll()
 	{
+		$this->db->select('referees.*, regions.name_en as reg_name');
+		$this->db->join('regions', 'regions.id = referees.region_id');
 		return $this->db->get($this->table)->result();
 	}
 
@@ -38,5 +40,14 @@ class Referee extends CI_Model
 		}
 		$status = $data->status == 1 ? 0 : 1;
 		$this->db->update($this->table, array("status" => $status), ['id' => $id]);
+	}
+
+	public function get_admins_region($id)
+	{
+		$this->db->select('admins_region.admin_id as id,
+		 admins_region.region_id as reg_id,
+		  regions.*');
+		$this->db->join('regions', 'admins_region.region_id = regions.id');
+		return $this->db->get_where('admins_region', array('admins_region.status' => 1, 'regions.status' => 1, "admins_region.admin_id" => $id))->result();
 	}
 }

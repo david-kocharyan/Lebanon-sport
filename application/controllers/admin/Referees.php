@@ -25,6 +25,8 @@ class Referees extends CI_Controller
 	public function create()
 	{
 		$data['title'] = "Create Referee";
+		$data['regions'] = $this->db->get_where('regions', array('status' => 1))->result();
+		$data['admins_region'] = $this->Referee->get_admins_region($this->session->userdata('user')["id"]);
 		layouts($data, 'admin/referees/create.php');
 	}
 
@@ -32,10 +34,12 @@ class Referees extends CI_Controller
 	{
 		$name_en = $this->input->post("name_en");
 		$name_ar = $this->input->post("name_ar");
+		$region = $this->input->post("region");
 		$mobile_number = $this->input->post("mobile_number");
 
 		$this->form_validation->set_rules('name_en', 'Name EN', 'required|trim');
 		$this->form_validation->set_rules('name_ar', 'Name AR', 'required|trim');
+		$this->form_validation->set_rules('region', 'Region', 'required|trim');
 		$this->form_validation->set_rules('mobile_number', 'Mobile number', 'required|trim|is_unique[users.mobile_number]');
 
 		if ($this->form_validation->run() == FALSE) {
@@ -59,6 +63,7 @@ class Referees extends CI_Controller
 			$data = array(
 				"name_en" => $name_en,
 				"name_ar" => $name_ar,
+				"region_id" => $region,
 				"mobile_number" => $mobile_number,
 			);
 			if (isset($image)) $data['image'] = $image;
@@ -72,6 +77,8 @@ class Referees extends CI_Controller
 	{
 		$data['title'] = "Edit Referee";
 		$data['referee'] = $this->Referee->select($id);
+		$data['regions'] = $this->db->get_where('regions', array('status' => 1))->result();
+		$data['admins_region'] = $this->Referee->get_admins_region($this->session->userdata('user')["id"]);
 		layouts($data, 'admin/referees/edit.php');
 	}
 
@@ -80,6 +87,7 @@ class Referees extends CI_Controller
 		$name_en = $this->input->post("name_en");
 		$name_ar = $this->input->post("name_ar");
 		$mobile_number = $this->input->post("mobile_number");
+		$region = $this->input->post("region");
 
 		$referee = $this->Referee->select($id);
 
@@ -112,6 +120,7 @@ class Referees extends CI_Controller
 				"name_en" => $name_en,
 				"name_ar" => $name_ar,
 				"mobile_number" => $mobile_number,
+				"region_id" => $region,
 			);
 			if (isset($image)) $data['image'] = $image;
 

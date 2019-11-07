@@ -20,10 +20,36 @@ class Referees extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Referees';
+		$regions = $this->input->get('regions');
 
-		$this->db->limit(6);
-		$data['referees'] = $this->db->get('referees')->result();
+		if ($regions != NULL) {
+			$this->search_regions($regions);
+			$data['referees'] = $this->db->get('referees')->result();
+		}else{
+			$data['referees'] = $this->db->get_where('referees', array("status"=>1))->result();
+		}
+
+		$data['regions'] = $this->db->get_where('regions', array('status' => 1))->result();
 		$data['lang'] = $this->session->userdata("lang");
 		layouts_site($data, 'site/referees.php');
 	}
+
+	private function search_regions($regions)
+	{
+		$len = count($regions);
+		if ($len != 1) {
+			foreach ($regions as $key => $value) {
+				if ($key == 0) {
+					$this->db->where("( region_id = $value");
+				} elseif ($key == $len - 1) {
+					$this->db->or_where("region_id = $value )");
+				} else {
+					$this->db->or_where("region_id = $value");
+				}
+			}
+		} else {
+			$this->db->where("region_id = $regions[0]");
+		}
+	}
+
 }

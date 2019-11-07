@@ -29,28 +29,32 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav nav">
 						<li class="title">
-							<a href="<?= base_url("$lang/") ?>"><?= lang('home'); ?></a>
+							<a href="<?= base_url("$lang/") ?>" class="scroll"><?= lang('home'); ?></a>
 						</li>
 						<li class="title">
-							<a href="#news" ><?= lang('news'); ?></a>
+							<a href="<?= base_url("$lang/") ?>#news" class="scroll"><?= lang('news'); ?></a>
 						</li>
 						<li class="title">
-							<a href="#games"><?= lang('upcoming'); ?></a>
+							<a href="<?= base_url("$lang/") ?>#games" class="scroll"><?= lang('upcoming'); ?></a>
 						</li>
 						<li class="title dropdown">
-							<a href="#" class="dropdown-toggle" ><?= lang('activites'); ?><b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle"><?= lang('activites'); ?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<?php foreach ($sport_types as $key => $value) { ?>
 									<?php if ($lang == 'ar') { ?>
-										<li><a href="<?= base_url("$lang/activites/$value->id") ?>"> <?= $value->name_ar ?> </a></li>
+										<li>
+											<a href="<?= base_url("$lang/activites/$value->id") ?>"> <?= $value->name_ar ?> </a>
+										</li>
 									<?php } else { ?>
-										<li><a href="<?= base_url("$lang/activites/$value->id") ?>"> <?= $value->name_en ?> </a></li>
+										<li>
+											<a href="<?= base_url("$lang/activites/$value->id") ?>"> <?= $value->name_en ?> </a>
+										</li>
 									<?php }
 								} ?>
 							</ul>
 						</li>
 						<li class="title">
-							<a href="#contact"><?= lang('contact'); ?></a>
+							<a href="<?= base_url("$lang/") ?>#contact" class="scroll"><?= lang('contact'); ?></a>
 						</li>
 					</ul>
 					<select name="language" id="lang" style="position: absolute; right: -25%;">
@@ -61,39 +65,5 @@
 					</select>
 				</div>
 		</div>
-
 	</header>
 
-	<script>
-        $(document).ready(function () {
-            $("#lang").change(function () {
-                var lang = $("#lang :selected").val();
-                $.ajax({
-                    type: "POST",
-                    url: '<?php echo base_url("change"); ?>',
-                    dataType: "JSON",
-                    data: {lang},
-                    success: function (res) {
-                        var url = window.location.href;
-                        url = url.split("/");
-                        url.forEach((name, index) => {
-                            if (name == "en") {
-                                url[index] = "ar";
-                            } else if (name == "ar") {
-                                url[index] = "en";
-                            }
-                        });
-                        url = url.join("/");
-                        window.location.replace(url)
-                    }
-                })
-            })
-
-            $('ul.nav li.dropdown').hover(function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
-            }, function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
-            });
-
-        })
-	</script>

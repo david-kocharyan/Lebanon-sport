@@ -20,6 +20,7 @@ $this->lang->load("ar", "arabic");
 						<th>Name EN</th>
 						<th>Name AR</th>
 						<th>Image</th>
+						<th>Region</th>
 						<th>Mobile Number</th>
 						<th>Games count</th>
 						<th>Status</th>
@@ -35,6 +36,7 @@ $this->lang->load("ar", "arabic");
 							<td>
 								<img src="<?= base_url('plugins/images/referee/'). $value->image; ?>" alt="referee" class="img-responsive" width="300">
 							</td>
+							<td><?= $value->reg_name; ?></td>
 							<td><?= $value->mobile_number; ?></td>
 							<td><?= $value->count; ?></td>
 							<td><?= $value->status; ?></td>
