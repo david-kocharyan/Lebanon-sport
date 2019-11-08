@@ -36,8 +36,8 @@ class Blogs extends CI_Controller
 
 		$this->form_validation->set_rules('title_en', 'Title EN', 'required|trim');
 		$this->form_validation->set_rules('title_ar', 'Title AR', 'required|trim');
-		$this->form_validation->set_rules('text_en', 'Text EN', 'required|trim');
-		$this->form_validation->set_rules('text_ar', 'Text AR', 'required|trim');
+		$this->form_validation->set_rules('text_en', 'Text EN', 'required');
+		$this->form_validation->set_rules('text_ar', 'Text AR', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->create();
@@ -88,8 +88,8 @@ class Blogs extends CI_Controller
 
 		$this->form_validation->set_rules('title_en', 'Title EN', 'required|trim');
 		$this->form_validation->set_rules('title_ar', 'Title AR', 'required|trim');
-		$this->form_validation->set_rules('text_en', 'Text EN', 'required|trim');
-		$this->form_validation->set_rules('text_ar', 'Text AR', 'required|trim');
+		$this->form_validation->set_rules('text_en', 'Text EN', 'required');
+		$this->form_validation->set_rules('text_ar', 'Text AR', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->create();
