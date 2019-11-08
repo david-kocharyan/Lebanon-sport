@@ -39,6 +39,7 @@
 								<?php } ?>
 							</p>
 						</figcaption>
+					</a>
 				</figure>
 			<?php } ?>
 

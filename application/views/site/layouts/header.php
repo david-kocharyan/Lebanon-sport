@@ -5,6 +5,10 @@
 <html>
 <head>
 	<title><?= $title ?></title>
+
+	<link rel="shortcut icon" href="<?= base_url('public/site/') ?>images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="<?= base_url('public/site/') ?>images/favicon.ico" type="image/x-icon">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/site/') ?>css/font-awesome.min.css"/>
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/site/') ?>css/bootstrap.min.css"/>
