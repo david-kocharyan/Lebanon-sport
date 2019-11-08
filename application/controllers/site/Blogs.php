@@ -39,7 +39,7 @@ class Blogs extends CI_Controller
 	{
 		$data['title'] = 'All News';
 
-		$limit = (null !== $this->input->get('limit') && is_numeric($this->input->get("limit"))) ? intval($this->input->get('limit')) : 10;
+		$limit = (null !== $this->input->get('limit') && is_numeric($this->input->get("limit"))) ? intval($this->input->get('limit')) : 8;
 		$offset = (null !== $this->input->get('page') && is_numeric($this->input->get("page"))) ? ($this->input->get('page')-1) * $limit : 0;
 
 		$data['page'] = ($limit !== 0 || null !== $limit) ? ceil($this->get_pages()->page / $limit) : 0;
@@ -66,7 +66,7 @@ class Blogs extends CI_Controller
 
 	private function limits()
 	{
-		$limit = (null !== $this->input->get('limit') && is_numeric($this->input->get("limit"))) ? $this->input->get('limit') : 10;
+		$limit = (null !== $this->input->get('limit') && is_numeric($this->input->get("limit"))) ? $this->input->get('limit') : 8;
 		$offset = (null !== $this->input->get('page') && is_numeric($this->input->get("page"))) ? ($this->input->get('page')-1) * $limit : 0;
 		$this->db->limit($limit, $offset);
 	}
