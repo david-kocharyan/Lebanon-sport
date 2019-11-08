@@ -33,7 +33,7 @@
 				</a>
 			</div>
 		<?php } ?>
-		<div class="view-more-btn"><a href="<?= base_url("$lang/all-news")?>">View More</a></div>
+		<div class="view-more-btn"><a href="<?= base_url("$lang/all-news?page=1")?>">View More</a></div>
 	</div>
 	<br>
 	<br>
