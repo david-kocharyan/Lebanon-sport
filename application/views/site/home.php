@@ -68,7 +68,7 @@
 				</div>
 			</div>
 		<?php } ?>
-		<div class="view-more-btn"><a href="<?= base_url("$lang/all-upcoming-games")?>">View More</a></div>
+		<div class="view-more-btn"><a href="<?= base_url("$lang/all-upcoming-games?page=1")?>">View More</a></div>
 	</div>
 </div>
 <br>

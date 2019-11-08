@@ -85,7 +85,7 @@ $route['^(en|ar)/observers'] = 'site/Observers';
 $route['^(en|ar)/referee'] = 'site/Referees';
 
 $route['^(en|ar)/all-news'] = 'site/Blogs/all_blogs';
-$route['^(en|ar)/all-upcoming-games'] = 'site/Upcoming/all_games';
+$route['^(en|ar)/all-upcoming-games'] = 'site/Upcoming/all_upcoming_games';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -71,15 +71,4 @@ class Blogs extends CI_Controller
 		$this->db->limit($limit, $offset);
 	}
 
-
-
-
-
-
-
-
-
-
-
-
 }
