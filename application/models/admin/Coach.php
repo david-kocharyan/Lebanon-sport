@@ -21,8 +21,9 @@ class Coach extends CI_Model
 	{
 		$this->db->select('schools.name_en as school_name_en, schools.name_ar as school_name_ar,  coaches.*');
 		$this->db->join('schools', 'schools.id = coaches.school_id');
-		$this->db->join('admins', 'admins.id = schools.admin_id');
-		return $this->db->get_where($this->table, array('admin_id' => $id))->result();
+		$this->db->join('regions', 'regions.id = schools.region_id');
+		$this->db->join('admins_region', 'regions.id = admins_region.region_id');
+		return $this->db->get_where($this->table, array('admins_region.admin_id' => $id))->result();
 	}
 
 	public function select($id)

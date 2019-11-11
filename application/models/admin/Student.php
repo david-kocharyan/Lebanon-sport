@@ -12,6 +12,8 @@ class Student extends CI_Model
 
 	public function selectAll()
 	{
+		$this->db->select('schools.name_en as school_name_en,  students.*');
+		$this->db->join('schools', 'schools.id = students.school_id');
 		return $this->db->get($this->table)->result();
 	}
 
