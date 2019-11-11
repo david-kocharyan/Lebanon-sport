@@ -274,4 +274,60 @@ class Games_api extends REST_Controller
 		);
 		$this->response($response, REST_Controller::HTTP_OK);
 	}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function coaches_get()
+	{
+		$res = $this->verify_get_request();
+		if (gettype($res) != 'string') {
+			$data = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => $res['msg']
+			);
+			$this->response($data, $res['status']);
+			return;
+		}
+
+		$game_id = $this->input->get('id');
+		if (null == $game_id) {
+			$response = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => "Provide Game"
+			);
+			$this->response($response, REST_Controller::HTTP_UNPROCESSABLE_ENTITY);
+			return;
+		}
+
+		$data = $this->get_coaches($game_id);
+		$response = array(
+			"success" => true,
+			"data" => array(
+				"coaches" => $data,
+			),
+			"msg" => "",
+		);
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+
+	private function get_coaches($game_id)
+	{
+		$this->db->select("name_en, coaches.id");
+		$this->db->from("coaches");
+		$this->db->join("game_schools", "school_id_1 = coaches.school_id");
+		$this->db->where("game_id", $game_id);
+		$query1 = $this->db->get_compiled_select();
+
+		$this->db->select("name_en, coaches.id");
+		$this->db->from("coaches");
+		$this->db->join("game_schools", "school_id_2 = coaches.school_id");
+		$this->db->where("game_id", $game_id);
+		$query2 = $this->db->get_compiled_select();
+
+		$data = $this->db->query($query1 . " UNION " . $query2)->result();
+		return $data != null ? $data : array();
+	}
+
 }
