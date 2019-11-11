@@ -60,6 +60,11 @@ class Homes extends CI_Model
 		$this->db->join('teams as teams_2', 'teams_2.id = game_teams.team_2');
 	}
 
+	public function first()
+	{
+		return $this->db->get("main_banner")->row();
+	}
+
 	public function get_ended_game($id)
 	{
 		$this->db->select('end_game.game_id as id, score_1, score_2,
