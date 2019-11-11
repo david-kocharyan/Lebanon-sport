@@ -143,6 +143,9 @@
 				<li><a href="<?= base_url('admin/blog') ?>" class="waves-effect"><i
 							class="mdi mdi-blogger fa-fw"></i> <span
 							class="hide-menu">Blog</span></a></li>
+				<li><a href="<?= base_url('admin/banner') ?>" class="waves-effect"><i
+							class="mdi mdi-image fa-fw"></i> <span
+							class="hide-menu">Main Banner</span></a></li>
 				<li class="devider"></li>
 
 				<li><a href="<?= base_url('admin/schools') ?>" class="waves-effect"><i

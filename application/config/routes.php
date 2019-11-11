@@ -200,6 +200,10 @@ $route['admin/blog/change-image-status/(:any)'] = 'admin/Blogs/change_image_stat
 $route['admin/blog/edit-image/(:any)'] = 'admin/Blogs/edit_image/$1';
 $route['admin/blog/update-image/(:any)'] = 'admin/Blogs/update_image/$1';
 
+//Main Banner
+$route['admin/banner'] = 'admin/MainBanner';
+$route['admin/banner/store'] = 'admin/MainBanner/store';
+
 //observed games check
 $route['admin/check'] = 'admin/Checks';
 $route['admin/check/show/(:any)'] = 'admin/Checks/show/$1';
