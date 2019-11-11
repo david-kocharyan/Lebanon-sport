@@ -103,7 +103,6 @@ class Coaches extends CI_Controller
 			return;
 		} else {
 			if (!empty($_FILES['image']['name']) || null != $_FILES['image']['name']) {
-				unlink(FCPATH . "/plugins/images/referee/" . $coach->image);
 
 				$image = $this->uploadImage('image');
 				if (isset($image['error'])) {
@@ -112,6 +111,7 @@ class Coaches extends CI_Controller
 					return;
 				}
 				$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+				unlink(FCPATH . "/plugins/images/referee/" . $coach->image);
 			}
 
 			$data = array(

@@ -171,7 +171,6 @@ class Observers extends CI_Controller
 			return;
 		} else {
 			if (!empty($_FILES['image']['name']) || null != $_FILES['image']['name']) {
-				unlink(FCPATH . "/plugins/images/users/" . $observer->image);
 
 				$image = $this->uploadImage('image');
 				if (isset($image['error'])) {
@@ -180,6 +179,7 @@ class Observers extends CI_Controller
 					return;
 				}
 				$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+				unlink(FCPATH . "/plugins/images/users/" . $observer->image);
 			}
 
 			$data = array(

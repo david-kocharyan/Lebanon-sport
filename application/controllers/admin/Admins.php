@@ -65,8 +65,6 @@ class Admins extends CI_Controller
 			$this->settings();
 		} else {
 			if (!empty($_FILES['logo']['name']) || null != $_FILES['logo']['name']) {
-				unlink(FCPATH . "/plugins/images/Logo/" . $user->logo);
-				unlink(FCPATH . "/plugins/thumb_images/Logo/Thumb_" . $user->logo);
 
 				$image = $this->uploadImage('logo');
 				if (isset($image['error'])) {
@@ -75,6 +73,8 @@ class Admins extends CI_Controller
 					return;
 				}
 				$logo = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+				unlink(FCPATH . "/plugins/images/Logo/" . $user->logo);
+				unlink(FCPATH . "/plugins/thumb_images/Logo/Thumb_" . $user->logo);
 			}
 
 			$admin = array(
