@@ -82,18 +82,34 @@
 								</div>
 							</div>
 
-
-							<div class="col-md-12 ">
-								<div class="form-group">
-									<label class="control-label">Image</label>
-									<?php if (!empty($this->session->flashdata('error'))) { ?>
-										<div class="help-block with-errors text-danger">
-											<?= $this->session->flashdata('error') ?>
-										</div>
-									<?php } ?>
-									<input type="file" class="form-control" name="image">
+							<div class="row">
+								<div class="col-sm-6 ol-md-6 col-xs-12">
+									<div class="white-box">
+										<h3 class="box-title">Choose App Image</h3>
+										<?php if ($this->session->flashdata('error')) { ?>
+											<div class="help-block with-errors text-danger">
+												<?= $this->session->flashdata('error'); ?>
+											</div>
+										<?php } ?>
+										<input type="file" id="input-file-now" class="dropify" name="image"/>
+									</div>
 								</div>
 							</div>
+
+							<div class="row">
+								<div class="col-sm-6 ol-md-6 col-xs-12">
+									<div class="white-box">
+										<h3 class="box-title">Choose Website Image</h3>
+										<?php if ($this->session->flashdata('error_site')) { ?>
+											<div class="help-block with-errors text-danger">
+												<?= $this->session->flashdata('error_site'); ?>
+											</div>
+										<?php } ?>
+										<input type="file" id="input-file-now" class="dropify" name="image_site"/>
+									</div>
+								</div>
+							</div>
+
 						</div>
 
 						<div class="form-actions">

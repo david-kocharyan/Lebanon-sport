@@ -1,13 +1,9 @@
 <section class="main-baner generic-banner">
 	<figure>
-		<img class="hidden-xs" src="<?= base_url('public/site/') ?>images/main-banner1.jpg" alt="activity-baner">
+		<img class="hidden-xs" src="<?= base_url('plugins/images/sport/' . $sport->image_site); ?>" alt="activity-baner">
 		<figcaption>
 			<p>
-				U Sports (stylized as U SPORTS) is the national sport governing body of university sport in Canada,
-				comprising the majority of degree-
-				granting universities in the country. Its equivalent body for organized sports at colleges in Canada is
-				the Canadian Collegiate Athletic Association (CCAA). Some institutions are members of both bodies for
-				different sports
+				<?= $sport->{"desc_$lang"}; ?>
 			</p>
 		</figcaption>
 	</figure>

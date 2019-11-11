@@ -86,16 +86,46 @@
 						</div>
 
 						<div class="row">
-							<div class="col-md-12 ">
-								<div class="form-group">
-									<label class="control-label">Image</label>
-									<?php if (!empty($this->session->flashdata('error'))) { ?>
+							<div class="col-sm-6 ol-md-6 col-xs-12">
+								<div class="white-box">
+									<h3 class="box-title">Choose App Image</h3>
+									<?php if ($this->session->flashdata('error')) { ?>
 										<div class="help-block with-errors text-danger">
-											<?= $this->session->flashdata('error') ?>
+											<?= $this->session->flashdata('error'); ?>
 										</div>
 									<?php } ?>
-									<input type="file" class="form-control" name="image">
+									<input type="file" id="input-file-now" class="dropify" name="image"/>
 								</div>
+							</div>
+							<div class="col-sm-6 ol-md-6 col-xs-12">
+								<?php if(isset($types) && null != $types->image) : ?>
+									<div class="white-box">
+										<h3 class="box-title">Current App Image</h3>
+										<img src="<?= base_url("plugins/images/sport/" . $types->image); ?>" alt="">
+									</div>
+								<?php endif; ?>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-6 ol-md-6 col-xs-12">
+								<div class="white-box">
+									<h3 class="box-title">Choose Website Image</h3>
+									<?php if ($this->session->flashdata('error_site')) { ?>
+										<div class="help-block with-errors text-danger">
+											<?= $this->session->flashdata('error_site'); ?>
+										</div>
+									<?php } ?>
+									<input type="file" id="input-file-now" class="dropify" name="image_site"/>
+								</div>
+							</div>
+							<div class="col-sm-6 ol-md-6 col-xs-12">
+								<?php if(isset($types) && null != $types->image_site) : ?>
+									<div class="white-box">
+										<h3 class="box-title">Current Website Image</h3>
+										<img height="400px" src="<?= base_url("plugins/images/sport/" . $types->image_site); ?>" alt="">
+									</div>
+								<?php endif; ?>
 							</div>
 						</div>
 
