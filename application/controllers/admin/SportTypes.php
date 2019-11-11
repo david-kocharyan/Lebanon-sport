@@ -55,12 +55,19 @@ class SportTypes extends CI_Controller
 		} else {
 			if (!empty($_FILES['image']['name']) || null != $_FILES['image']['name']) {
 				$image = $this->uploadImage('image');
+				$image_site = $this->uploadImage("image_site", true);
 				if (isset($image['error'])) {
 					$this->session->set_flashdata('error', $image['error']);
 					$this->create();
 					return;
 				}
+				else if (isset($image_site['error'])) {
+					$this->session->set_flashdata('error_site', $image_site['error']);
+					$this->create();
+					return;
+				}
 				$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+				$image_site = $image_site['data']['file_name'] ?? "";
 			} else {
 				$this->session->set_flashdata('error', 'Image was required');
 				$this->create();
@@ -74,7 +81,7 @@ class SportTypes extends CI_Controller
 				"desc_ar" => $desc_ar,
 			);
 			if (isset($image)) $data['image'] = $image;
-
+			$data['image_site'] = $image_site ?? NULL;
 			$this->db->trans_start();
 			$this->SportType->insert($data);
 			$id = $this->db->insert_id();
@@ -116,7 +123,6 @@ class SportTypes extends CI_Controller
 			return;
 		} else {
 			if (!empty($_FILES['image']['name']) || null != $_FILES['image']['name']) {
-				unlink(FCPATH . "/plugins/images/sport/" . $type->image);
 
 				$image = $this->uploadImage('image');
 				if (isset($image['error'])) {
@@ -125,6 +131,19 @@ class SportTypes extends CI_Controller
 					return;
 				}
 				$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+				unlink(FCPATH . "/plugins/images/sport/" . $type->image);
+			}
+
+			if (!empty($_FILES['image_site']['name']) || null != $_FILES['image_site']['name']) {
+
+				$image_site = $this->uploadImage('image_site', true);
+				if (isset($image_site['error'])) {
+					$this->session->set_flashdata('error_site', $image_site['error']);
+					$this->edit($id);
+					return;
+				}
+				$image_site = $image_site['data']['file_name'] ?? "";
+				unlink(FCPATH . "/plugins/images/sport/" . $type->image_site);
 			}
 
 			$data = array(
@@ -134,7 +153,7 @@ class SportTypes extends CI_Controller
 				"desc_ar" => $desc_ar,
 			);
 			if (isset($image)) $data['image'] = $image;
-
+			$data['image_site'] = $image_site ?? NULL;
 
 			$this->db->trans_start();
 			$this->SportType->update($data, $id);
@@ -154,7 +173,7 @@ class SportTypes extends CI_Controller
 		redirect("admin/sport-types");
 	}
 
-	private function uploadImage($image)
+	private function uploadImage($image, $for_website = null)
 	{
 		if (!is_dir(FCPATH . "/plugins/images/sport")) {
 			mkdir(FCPATH . "/plugins/images/sport", 0755, true);
@@ -173,13 +192,13 @@ class SportTypes extends CI_Controller
 			return $error;
 		} else {
 			$uploadedImage = $this->upload->data();
-			$this->resizeImage($uploadedImage['file_name'], $path);
+			$this->resizeImage($uploadedImage['file_name'], $path, $for_website);
 			$data = array('data' => $uploadedImage);
 			return $data;
 		}
 	}
 
-	private function resizeImage($filename, $path)
+	private function resizeImage($filename, $path, $for_website = null)
 	{
 		$source_path = $path . "/" . $filename;
 		$target_path = $path . "/" . $filename;
@@ -189,8 +208,8 @@ class SportTypes extends CI_Controller
 			'new_image' => $target_path,
 			'maintain_ratio' => TRUE,
 			'create_thumb' => FALSE,
-			'width' => 500,
-			'height' => 500,
+			'width' => $for_website == null ? 500 : 1920,
+			'height' => $for_website == null ? 500 : 1080,
 		);
 		$this->load->library('image_lib');
 		$this->image_lib->initialize($config_manip);
