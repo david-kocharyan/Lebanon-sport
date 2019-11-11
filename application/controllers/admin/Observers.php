@@ -102,8 +102,8 @@ class Observers extends CI_Controller
 			$this->db->trans_complete();
 
 			if ($id != NULL OR $id != "") {
-				$message = "Your username and password for Mehe application`  Usernaem - " . $username . ",  and password - " . $password . " ";
-				$subject = 'Mehe App account access';
+				$message = 'Dear Observer, <br> <br>' . 'Your credentials for Mehe application are: <br> <br>' . 'Username - ' . $username . '<br>' . 'Password - ' . $password .'<br><br> Best regards <br> MEHE Team';
+				$subject = 'MEHE Application';
 				send_email($email, $message, $subject);
 			}
 
@@ -135,19 +135,19 @@ class Observers extends CI_Controller
 
 		$observer = $this->Observer->select($id);
 
-		if($observer->username != $username) {
+		if ($observer->username != $username) {
 			$this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[users.username]');
 		} else {
 			$this->form_validation->set_rules('username', 'Username', 'required|trim');
 		}
 
-		if($observer->email != $email) {
+		if ($observer->email != $email) {
 			$this->form_validation->set_rules('email', 'Email', 'required|trim|is_unique[users.email]');
 		} else {
 			$this->form_validation->set_rules('email', 'Email', 'required|trim');
 		}
 
-		if($observer->mobile_number != $mobile_number) {
+		if ($observer->mobile_number != $mobile_number) {
 			$this->form_validation->set_rules('mobile_number', 'Mobile number', 'required|trim|is_unique[users.mobile_number]');
 		} else {
 			$this->form_validation->set_rules('mobile_number', 'Mobile number', 'required|trim');

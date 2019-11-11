@@ -125,7 +125,7 @@ class Games_api extends REST_Controller
 			$team_1 = $this->game_team($game_t->team_1);
 			$team_2 = $this->game_team($game_t->team_2);
 
-			$team_1_students = $this->game_team_students($game_t->team_2);
+			$team_1_students = $this->game_team_students($game_t->team_1);
 			$team_2_students = $this->game_team_students($game_t->team_2);
 
 

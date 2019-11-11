@@ -1,6 +1,6 @@
 <div class="col-md-12 col-sm-12">
 	<div class="white-box">
-		<h3 class="box-title m-b-0">Create School</h3>
+		<h3 class="box-title m-b-0">Create Team</h3>
 
 		<div class="help-block with-errors text-danger err" style="display: none;"></div>
 
@@ -162,6 +162,7 @@
             data: {age, school, sport, gender},
             success: function (res) {
                 if (typeof res.success !== 'undefined') {
+                    $('.err').empty();
                     $('.err').append(res.success);
                     $('.err').css({'display': 'block'})
                 } else {

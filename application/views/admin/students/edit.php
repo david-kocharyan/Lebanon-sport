@@ -126,7 +126,7 @@
 					</div>
 
 					<div class="row">
-						<div class="col-md-12 ">
+						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label">Image</label>
 								<?php if (!empty($this->session->flashdata('error'))) { ?>
@@ -134,7 +134,7 @@
 										<?= $this->session->flashdata('error') ?>
 									</div>
 								<?php } ?>
-								<input type="file" class="form-control" name="image">
+								<input type="file" id="input-file-now" class="dropify" name="image" />
 							</div>
 						</div>
 					</div>

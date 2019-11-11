@@ -191,14 +191,14 @@
                         $('.err').append(res.success);
                         $('.err').css({'display': 'block'})
                     } else {
-                        $('#team_1').append("<option>Choose Tema 1</option>");
+                        $('#team_1').append("<option>Choose Team 1</option>");
                         for (let i = 0; i < res['team_1'].length; i++) {
                             var $option = $('<option></option>')
                                 .attr('value', res['team_1'][i].id)
                                 .text(res['team_1'][i].name);
                             $('#team_1').append($option);
                         }
-                        $('#team_2').append("<option>Choose Tema 2</option>");
+                        $('#team_2').append("<option>Choose Team 2</option>");
                         for (let i = 0; i < res['team_2'].length; i++) {
                             var $option = $('<option></option>')
                                 .attr('value', res['team_2'][i].id)
