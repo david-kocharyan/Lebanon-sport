@@ -112,6 +112,10 @@
 						</td>
 						<td><?= $value->status; ?></td>
 						<td>
+							<a href="<?= base_url("admin/blog/edit-image/$value->id") ?>" data-toggle="tooltip"
+							   data-placement="top" title="Edit Image" class="btn btn-info btn-circle tooltip-info"> <i
+									class="fas fa-pencil-alt"></i> </a>
+
 							<?php if ($value->status == 1) { ?>
 								<a href="<?= base_url("admin/blog/change-image-status/$value->id") ?>"
 								   data-toggle="tooltip"

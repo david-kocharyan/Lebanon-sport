@@ -190,5 +190,83 @@ class Blogs extends CI_Controller
 		layouts($data, 'admin/blogs/show.php');
 	}
 
+	public function edit_image($id)
+	{
+		$data['title'] = "Edit Image";
+		$data['image'] = $this->db->get_where('blog_images', array('id' => $id))->row();
+		layouts($data, 'admin/blogs/edit_image.php');
+	}
+
+	public function update_image($id)
+	{
+		$old_image =  $this->db->get_where('blog_images', array('id' => $id))->row();
+
+		if (!empty($_FILES['image']['name']) || null != $_FILES['image']['name']) {
+			unlink(FCPATH . "/plugins/images/blog/" . $old_image->image);
+
+			$image = $this->uploadImage('image');
+			if (isset($image['error'])) {
+				$this->session->set_flashdata('error', $image['error']);
+				$this->edit($id);
+				return;
+			}
+			$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+		}
+
+		if (isset($image)){
+			$this->db->set('image', $image);
+			$this->db->where('id', $id);
+			$this->db->update('blog_images');
+		}
+
+		redirect("admin/blog");
+	}
+
+	private function uploadImage($image)
+	{
+		if (!is_dir(FCPATH . "/plugins/images/blog")) {
+			mkdir(FCPATH . "/plugins/images/blog", 0755, true);
+		}
+
+		$path = FCPATH . "/plugins/images/blog";
+		$config['upload_path'] = $path;
+		$config['file_name'] = 'blog_' . time() . '_' . rand();
+		$config['allowed_types'] = 'jpg|png|jpeg';
+		$config['max_size'] = 100000;
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload($image)) {
+			$errorStrings = strip_tags($this->upload->display_errors());
+			$error = array('error' => $errorStrings, 'image' => $image);
+			return $error;
+		} else {
+			$uploadedImage = $this->upload->data();
+			$this->resizeImage($uploadedImage['file_name'], $path);
+			$data = array('data' => $uploadedImage);
+			return $data;
+		}
+	}
+
+	private function resizeImage($filename, $path)
+	{
+		$source_path = $path . "/" . $filename;
+		$target_path = $path . "/" . $filename;
+		$config_manip = array(
+			'image_library' => 'gd2',
+			'source_image' => $source_path,
+			'new_image' => $target_path,
+			'maintain_ratio' => TRUE,
+			'create_thumb' => FALSE,
+			'width' => 500,
+			'height' => 500,
+		);
+		$this->load->library('image_lib');
+		$this->image_lib->initialize($config_manip);
+
+		if (!$this->image_lib->resize()) {
+			echo $this->image_lib->display_errors();
+		}
+		$this->image_lib->clear();
+	}
 
 }

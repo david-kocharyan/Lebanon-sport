@@ -14,8 +14,6 @@
 						<th>ID</th>
 						<th>Title EN</th>
 						<th>Title AR</th>
-						<th>Detail (Text) EN</th>
-						<th>Detail (Text) AR</th>
 						<th>Status</th>
 						<th>Options</th>
 					</tr>
@@ -26,8 +24,6 @@
 							<td><?= $key + 1 ?></td>
 							<td><?= $value->title_en; ?></td>
 							<td><?= $value->title_ar; ?></td>
-							<td><?= $value->text_en; ?></td>
-							<td><?= $value->text_ar; ?></td>
 							<td><?= $value->status; ?></td>
 							<td>
 								<a href="<?= base_url("admin/blog/edit/$value->id") ?>" data-toggle="tooltip"

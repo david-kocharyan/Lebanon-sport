@@ -197,6 +197,8 @@ $route['admin/blog/show/(:any)'] = 'admin/Blogs/show/$1';
 $route['admin/blog/update/(:any)'] = 'admin/Blogs/update/$1';
 $route['admin/blog/change-status/(:any)'] = 'admin/Blogs/change_status/$1';
 $route['admin/blog/change-image-status/(:any)'] = 'admin/Blogs/change_image_status/$1';
+$route['admin/blog/edit-image/(:any)'] = 'admin/Blogs/edit_image/$1';
+$route['admin/blog/update-image/(:any)'] = 'admin/Blogs/update_image/$1';
 
 //observed games check
 $route['admin/check'] = 'admin/Checks';
