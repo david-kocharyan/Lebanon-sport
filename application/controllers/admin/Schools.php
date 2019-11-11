@@ -132,7 +132,6 @@ class Schools extends CI_Controller
 			return;
 		} else {
 			if (!empty($_FILES['image']['name']) || null != $_FILES['image']['name']) {
-				unlink(FCPATH . "/plugins/images/school/" . $school->image);
 
 				$image = $this->uploadImage('image');
 				if (isset($image['error'])) {
@@ -141,6 +140,7 @@ class Schools extends CI_Controller
 					return;
 				}
 				$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+				unlink(FCPATH . "/plugins/images/school/" . $school->image);
 			}
 
 			$data = array(
