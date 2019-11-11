@@ -17,7 +17,7 @@ $this->lang->load("ar", "arabic");
 					<thead>
 					<tr>
 						<th>ID</th>
-						<th>School ID</th>
+						<th>School Name</th>
 						<th>Name EN</th>
 						<th>Name AR</th>
 						<th>Birthday</th>
@@ -33,7 +33,7 @@ $this->lang->load("ar", "arabic");
 					<?php foreach ($students as $key => $value) { ?>
 						<tr>
 							<td><?= $key + 1 ?></td>
-							<td><?= $value->school_id; ?></td>
+							<td><?= $value->school_name_en; ?></td>
 							<td><?= $value->name_en; ?></td>
 							<td><?= $value->name_ar; ?></td>
 							<td><?= $value->birthday; ?></td>

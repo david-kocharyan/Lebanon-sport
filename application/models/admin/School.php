@@ -21,7 +21,8 @@ class School extends CI_Model
 	{
 		$this->db->select('regions.name_en as reg_name_en, regions.name_ar as reg_name_ar, schools.*');
 		$this->db->join('regions', 'regions.id = schools.region_id');
-		return $this->db->get_where($this->table, array('admin_id' => $id))->result();
+		$this->db->join('admins_region', 'regions.id = admins_region.region_id');
+		return $this->db->get_where($this->table, array('admins_region.admin_id' => $id))->result();
 	}
 
 	public function select($id)

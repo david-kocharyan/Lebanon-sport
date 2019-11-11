@@ -17,6 +17,14 @@ class Referee extends CI_Model
 		return $this->db->get($this->table)->result();
 	}
 
+	public function selectAllByAdmin($id)
+	{
+		$this->db->select('regions.name_en as reg_name, referees.*');
+		$this->db->join('regions', 'regions.id = referees.region_id');
+		$this->db->join('admins_region', 'regions.id = admins_region.region_id');
+		return $this->db->get_where($this->table, array('admins_region.admin_id' => $id))->result();
+	}
+
 	public function select($id)
 	{
 		return $this->db->get_where($this->table, array('id' => $id))->row();

@@ -17,7 +17,8 @@ class Referees extends CI_Controller
 
 	public function index()
 	{
-		$data['referees'] = $this->Referee->selectAll();
+		if ($this->session->userdata('user')['role'] == 2) $data['referees'] = $this->Referee->selectAll();
+		if ($this->session->userdata('user')['role'] == 1) $data['referees'] = $this->Referee->selectAllByAdmin($this->session->userdata('user')['id']);
 		$data['title'] = "Referee";
 		layouts($data, 'admin/referees/index.php');
 	}
