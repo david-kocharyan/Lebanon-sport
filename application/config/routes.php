@@ -198,6 +198,10 @@ $route['admin/blog/update/(:any)'] = 'admin/Blogs/update/$1';
 $route['admin/blog/change-status/(:any)'] = 'admin/Blogs/change_status/$1';
 $route['admin/blog/change-image-status/(:any)'] = 'admin/Blogs/change_image_status/$1';
 
+//Main Banner
+$route['admin/banner'] = 'admin/MainBanner';
+$route['admin/banner/store'] = 'admin/MainBanner/store';
+
 //observed games check
 $route['admin/check'] = 'admin/Checks';
 $route['admin/check/show/(:any)'] = 'admin/Checks/show/$1';
