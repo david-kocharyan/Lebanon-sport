@@ -65,7 +65,9 @@
 			<div class="panel-wrapper p-b-10 collapse in">
 				<div id="owl-demo" class="owl-carousel owl-theme">
 					<?php foreach ($image as $key => $value) { ?>
-						<img src="<?= base_url('plugins/images/end/images/') . $value->image ?>">
+						<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $value->image))[0] == "image") { ?>
+							<img src="<?= base_url('plugins/images/end/images/') . $value->image ?>">
+						<?php } ?>
 					<?php } ?>
 				</div>
 			</div>
@@ -79,10 +81,12 @@
 			<div class="row">
 				<h2>Video</h2>
 				<?php foreach ($media as $key) { ?>
-					<video width="500" height="500" controls>
-						<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
+					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] == "video") { ?>
+						<video width="500" height="500" controls>
+							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					<?php } ?>
 				<?php } ?>
 			</div>
 		</div>

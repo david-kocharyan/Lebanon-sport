@@ -238,7 +238,10 @@ class End_api extends REST_Controller
 			$_FILES['images[]']['tmp_name'] = $files['tmp_name'][$key];
 			$_FILES['images[]']['error'] = $files['error'][$key];
 			$_FILES['images[]']['size'] = $files['size'][$key];
-			$ext = explode(".", $image)[1];
+
+			$numbers = explode('.', $image);
+			$ext = end($numbers);
+
 			$fileName = 'file_' . time() . '_' . uniqid() . "." . $ext;
 
 			$images[$key][$name] = $fileName;
