@@ -37,7 +37,7 @@ class SportTypes extends CI_Controller
 		$desc_ar = $this->input->post("desc_ar");
 
 
-		if (empty($_POST["points"]) OR $_POST["points"] == NULL){
+		if (empty($_POST["points"]) OR $_POST["points"] == NULL) {
 			$this->session->set_flashdata('points', 'Sport points was required');
 			$this->create();
 			return;
@@ -60,8 +60,7 @@ class SportTypes extends CI_Controller
 					$this->session->set_flashdata('error', $image['error']);
 					$this->create();
 					return;
-				}
-				else if (isset($image_site['error'])) {
+				} else if (isset($image_site['error'])) {
 					$this->session->set_flashdata('error_site', $image_site['error']);
 					$this->create();
 					return;
@@ -86,8 +85,7 @@ class SportTypes extends CI_Controller
 			$this->SportType->insert($data);
 			$id = $this->db->insert_id();
 
-			foreach ($points as $key)
-			{
+			foreach ($points as $key) {
 				$this->db->insert("sport_points", array("sport_type_id" => $id, 'value' => $key));
 			}
 			$this->db->trans_complete();
@@ -131,7 +129,9 @@ class SportTypes extends CI_Controller
 					return;
 				}
 				$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
-				unlink(FCPATH . "/plugins/images/sport/" . $type->image);
+				try {
+					unlink(FCPATH . "/plugins/images/sport/" . $type->image);
+				} catch (Exception $e) {}
 			}
 
 			if (!empty($_FILES['image_site']['name']) || null != $_FILES['image_site']['name']) {
@@ -157,7 +157,7 @@ class SportTypes extends CI_Controller
 
 			$this->db->trans_start();
 			$this->SportType->update($data, $id);
-			if ($this->input->post("points") != NULL){
+			if ($this->input->post("points") != NULL) {
 				$points = $this->input->post("points");
 				$this->SportType->updatePoints($points, $id);
 			}
