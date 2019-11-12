@@ -162,13 +162,13 @@ class End_api extends REST_Controller
 			$ext = explode(".", $image)[1];
 			$fileName = 'signature_' . time() . '_' . uniqid() . "." . $ext;
 
-			$signature_name = $this->input->post('signature_name');
-			if ($signature_name != NULL) {
-				$images[$key]['name'] = $signature_name[$key];
+			$signature_id = $this->input->post('signature_id');
+			if ($signature_id != NULL) {
+				$images[$key]['coaches_id'] = $signature_id[$key];
 				$images[$key]['game_id'] = $id;
 				$images[$key]['image'] = $fileName;
 			} else {
-				$data['err'] = "signature name can't be empty";
+				$data['err'] = "Signature can't be empty";
 				return $data;
 			}
 
