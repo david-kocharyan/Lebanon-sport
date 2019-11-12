@@ -84,12 +84,12 @@ class Homes extends CI_Model
 		return $this->db->get('end_game')->row();
 	}
 
-	public function get_ended_game_teams($id)
+	public function get_ended_game_teams($id, $game_id)
 	{
 		$this->db->select("students.id as id, students.name_en as name_en, students.name_ar as name_ar, birthday, gender,
 		concat('plugins/images/student/', students.image) as image, FROM_UNIXTIME(birthday, '%M %D %Y') as birthday");
 		$this->db->join("students", "students.id = end_game_teams.student_id");
-		return $this->db->get_where("end_game_teams", array("team_id" => $id))->result();
+		return $this->db->get_where("end_game_teams", array("team_id" => $id, "game_id" => $game_id))->result();
 	}
 
 	public function upcoming_game($id)

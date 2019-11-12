@@ -67,8 +67,8 @@ class Activites extends CI_Controller
 		$data['title'] = 'Game';
 		$data['game'] = $this->Homes->get_ended_game($id);
 		if (($data['game']) != NULL) {
-			$data['team_1'] = $this->Homes->get_ended_game_teams($data['game']->team_1_id);
-			$data['team_2'] = $this->Homes->get_ended_game_teams($data['game']->team_2_id);
+			$data['team_1'] = $this->Homes->get_ended_game_teams($data['game']->team_1_id, $id);
+			$data['team_2'] = $this->Homes->get_ended_game_teams($data['game']->team_2_id, $id);
 		}
 		$data['lang'] = $this->session->userdata("lang");
 		layouts_site($data, 'site/game.php');
