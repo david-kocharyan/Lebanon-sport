@@ -13,16 +13,16 @@ class End_api extends REST_Controller
 
 	public function end_post()
 	{
-//		$res = $this->verify_get_request();
-//		if (gettype($res) != 'string') {
-//			$data = array(
-//				"success" => false,
-//				"data" => array(),
-//				"msg" => $res['msg']
-//			);
-//			$this->response($data, $res['status']);
-//			return;
-//		}
+		$res = $this->verify_get_request();
+		if (gettype($res) != 'string') {
+			$data = array(
+				"success" => false,
+				"data" => array(),
+				"msg" => $res['msg']
+			);
+			$this->response($data, $res['status']);
+			return;
+		}
 
 		$game_id = $this->input->post('id');
 
