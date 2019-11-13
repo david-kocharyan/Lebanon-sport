@@ -80,6 +80,7 @@ class End_api extends REST_Controller
 			"score_2" => $this->input->post('team_2_score') != NULL ? $this->input->post('team_2_score') : 0,
 			"referee_id" => $referee_id,
 			"info" => $this->input->post('info') != NULL ? $this->input->post('info') : "",
+			"time" => $this->input->post('time') != NULL ? $this->input->post('time') : 0,
 		);
 
 		$this->db->insert("end_game", $end_game_data);
