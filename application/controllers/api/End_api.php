@@ -13,16 +13,16 @@ class End_api extends REST_Controller
 
 	public function end_post()
 	{
-		$res = $this->verify_get_request();
-		if (gettype($res) != 'string') {
-			$data = array(
-				"success" => false,
-				"data" => array(),
-				"msg" => $res['msg']
-			);
-			$this->response($data, $res['status']);
-			return;
-		}
+//		$res = $this->verify_get_request();
+//		if (gettype($res) != 'string') {
+//			$data = array(
+//				"success" => false,
+//				"data" => array(),
+//				"msg" => $res['msg']
+//			);
+//			$this->response($data, $res['status']);
+//			return;
+//		}
 
 		$game_id = $this->input->post('id');
 
@@ -107,8 +107,9 @@ class End_api extends REST_Controller
 
 	private function insert_teams($game_id)
 	{
-		$team_1 = $this->input->post('team_1');
-		$team_2 = $this->input->post('team_2');
+		$team_1 = json_decode($this->input->post('team_1'));
+		$team_2 = json_decode($this->input->post('team_2'));
+
 		$team_1_id = $this->input->post('team_1_id');
 		$team_2_id = $this->input->post('team_2_id');
 		if ($team_1 != NULL OR !empty($team_1)){
@@ -121,7 +122,6 @@ class End_api extends REST_Controller
 				$this->db->insert("end_game_teams", array('game_id' => $game_id, 'team_id' => $team_2_id, 'student_id' => $team_2[$i]));
 			}
 		}
-
 	}
 
 ////////////////////////insert_signature/////////////////////////////////
