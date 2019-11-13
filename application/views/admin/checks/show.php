@@ -90,7 +90,7 @@
 						<video width="500" height="500" controls>
 							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/mp4">
 							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/ogg">
-							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/3gpp">
+							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/3gp">
 							Your browser does not support the video tag.
 						</video>
 					<?php } ?>
