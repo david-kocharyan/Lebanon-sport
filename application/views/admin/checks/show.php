@@ -89,6 +89,7 @@
 					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] == "video") { ?>
 						<video width="500" height="500" controls>
 							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/mp4">
+							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/ogg">
 							Your browser does not support the video tag.
 						</video>
 					<?php } ?>
