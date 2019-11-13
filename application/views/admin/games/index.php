@@ -32,7 +32,7 @@
 							<td><?= $value->schools_1_name . " / " . $value->regions_1_name . " / " . $value->teams_1_name; ?></td>
 							<td><?= $value->schools_2_name . " / " . $value->regions_2_name . " / " . $value->teams_2_name; ?></td>
 							<td><?= $value->place; ?></td>
-							<td><?= $value->time; ?></td>
+							<td><?= gmdate("Y-m-d", $value->time); ?></td>
 							<td><?= $value->age; ?></td>
 							<td>
 								<?php if ($value->gender == 2) {

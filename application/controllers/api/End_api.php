@@ -205,7 +205,8 @@ class End_api extends REST_Controller
 
 	private function insert_games_media($game_id)
 	{
-		if (isset($_FILES['game_images']) && (!empty($_FILES['game_videos']['name'][0]) || null != $_FILES['game_videos']['name'][0])) {
+
+		if (isset($_FILES['game_videos']) && (!empty($_FILES['game_videos']['name'][0]) || null != $_FILES['game_videos']['name'][0])) {
 			$path = "/plugins/images/end/media/";
 			$name = 'media';
 			$images = $this->upload_files($_FILES['game_videos'], $game_id, $path, $name);

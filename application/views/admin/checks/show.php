@@ -25,7 +25,7 @@
 
 							<tr>
 								<td>Date</td>
-								<td> <?= $game->time; ?> </td>
+								<td> <?= gmdate("Y-m-d", $game->time); ?> </td>
 							</tr>
 
 							<tr>
