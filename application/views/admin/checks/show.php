@@ -86,7 +86,7 @@
 			<div class="row">
 				<h2>Video</h2>
 				<?php foreach ($media as $key) { ?>
-					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] == "video" OR explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] == "text") { ?>
+					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] != "image") { ?>
 						<video width="500" height="500" controls>
 							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/mp4">
 							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/ogg">
