@@ -45,32 +45,41 @@ class End_api extends REST_Controller
 			$this->db->trans_commit();
 		}
 
-		$signature = $this->insert_signature($game_id);
-		$image = $this->insert_games_images($game_id);
-		$video = $this->insert_games_media($game_id);
+		try {
+			$signature = $this->insert_signature($game_id);
+			$image = $this->insert_games_images($game_id);
+			$video = $this->insert_games_media($game_id);
 
-		if($signature === false || $image === false || $video === false){
+			if ($signature === false || $image === false || $video === false) {
+				$response = array(
+					"success" => false,
+					"data" => array(),
+					"msg" => "Something went wrong. Please try again!!",
+				);
+				$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
+				return;
+			}
+			$response = array(
+				"success" => true,
+				"data" => array(),
+				"msg" => "Game saved success",
+			);
+			$this->response($response, REST_Controller::HTTP_OK);
+		} catch (Exception $e) {
 			$response = array(
 				"success" => false,
 				"data" => array(),
 				"msg" => "Something went wrong. Please try again!!",
 			);
 			$this->response($response, REST_Controller::HTTP_BAD_REQUEST);
-			return;
 		}
-		$response = array(
-			"success" => true,
-			"data" => array(),
-			"msg" => "Game saved success",
-		);
-		$this->response($response, REST_Controller::HTTP_OK);
 	}
 
 
 	private function insert_game($game_id)
 	{
-		if($this->input->post('referee') != NULL) $referee_id = $this->input->post('referee');
-		if($this->input->post('id') != NULL) $game_id = $this->input->post('id');
+		if ($this->input->post('referee') != NULL) $referee_id = $this->input->post('referee');
+		if ($this->input->post('id') != NULL) $game_id = $this->input->post('id');
 
 		$end_game_data = array(
 			"game_id" => $game_id,
@@ -94,7 +103,7 @@ class End_api extends REST_Controller
 	{
 		$team_1_best = json_decode($this->input->post('team_1_best'));
 		$team_2_best = json_decode($this->input->post('team_2_best'));
-		if ($team_1_best != NULL OR !empty($team_1_best)){
+		if ($team_1_best != NULL OR !empty($team_1_best)) {
 			for ($i = 0; $i < count($team_1_best); $i++) {
 				$this->db->insert("end_game_best_players", array('game_id' => $game_id, 'student_id' => $team_1_best[$i]));
 			}
@@ -113,12 +122,12 @@ class End_api extends REST_Controller
 
 		$team_1_id = $this->input->post('team_1_id');
 		$team_2_id = $this->input->post('team_2_id');
-		if ($team_1 != NULL OR !empty($team_1)){
+		if ($team_1 != NULL OR !empty($team_1)) {
 			for ($i = 0; $i < count($team_1); $i++) {
 				$this->db->insert("end_game_teams", array('game_id' => $game_id, 'team_id' => $team_1_id, 'student_id' => $team_1[$i]));
 			}
 		}
-		if ($team_2 != NULL OR !empty($team_2)){
+		if ($team_2 != NULL OR !empty($team_2)) {
 			for ($i = 0; $i < count($team_2); $i++) {
 				$this->db->insert("end_game_teams", array('game_id' => $game_id, 'team_id' => $team_2_id, 'student_id' => $team_2[$i]));
 			}
@@ -205,7 +214,6 @@ class End_api extends REST_Controller
 
 	private function insert_games_media($game_id)
 	{
-
 		if (isset($_FILES['game_videos']) && (!empty($_FILES['game_videos']['name'][0]) || null != $_FILES['game_videos']['name'][0])) {
 			$path = "/plugins/images/end/media/";
 			$name = 'media';
