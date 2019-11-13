@@ -28,8 +28,8 @@ class Students extends CI_Controller
 	{
 		$data['title'] = "Students create page";
 		$data['sports'] = $this->db->get_where('sport_types', array('status' => 1))->result();
-		if ($this->session->userdata('user')['role'] == 2) $data['schools'] = $this->db->get_where('schools', array('status' => 1) )->result();
-		if ($this->session->userdata('user')['role'] == 1) $data['schools'] = $this->db->get_where('schools', array('status' => 1, "admin_id" => $this->session->userdata('user')['id']) )->result();
+		if ($this->session->userdata('user')['role'] == 2) $data['schools'] = $this->db->get_where('schools', array('status' => 1))->result();
+		if ($this->session->userdata('user')['role'] == 1) $data['schools'] = $this->db->get_where('schools', array('status' => 1, "admin_id" => $this->session->userdata('user')['id']))->result();
 		layouts($data, 'admin/students/create.php');
 	}
 
@@ -47,7 +47,7 @@ class Students extends CI_Controller
 		$this->form_validation->set_rules('gender', 'Gender', 'required|trim');
 		$this->form_validation->set_rules('birthday', 'Birthday', 'required|trim');
 
-		if (empty($_POST["sport"]) OR $_POST["sport"] == NULL){
+		if (empty($_POST["sport"]) OR $_POST["sport"] == NULL) {
 			$this->session->set_flashdata('error_sport', 'Sport types was required');
 			$this->create();
 			return;
@@ -81,13 +81,33 @@ class Students extends CI_Controller
 			);
 			if (isset($image)) $data['image'] = $image;
 
+			//school
+			$school = $this->db->get_where("schools", array("id" => $school_id))->row();
+
+			//age
+			$this->db->where("TIMESTAMPDIFF(YEAR, '2013-07-23', CURDATE()) >= age_group.from");
+			$this->db->where("TIMESTAMPDIFF(YEAR, '2013-07-23', CURDATE()) < age_group.to");
+			$age = $this->db->get('age_group')->row();
+			//gender
+			$gender_name = $gender == 1 ? "male" : "female";
+
 			$this->db->trans_start();
 			$this->Student->insert($data);
 			$id = $this->db->insert_id();
 
-			foreach ($sport as $key)
-			{
+			foreach ($sport as $key) {
 				$this->db->insert("students_sport", array("student_id" => $id, 'sport_id' => $key));
+				$team = $this->db->get_where("teams", array("age_id" => $age->id, "gender" => $gender, "sport_id" => $key, "school_id" => $school_id))->row();
+				if ($team == NULL){
+					$sport_name = $this->db->get_where("sport_types", array())->row()->name_en;
+					$team_name = $school->name_en."-".$gender_name."/".$age->from."-".$age->to."/".$sport_name;
+					$this->db->insert("teams", array("name" => $team_name, "age_id" => $age->id, "gender" => $gender, "sport_id" => $key, "school_id" => $school_id));
+					$team_id = $this->db->insert_id();
+					$this->db->insert("students_team", array("team_id" => $team_id, "student_id" => $id));
+				}
+				else{
+					$this->db->insert("students_team", array("team_id" => $team->id, "student_id" => $id));
+				}
 			}
 			$this->db->trans_complete();
 
@@ -101,8 +121,8 @@ class Students extends CI_Controller
 		$data['student'] = $this->Student->select($id);
 		$data['student_sport'] = $this->db->get_where('students_sport', array('status' => 1, 'student_id' => $id))->result();
 		$data['sports'] = $this->db->get_where('sport_types', array('status' => 1))->result();
-		if ($this->session->userdata('user')['role'] == 2) $data['schools'] = $this->db->get_where('schools', array('status' => 1) )->result();
-		if ($this->session->userdata('user')['role'] == 1) $data['schools'] = $this->db->get_where('schools', array('status' => 1, "admin_id" => $this->session->userdata('user')['id']) )->result();
+		if ($this->session->userdata('user')['role'] == 2) $data['schools'] = $this->db->get_where('schools', array('status' => 1))->result();
+		if ($this->session->userdata('user')['role'] == 1) $data['schools'] = $this->db->get_where('schools', array('status' => 1, "admin_id" => $this->session->userdata('user')['id']))->result();
 		layouts($data, 'admin/students/edit.php');
 	}
 
@@ -120,7 +140,7 @@ class Students extends CI_Controller
 		$this->form_validation->set_rules('gender', 'Gender', 'required|trim');
 		$this->form_validation->set_rules('birthday', 'Birthday', 'required|trim');
 
-		if (empty($_POST["sport"]) OR $_POST["sport"] == NULL){
+		if (empty($_POST["sport"]) OR $_POST["sport"] == NULL) {
 			$this->session->set_flashdata('error_sport', 'Sport types was required');
 			$this->edit($id);
 			return;
@@ -161,7 +181,6 @@ class Students extends CI_Controller
 			redirect("admin/students");
 		}
 	}
-
 
 
 	public function change_status($id)
