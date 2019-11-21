@@ -58,7 +58,6 @@ class Activites extends CI_Controller
 		$data['lang'] = $this->session->userdata("lang");
 		$data['title'] = 'Activites';
 		$data['sport'] = $this->db->get_where('sport_types', array("id" => $id, 'status' => 1))->row();
-
 		layouts_site($data, 'site/activites.php');
 	}
 

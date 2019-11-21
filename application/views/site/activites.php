@@ -1,6 +1,7 @@
 <section class="main-baner generic-banner">
 	<figure>
-		<img class="hidden-xs" src="<?= base_url('plugins/images/sport/' . $sport->image_site); ?>" alt="activity-baner">
+		<img class="hidden-xs" src="<?= base_url('plugins/images/sport/' . $sport->image_site); ?>"
+			 alt="activity-baner">
 		<figcaption>
 			<p>
 				<?= $sport->{"desc_$lang"}; ?>
@@ -16,6 +17,27 @@
 			<?php foreach ($game as $key => $value) { ?>
 				<div class="game-details">
 					<div class="game-details-top">
+
+						<h2 class="game-state">
+							<?php if ($lang == 'ar') { ?>
+
+								<?php if ($value->reg_1_ar == $value->reg_2_ar) { ?>
+									<?= $value->reg_1_ar ?>
+								<?php } else { ?>
+									<?= $value->reg_1_ar . " - " . $value->reg_2_ar ?>
+								<?php } ?>
+
+							<?php } else { ?>
+
+								<?php if ($value->reg_1_en == $value->reg_2_en) { ?>
+									<?= $value->reg_1_en ?>
+								<?php } else { ?>
+									<?= $value->reg_1_en . " - " . $value->reg_2_en ?>
+								<?php } ?>
+
+							<?php } ?>
+						</h2>
+
 						<h3 class="team-name">
 							<?php if ($lang == 'ar') { ?>
 								<?= $value->schools_1_name_ar . " - " . $value->schools_2_name_ar ?>
@@ -41,15 +63,16 @@
 
 		<!--search part-->
 		<div class="col-md-8 col-lg-4 right-banner">
-			<div class="app mb50">
+			<div class="app mb25">
 				<div class="app__main">
+					<span class="decoration-row"></span>
 					<div class="calendar">
 						<div id="calendar"></div>
 					</div>
 				</div>
 			</div>
 
-			<div class="container nopadding mb50">
+			<div class="container nopadding mb25">
 				<p>Gender</p>
 				<!-- Default checked -->
 				<form class="row">
@@ -70,7 +93,7 @@
 					</div>
 				</form>
 			</div>
-			<div class="container nopadding checkbox-container mb50">
+			<div class="container nopadding checkbox-container mb25">
 				<p>Game Type</p>
 				<form class="row">
 					<?php foreach ($type as $key) { ?>
@@ -85,7 +108,7 @@
 					<?php } ?>
 				</form>
 			</div>
-			<div class="container nopadding checkbox-container mb50">
+			<div class="container nopadding checkbox-container mb25">
 				<p>Age Group</p>
 				<form class="row">
 					<?php foreach ($age as $key) { ?>
@@ -101,7 +124,7 @@
 
 				</form>
 			</div>
-			<div class="container nopadding checkbox-container mb50">
+			<div class="container nopadding checkbox-container mb25">
 				<p>Regions</p>
 				<form class="row">
 					<?php foreach ($regions as $key) { ?>
