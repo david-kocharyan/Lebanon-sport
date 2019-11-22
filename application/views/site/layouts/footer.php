@@ -90,7 +90,6 @@
             });
     });
 </script>
-<?= $this->session->userdata("lang"); ?>
 <script>
     $(document).ready(function () {
         $("#lang").change(function () {
