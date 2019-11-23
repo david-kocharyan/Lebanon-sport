@@ -2,9 +2,9 @@
 @font-face {
     font-family: 'Gotham-Book';
     src: url('../fonts/Gotham-Book/Gotham-Book.eot');
-    src: url('../fonts/Gotham-Book/Gotham-Book.eot') format('embedded-opentype'), 
-	url('../fonts/Gotham-Book/Gotham-Book.woff') format('woff'), 
-	url('../fonts/Gotham-Book/Gotham-Book.ttf') format('truetype'), 
+    src: url('../fonts/Gotham-Book/Gotham-Book.eot') format('embedded-opentype'),
+	url('../fonts/Gotham-Book/Gotham-Book.woff') format('woff'),
+	url('../fonts/Gotham-Book/Gotham-Book.ttf') format('truetype'),
 	url('../fonts/Gotham-Book/Gotham-Book.svg#PFDinTextProMedium') format('svg');
     font-weight: normal;
     font-style: normal;
@@ -17,11 +17,28 @@ figure img{
 }
 header{
 	background:#283d5a;
-	height:120px;	
+	height:120px;
+	position: relative;
+}
+.title.dropdown{
+	width:170px;
+}
+header .container {
+	max-width: 1200px;
+}
+#lang {
+	margin-top: 53px;
+	width: 70px;
+	background: #4DA998;
+	color: #fff;
+	border: 1px solid #4DA998;
+	outline: none;
+	padding: 2px 3px;
+	margin-left: 30px;
 }
 header .dropdown-menu {
     margin: 0;
-    min-width: 13.5rem;
+    width:213px;
     border: none;
     border-radius: 0;
     background: #4DA998;
@@ -34,10 +51,15 @@ header .dropdown-menu {
 }
 
 .main-baner.generic-banner figcaption {
-    background: rgba(67, 73, 86, 0.5);
-    color: #fff;
-    padding: 20px 0;
-    height: 210px;
+	background: rgba(67, 73, 86, 0.5);
+	color: #fff;
+	padding: 20px 0;
+	height: 210px;
+	bottom: 40px;
+}
+figure {
+	margin: 0 0 1rem;
+	height: 900px;
 }
 .main-baner.generic-banner figcaption p {
     width: 46%;
@@ -49,19 +71,24 @@ header .dropdown-menu {
 .activity-content figcaption p {
     font-size:28px;
 }
+.right-baner{
+	height: 254px;
+	margin-bottom: 20px;
+}
 .right-baner img{
 	width:100%;
+	height:100%;
 }
 .navbar {padding:0;}
 .title {
 	font-family: 'Gotham-Book';
     position: relative;
     /* width: 120px; */
-   
+
     font-size: 20px;
     /* position: relative; */
     color: #FFF;
-    margin: 0px 36px;
+    margin: 0px 33px;
     background: #283d5a;
     z-index: 1;
     text-align: center;
@@ -168,7 +195,7 @@ header .dropdown-menu {
     bottom: 22px;
     left: 0;
     position: absolute;
-    bottom: 19px;
+    bottom: 0;
     overflow: hidden;
     background: rgba(246, 248, 252, 0.5);
     color: #283d5a;
@@ -212,6 +239,7 @@ header .dropdown-menu {
 }
 .main-baner img{
 	width:100%;
+	height:100%;
 }
 .main-baner figcaption {
     position: absolute;
@@ -272,11 +300,12 @@ header .dropdown-menu {
 	color:#fff;
 }
 .flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 150px;
-    border-top: 10px solid #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150px;
+	border-top: 10px solid #fff;
+	padding-left: 20px;
 }
 .flex-container>p {
 	color: #293f64;
@@ -302,7 +331,7 @@ header .dropdown-menu {
 	font-size: 20px;
 	margin: 0;
 	color: #fff;
-}	
+}
 .game-details-footer .fa{
 	padding-left: 20px;
     font-size: 20px;
@@ -551,7 +580,7 @@ form div{
   padding:15px 0;
   position:relative;
 }
- 
+
 .slide{
 	padding:20px;
 	text-align:center;
@@ -642,7 +671,7 @@ footer ul li a:hover{
 .ml40{margin-left:40px !Important;}
 .social li .fa{
     color:#283d5a;
-}	
+}
 
 
 
@@ -1151,7 +1180,7 @@ table{
 			}
 .result-banner{
     background: #4DA998;
-    padding: 34px;
+    padding:15px 20px;
     color: #fff;
     font-size: 26px;
     margin-bottom: 50px;
@@ -1200,6 +1229,6 @@ table{
 	margin: 0;
 }
 .refer-text .refer-name{
-	font-size: 20px;	
+	font-size: 20px;
 	color: white;
 }
