@@ -84,7 +84,7 @@
 							</div>
 
 							<div class="form-actions">
-								<button type="button" class="btn btn-primary m-b-30 save"><i class="fa fa-check"></i>Save
+								<button type="button" class="btn btn-primary m-b-30 save"><i class="fa fa-check"></i>Select student
 								</button>
 							</div>
 						</section>
@@ -165,8 +165,7 @@
                     $('.err').empty();
                     $('.err').append(res.success);
                     $('.err').css({'display': 'block'})
-                } else {
-                    $('.err').empty();
+                }
                     $('.students').empty();
                     for (let i = 0; i < res.length; i++) {
                         var $option = $('<option></option>')
@@ -177,9 +176,8 @@
                     $('#public-methods').multiSelect('refresh');
                     $('#name').val(`${school_text}-${gender_text}/${age_text}/${sport_text}`);
 
-                    $('.findStudent').slideUp("slow");
+                    // $('.findStudent').slideUp("slow");
                     $('.selectStudent').slideDown("slow");
-                }
             },
         });
     });

@@ -25,6 +25,10 @@ class Home extends CI_Controller
 
 	public function index()
 	{
+		$exp_url = explode("/", $_SERVER['REQUEST_URI']);
+		if(!in_array("en", $exp_url) && !in_array("ar", $exp_url)){
+			redirect("en");
+		}
 		$data['title'] = 'Home';
 		$data['banner'] = $this->Homes->first();
 		$data['blogs'] = $this->Homes->selectBlog();

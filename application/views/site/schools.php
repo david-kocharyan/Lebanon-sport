@@ -59,11 +59,7 @@
 			<hr>
 			<?php foreach ($all_teams as $key => $value) { ?>
 				<section class="gerneric-banner">
-					<?php if ($lang == 'ar') { ?>
-						<?= $value->name_ar . " " . $value->from . " - " . $value->to; ?>
-					<?php } else { ?>
-						<?= $value->name_en . " " . $value->from . " - " . $value->to; ?>
-					<?php } ?>
+					<?= $value->name; ?>
 				</section>
 				<div class="carousel">
 					<div class="slideControls">
