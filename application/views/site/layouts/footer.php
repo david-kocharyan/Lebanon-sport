@@ -109,9 +109,6 @@
                             url[index] = "en";
                         }
                     });
-                    if (url[url.length-1] === ""){
-                        url[url.length-1] = lang;
-					}
                     url = url.join("/").split("#");
                     window.location.replace(url[0])
                 }

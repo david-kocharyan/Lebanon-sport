@@ -1,8 +1,9 @@
 <section class="main-baner generic-banner">
 	<figure>
 		<img class="hidden-xs" src="<?= base_url('plugins/images/banner/' . $banner->banner ?? '') ?>" alt="activity-baner">
-		<figcaption>
-			<p>
+		<figcaption <?php if($lang == "ar") echo "style='display: flex; justify-content: flex-end;'"; ?> >
+			<p <?php if($lang == "ar") echo "style='text-align: right;'"; ?> >
+
 				<?= $banner->{"text_".$lang} ?? ""; ?>
 			</p>
 		</figcaption>
