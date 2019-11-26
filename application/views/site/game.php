@@ -238,23 +238,22 @@
 		<div class="heading mt150"><h2>Game Content</h2></div>
 		<div class="panel1 gal">
 			<div id="gallery">
-				<img src="https://i.ytimg.com/vi/TZiQK81Rjfw/maxresdefault.jpg" class="card img-responsive">
 
 				<?php foreach ($image as $key => $value) { ?>
 					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/images/' . $value->image))[0] == "image") { ?>
-						<img src="<?= base_url('plugins/images/end/images/') . $value->image ?>">
+						<img src="<?= base_url('plugins/images/end/images/') . $value->image ?>" class="card img-responsive">
 					<?php } ?>
 				<?php } ?>
 
 				<?php foreach ($media as $key) { ?>
 					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] == "image") { ?>
-						<img src="<?= base_url('plugins/images/end/media/') . $key->media ?>">
+						<img src="<?= base_url('plugins/images/end/media/') . $key->media ?>" class="card img-responsive">
 					<?php } ?>
 				<?php } ?>
 
 				<?php foreach ($media as $key) { ?>
 					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] != "image") { ?>
-						<video width="500" height="500" controls>
+						<video width="500" height="500" controls class="card vid">
 							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/mp4">
 							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/ogg">
 							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/3gp">
@@ -262,11 +261,6 @@
 						</video>
 					<?php } ?>
 				<?php } ?>
-
-
-				<video class="card vid" controls>
-					<source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4"></source>
-				</video>
 			</div>
 
 			<div id="myModal" class="modal fade" role="dialog">
