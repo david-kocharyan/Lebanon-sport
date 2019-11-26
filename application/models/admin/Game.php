@@ -95,4 +95,19 @@ class Game extends CI_Model
 		return $this->db->insert('game_teams', array("game_id" => $game_id, "team_1" => $id_1, "team_2" => $id_2));
 	}
 
+	public function student_ajax($school_id, $sport_id, $age_date, $gender_id)
+	{
+		$this->db->select("students.*, schools.name_en as school_name, ");
+		$this->db->join('schools', 'schools.id = students.school_id');
+		$this->db->join('students_sport', 'students_sport.student_id = students.id');
+		$this->db->where('students.school_id', $school_id);
+		$this->db->where('students_sport.sport_id', $sport_id);
+		$this->db->where("YEAR(CURDATE()) - YEAR(birthday) - IF(STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', MONTH(birthday), '-', DAY(birthday)) ,'%Y-%c-%e') > CURDATE(), 1, 0) >=", $age_date->from);
+		$this->db->where("YEAR(CURDATE()) - YEAR(birthday) - IF(STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', MONTH(birthday), '-', DAY(birthday)) ,'%Y-%c-%e') > CURDATE(), 1, 0) <=", $age_date->to);
+		if ($gender_id == 1) $this->db->where('students.gender', $gender_id);
+		if ($gender_id == 0) $this->db->where('students.gender', $gender_id);
+
+		$data = $this->db->get('students')->result();
+		return $data;
+	}
 }

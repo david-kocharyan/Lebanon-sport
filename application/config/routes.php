@@ -185,8 +185,10 @@ $route['admin/teams/change-status/(:any)'] = 'admin/Teams/change_status/$1';
 //Teams Crud
 $route['admin/games'] = 'admin/Games';
 $route['admin/games/create'] = 'admin/Games/create';
+$route['admin/games/create_costume'] = 'admin/Games/custom_game';
 $route['admin/games/get-teams'] = 'admin/Games/get_teams';
 $route['admin/games/store'] = 'admin/Games/store';
+$route['admin/games/store_custom'] = 'admin/Games/store_custom';
 $route['admin/games/change-status/(:any)'] = 'admin/Games/change_status/$1';
 
 //Blog Crud

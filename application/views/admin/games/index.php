@@ -4,8 +4,13 @@
 		<div class="white-box">
 			<h3 class="box-title m-b-0">Games Table</h3>
 			<p class="text-muted m-b-15">All games in 1 place!!</p>
-			<p class="box-title m-b-30"><a href="<?= base_url("admin/games/create") ?>" class="text-success">Add new
-					Games</a></p>
+			<p class="box-title m-b-10">
+				<a href="<?= base_url("admin/games/create") ?>" class="text-success">Add new Games</a>
+			</p>
+
+			<p class="box-title m-b-30">
+				<a href="<?= base_url("admin/games/create_costume") ?>" class="text-primary">Add new Games with custom teams</a>
+			</p>
 
 			<div class="table-responsive">
 				<table id="myTable" class="table table-striped">

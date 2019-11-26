@@ -93,7 +93,7 @@ class Homes extends CI_Model
 	public function get_ended_game_teams($id, $game_id)
 	{
 		$this->db->select("students.id as id, students.name_en as name_en, students.name_ar as name_ar, birthday, gender,
-		concat('plugins/images/student/', students.image) as image, FROM_UNIXTIME(birthday, '%M %D %Y') as birthday");
+		concat('plugins/images/student/', students.image) as image, FROM_UNIXTIME(birthday, '%M %D %Y') as birthday, students.school_id");
 		$this->db->join("students", "students.id = end_game_teams.student_id");
 		return $this->db->get_where("end_game_teams", array("team_id" => $id, "game_id" => $game_id))->result();
 	}
@@ -123,6 +123,14 @@ class Homes extends CI_Model
 		$this->db->join('students', 'students.id = students_team.student_id');
 
 		return $this->db->get_where("students_team", array("team_id" => $id))->result();
+	}
+
+	public function get_ended_game_best($id)
+	{
+		$this->db->select("students.id as id, students.name_en as name_en, students.name_ar as name_ar, birthday, gender,
+		concat('plugins/images/student/', students.image) as image, FROM_UNIXTIME(birthday, '%M %D %Y') as birthday, students.school_id");
+		$this->db->join("students", "students.id = end_game_best_players.student_id");
+		return $this->db->get_where("end_game_best_players", array("game_id" => $id))->result();
 	}
 
 }

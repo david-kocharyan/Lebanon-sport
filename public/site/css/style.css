@@ -2,12 +2,33 @@
 @font-face {
     font-family: 'Gotham-Book';
     src: url('../fonts/Gotham-Book/Gotham-Book.eot');
-    src: url('../fonts/Gotham-Book/Gotham-Book.eot') format('embedded-opentype'),
-	url('../fonts/Gotham-Book/Gotham-Book.woff') format('woff'),
-	url('../fonts/Gotham-Book/Gotham-Book.ttf') format('truetype'),
+    src: url('../fonts/Gotham-Book/Gotham-Book.eot') format('embedded-opentype'), 
+	url('../fonts/Gotham-Book/Gotham-Book.woff') format('woff'), 
+	url('../fonts/Gotham-Book/Gotham-Book.ttf') format('truetype'), 
 	url('../fonts/Gotham-Book/Gotham-Book.svg#PFDinTextProMedium') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+.grey-panel{
+	display:flex;
+}
+.grey-panel div{
+	background:#f1f1f1;
+	margin:8px;
+	height:300px;
+}
+.mt150{
+	margin-top:150px;
+}
+.game-content{margin-bottom:60px;}
+.panel1 div:nth-of-type(1) {-webkit-flex-grow: 4;}
+.panel1 div:nth-of-type(2) {-webkit-flex-grow: 8;}
+.panel2 div:nth-of-type(1) {-webkit-flex-grow: 8;}
+.panel2 div:nth-of-type(2) {-webkit-flex-grow: 4;}
+.panel3  div {-webkit-flex-grow: 3;}
+.grey-box{
+	height:400px;
+	background:red;
 }
 body{
 	 font-family: 'Gotham-Book';
@@ -17,28 +38,11 @@ figure img{
 }
 header{
 	background:#283d5a;
-	height:120px;
-	position: relative;
-}
-.title.dropdown{
-	width:170px;
-}
-header .container {
-	max-width: 1200px;
-}
-#lang {
-	margin-top: 53px;
-	width: 70px;
-	background: #4DA998;
-	color: #fff;
-	border: 1px solid #4DA998;
-	outline: none;
-	padding: 2px 3px;
-	margin-left: 30px;
+	height:120px;	
 }
 header .dropdown-menu {
     margin: 0;
-    width:213px;
+    min-width: 13.5rem;
     border: none;
     border-radius: 0;
     background: #4DA998;
@@ -51,15 +55,10 @@ header .dropdown-menu {
 }
 
 .main-baner.generic-banner figcaption {
-	background: rgba(67, 73, 86, 0.5);
-	color: #fff;
-	padding: 20px 0;
-	height: 210px;
-	bottom: 40px;
-}
-figure {
-	margin: 0 0 1rem;
-	height: 900px;
+    background: rgba(67, 73, 86, 0.5);
+    color: #fff;
+    padding: 20px 0;
+    height: 210px;
 }
 .main-baner.generic-banner figcaption p {
     width: 46%;
@@ -71,24 +70,19 @@ figure {
 .activity-content figcaption p {
     font-size:28px;
 }
-.right-baner{
-	height: 254px;
-	margin-bottom: 20px;
-}
 .right-baner img{
 	width:100%;
-	height:100%;
 }
 .navbar {padding:0;}
 .title {
 	font-family: 'Gotham-Book';
     position: relative;
     /* width: 120px; */
-
+   
     font-size: 20px;
     /* position: relative; */
     color: #FFF;
-    margin: 0px 33px;
+    margin: 0px 36px;
     background: #283d5a;
     z-index: 1;
     text-align: center;
@@ -195,7 +189,7 @@ figure {
     bottom: 22px;
     left: 0;
     position: absolute;
-    bottom: 0;
+    bottom: 19px;
     overflow: hidden;
     background: rgba(246, 248, 252, 0.5);
     color: #283d5a;
@@ -239,7 +233,6 @@ figure {
 }
 .main-baner img{
 	width:100%;
-	height:100%;
 }
 .main-baner figcaption {
     position: absolute;
@@ -285,14 +278,11 @@ figure {
 	background:#283d5a;
 	padding:5px 10px;
 }
-.game-details-top h3 {
-    color: #fff;
-    font-size: 20px;
-    margin: 0;
-    padding: 4px 0;
+.game-details-top h3{
+	color:#fff;
 }
 .game-details{
-	overflow: hidden;
+	height:260px;
 	background:#f1f1f1;
 	margin-bottom:20px;
 }
@@ -300,12 +290,11 @@ figure {
 	color:#fff;
 }
 .flex-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 150px;
-	border-top: 10px solid #fff;
-	padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    border-top: 10px solid #fff;
 }
 .flex-container>p {
 	color: #293f64;
@@ -324,27 +313,12 @@ figure {
     /* line-height: 15px; */
     display: block;
 	}
-.game-details-footer a:hover{
-	text-decoration:none;
-}
-.game-state{
-	font-size: 20px;
-	margin: 0;
-	color: #fff;
-}
-.game-details-footer .fa{
-	padding-left: 20px;
-    font-size: 20px;
-}
 .right-banner p {
     background: #283d5a;
     color: #fff;
     padding: 5px 15px;
     margin: 0;
-	margin-bottom: 5px;
 }
-
-
 .custom-control-label {
     margin-bottom: 0;
 }
@@ -355,93 +329,27 @@ figure {
     padding-left: 20px;
     padding-bottom: 15px;
     overflow: hidden;
-	padding-top: 5px;
 }
 .custom-control-label::before {
-	position: absolute;
-	top: 14px;
-	background-color: #fff;
-	border: 1px solid;
-}
-.custom-checkbox .custom-control-label::before {
-    background-color: transparent;
-}
-.decoration-row{
-	position: absolute;
-    top: 60px;
-    border-bottom: 1px solid #4ea998;
-    width: 100%;
-    left: -1px;
-}
-.datepicker thead tr:first-child th.next{
-	visibility: visible;
-    color: transparent;
-    background: url(../images/next-arrow.png) no-repeat;
-    height: 21px;
-    width: 27px;
-    display: block;
-    background-size: 100%;
     position: absolute;
-    top: 20px;
-    right: 8px;
-}
-.datepicker thead tr:first-child th.prev{
-	visibility: visible;
-    color: transparent;
-    background: url(../images/prev-arrow.png) no-repeat;
-    height: 21px !important;
-    width: 27px;
-    display: block;
-    background-size: 100%;
-    position: absolute;
-    top: 20px;
-    left: 8px;
+    top: 1rem;
 }
 .custom-radio .custom-control-input:checked~.custom-control-label::after {
-    background: url(../images/radio-item.svg) no-repeat center center;
-    height: 18px;
-    width: 18px;
-    z-index: 2;
-    background-size: 100%;
-    top: 14px;
-    left:-1px;
-    border-radius: 20px;
-
+    background-image: none;
 }
 .checkbox-container .custom-control-label::before {
     position: absolute;
-	border-radius: 2px;
-    top: 14px;
+    top: 1rem;
 }
 .custom-radio .custom-control-input:checked~.custom-control-label::before {
-    background-color: transparent;
-    box-shadow: none;
-    z-index: 1;
-	height: 15px;
-    width: 15px;
-	top: 17px;
-    left: 1px;
-	border: none;
+    background-color: #49a797;
 }
-.custom-control-input:focus~.custom-control-label::before {
-    box-shadow: none;
-}
+
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
-.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
-    background-image: url(../images/item.svg);
-    background-size: 100%;
-    width: 22px;
-    height: 22px;
-    top: 10px;
-    left: -3px;
+    background-color: #49a797;
 }
 .custom-control-label::after {
     position: absolute;
-
     top: 1rem;
 }
 .right-banner {
@@ -580,7 +488,7 @@ form div{
   padding:15px 0;
   position:relative;
 }
-
+ 
 .slide{
 	padding:20px;
 	text-align:center;
@@ -671,7 +579,7 @@ footer ul li a:hover{
 .ml40{margin-left:40px !Important;}
 .social li .fa{
     color:#283d5a;
-}
+}	
 
 
 
@@ -1010,7 +918,12 @@ footer ul li a:hover{
 
 .datepicker thead tr:first-child th:hover,
 
-
+.datepicker .cw {
+  font-size: 18px;
+  width: 12px;
+  padding: 0 2px 0 5px;
+  vertical-align: middle;
+}
 .datepicker thead tr:first-child th.cw {
   cursor: default;
   background-color: transparent;
@@ -1086,8 +999,11 @@ footer ul li a:hover{
 }
 
 .datepicker .dow {
-	color: #283d5a;
-	font-size: 13px;
+
+  border-bottom: 1px solid #e7e7e7;
+
+  color: #9b8079;
+  font-size: 13px;
 }
 .datepicker-months .prev,
 .datapicker-months .next,
@@ -1130,7 +1046,6 @@ footer ul li a:hover{
 .datepicker thead tr:first-child th, .datepicker tfoot tr th {
     cursor: pointer;
     color: #283d5a;
-	font-size: 15px;
 }
 table{
      border-collapse: separate;
@@ -1146,9 +1061,6 @@ table{
 }
 .mb50{
 	margin-bottom:50px;
-}
-.mb25{
-	margin-bottom:25px;
 }
 .app:after {
 	content: "";
@@ -1180,7 +1092,7 @@ table{
 			}
 .result-banner{
     background: #4DA998;
-    padding:15px 20px;
+    padding: 34px;
     color: #fff;
     font-size: 26px;
     margin-bottom: 50px;
@@ -1229,6 +1141,6 @@ table{
 	margin: 0;
 }
 .refer-text .refer-name{
-	font-size: 20px;
+	font-size: 20px;	
 	color: white;
 }

@@ -71,8 +71,7 @@
 							</div>
 
 							<div class="form-actions">
-								<button type="button" class="btn btn-primary m-b-30 save"><i class="fa fa-check"></i>Save
-								</button>
+								<button type="button" class="btn btn-primary m-b-30 save">Save with team</button>
 							</div>
 
 						</section>
@@ -144,6 +143,7 @@
     $(".form_datetime").datetimepicker({format: 'mm/dd/yyyy hh:ii'});
 </script>
 
+
 <script>
     $(document).ready(function () {
         $(document).on('change', '#team_1', function () {
@@ -190,15 +190,15 @@
                         $('.err').empty();
                         $('.err').append(res.success);
                         $('.err').css({'display': 'block'})
-                    } else {
-                        $('#team_1').append("<option>Choose Team 1</option>");
+                    }
+                        $('#team_1').append("<option value=''>Choose Team 1</option>");
                         for (let i = 0; i < res['team_1'].length; i++) {
                             var $option = $('<option></option>')
                                 .attr('value', res['team_1'][i].id)
                                 .text(res['team_1'][i].name);
                             $('#team_1').append($option);
                         }
-                        $('#team_2').append("<option>Choose Team 2</option>");
+                        $('#team_2').append("<option value=''>Choose Team 2</option>");
                         for (let i = 0; i < res['team_2'].length; i++) {
                             var $option = $('<option></option>')
                                 .attr('value', res['team_2'][i].id)
@@ -213,9 +213,7 @@
                         }
 
                         $('.err').empty();
-                        $('.schools').slideUp("slow");
                         $('.settings').slideDown("slow");
-                    }
                 },
             });
         }
@@ -223,7 +221,16 @@
 
     $('.create').click(function (e) {
         e.preventDefault();
-        $('.forma-s').submit();
+        var team_1 = $('#team_1 :selected').val();
+        var team_2 = $('#team_2 :selected').val();
+
+        if (team_1 == "" || team_2 == ""){
+            $('.err').empty();
+            $('.err').append("Please choose teams");
+            $('.err').css({'display': 'block'})
+		}else{
+            $('.forma-s').submit();
+		}
     })
 </script>
 
