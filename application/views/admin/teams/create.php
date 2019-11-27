@@ -84,7 +84,7 @@
 							</div>
 
 							<div class="form-actions">
-								<button type="button" class="btn btn-primary m-b-30 save"><i class="fa fa-check"></i>Select student
+								<button type="button" class="btn btn-primary m-b-30 save"><i class="fa fa-check"></i>Generate
 								</button>
 							</div>
 						</section>
