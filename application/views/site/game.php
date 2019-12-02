@@ -55,7 +55,7 @@
 			<section class="gerneric-banner">
 				<?= $game->team_1_name; ?>
 				<a href="<?= base_url("$lang/game-school/") . $game->team_1_id; ?>"
-				   style="position: relative; left: 75%; color: white; font-size: 20px;">See details ></a>
+				   style="position: absolute; left: 75%; color: white; font-size: 20px;">See details ></a>
 			</section>
 			<div class="carousel">
 				<div class="slideControls">
@@ -97,7 +97,7 @@
 			<section class="gerneric-banner">
 				<?= $game->team_2_name; ?>
 				<a href="<?= base_url("$lang/game-school/") . $game->team_2_id; ?>"
-				   style="position: relative; left: 75%; color: white; font-size: 20px;">See details ></a>
+				   style="position: absolute; left: 75%; color: white; font-size: 20px;">See details ></a>
 			</section>
 			<div class="carousel">
 				<div class="slideControls2">
