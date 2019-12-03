@@ -55,7 +55,7 @@
 						</p>
 					</div>
 					<div class="game-details-footer">
-						<a href="<?= base_url("$lang/") . "game/" . $value->id ?>">See Details &gt;</a>
+						<a href="<?= base_url("$lang/") . "game/" . $value->id ?>">See Details <i class="fa fa-chevron-right"></i></a>
 					</div>
 				</div>
 			<?php } ?>
@@ -97,7 +97,7 @@
 				<p>Game Type</p>
 				<form class="row">
 					<?php foreach ($type as $key) { ?>
-						<div class="custom-control custom-checkbox col-md-8 col-lg-5">
+						<div class="custom-control custom-checkbox col-md-8 col-lg-6">
 							<input type="checkbox" name="type[]" class="custom-control-input type"
 								   value="<?= $key->id; ?>"
 								   id="type<?= $key->id; ?>">
@@ -129,7 +129,7 @@
 				<form class="row">
 					<?php foreach ($regions as $key) { ?>
 
-						<div class="custom-control custom-checkbox col-md-8 col-lg-5">
+						<div class="custom-control custom-checkbox col-md-8 col-lg-6">
 							<input type="checkbox" name="regions[]" class="custom-control-input"
 								   value="<?= $key->id; ?>"
 								   id="regions<?= $key->id; ?>">

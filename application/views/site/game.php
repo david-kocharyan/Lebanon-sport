@@ -2,9 +2,9 @@
 	<div class="heading"><h2>Game Result</h2></div>
 	<div class="result-banner">
 		<div class="row">
-			<div class="col-lg-4"><?= $game->team_1_name; ?></div>
-			<div class="col-lg-4 text-center"><?= $game->score_1 . " - " . $game->score_2; ?></div>
-			<div class="col-lg-4 text-center"><?= $game->team_1_name; ?></div>
+			<div class="col-lg-5"><?= $game->team_1_name; ?></div>
+			<div class="col-lg-2 text-center"><?= $game->score_1 . " - " . $game->score_2; ?></div>
+			<div class="col-lg-5 text-center"><?= $game->team_1_name; ?></div>
 		</div>
 	</div>
 	<div class="heading"><h2>Referee/Observer</h2></div>

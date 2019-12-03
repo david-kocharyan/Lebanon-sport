@@ -211,3 +211,7 @@ $route['admin/banner/store'] = 'admin/MainBanner/store';
 $route['admin/check'] = 'admin/Checks';
 $route['admin/check/show/(:any)'] = 'admin/Checks/show/$1';
 $route['admin/check/save/(:any)'] = 'admin/Checks/save/$1';
+
+
+//update all students date
+$route['admin/students/date'] = 'admin/Update_date/index';
