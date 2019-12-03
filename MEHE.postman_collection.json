@@ -1,0 +1,2579 @@
+{
+	"info": {
+		"_postman_id": "c1573924-7008-4e75-bda1-065d0487cdff",
+		"name": "MEHE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "mehe.aimtech.am/api/users/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "mehe.aimtech.am/api/users/login",
+					"host": [
+						"mehe",
+						"aimtech",
+						"am"
+					],
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "asd",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "asd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sport/api/users/login",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 09 Oct 2019 10:01:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Wrong Credentials\"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sport/api/users/login",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2019 10:21:55 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "413"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"\",\n    \"data\": {\n        \"user\": {\n            \"username\": \"test\",\n            \"name\": \"Beirut\",\n            \"gender\": \"Female\",\n            \"email\": \"admin@gmail.com\",\n            \"mobile_number\": \"+37499099248\",\n            \"region\": \"Beirut\"\n        },\n        \"tokens\": {\n            \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWYwNjQzMzZhMzYi.QyBbV9CpjEiii_AZo1o3KRyP_YrQ_rbkEXc6la3fQMw\",\n            \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWYwNjQzMzZhNWEi.xZj92AAkN499NTm8G2ciuciOoCOE7ThrxP1FID5h_iA\"\n        }\n    },\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "mehe.aimtech.am/api/users/refresh-token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorize",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWRiNTMyZWZhNzQi.ytICMjuJp3SH4FeY0XTZFUWkpE4-uRKyyoQFVqJi7MA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh_token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWRiNTMyZWZhOTYi.WAOzW7E6FUsxqRpZ65B67SU9CSMjpn43kTmdVRK16Ng",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/sport/api/users/refresh-token",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sport",
+						"api",
+						"users",
+						"refresh-token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorize",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "refresh_token  ",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sport/api/users/refresh-token",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"refresh-token"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 09 Oct 2019 10:32:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ci_sport_session=ujmkqoud0cfdlhnbhb4a3hr6qn84abkr; expires=Wed, 09-Oct-2019 12:32:04 GMT; Max-Age=7200; path=/; HttpOnly"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Please, provide refresh token\"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorize",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWRiNTMyZWZhNzQi.ytICMjuJp3SH4FeY0XTZFUWkpE4-uRKyyoQFVqJi7MA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "refresh_token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWRiNTMyZWZhOTYi.WAOzW7E6FUsxqRpZ65B67SU9CSMjpn43kTmdVRK16Ng",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sport/api/users/refresh-token",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"refresh-token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 09 Oct 2019 10:33:31 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "266"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWRiNzdiNDk1N2Ui.PBGCsijSoiUb1N5B8w6aKa_nOUlgYEOjPYSUOTw4J6w\",\n        \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWRiNzdiNDk1OTki.NfnHCon5GMOyWN8Z5bvTl7T6k4g8QGqoIBddI-KkVoc\"\n    },\n    \"msg\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "mehe.aimtech.am/api/users/logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorize",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWRiOTgxZDJiYWIi.Muoo3GoS8YbYv2fdOjPd_hwz5iUbdBdDFAwVm--Futc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "mehe.aimtech.am/api/users/logout",
+					"host": [
+						"mehe",
+						"aimtech",
+						"am"
+					],
+					"path": [
+						"api",
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorize",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWRiOGQ0NDE1MWQi.n1wmQggoC8nOFuNJc0fpn1TtrW9pOiby8EB7pZHzgkU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/nargile/api/users/logout",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"nargile",
+								"api",
+								"users",
+								"logout"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 09 Oct 2019 10:39:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Provide valid token\"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorize",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWRiOTgxZDJiYWIi.Muoo3GoS8YbYv2fdOjPd_hwz5iUbdBdDFAwVm--Futc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/sport/api/users/logout",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 09 Oct 2019 10:43:32 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ci_sport_session=bt81o871quos0rkj7krtrhuqvgjkoumi; expires=Wed, 09-Oct-2019 12:43:32 GMT; Max-Age=7200; path=/; HttpOnly"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [],\n    \"msg\": \"You have successfully logged out\"\n}"
+				}
+			]
+		},
+		{
+			"name": "mehe.aimtech.am/api/users/get-user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorize",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWYwYmQ5MjkxNDQi.GbGjO8IQSyLSmzfifqM6ERurTClxQXsNdLkAX16BiQE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "mehe.aimtech.am/sport/api/users/get-user",
+					"host": [
+						"mehe",
+						"aimtech",
+						"am"
+					],
+					"path": [
+						"sport",
+						"api",
+						"users",
+						"get-user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorize",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWYwYmQ5MjkxNDQi.GbGjO8IQSyLSmzfifqM6ERurTClxQXsNdLkAX16BiQE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "mehe.aimtech.am/api/users/get-user",
+							"host": [
+								"mehe",
+								"aimtech",
+								"am"
+							],
+							"path": [
+								"api",
+								"users",
+								"get-user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2019 10:47:29 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "170"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"\",\n    \"data\": {\n        \"user\": {\n            \"username\": \"test\",\n            \"name\": \"Beirut\",\n            \"gender\": \"Female\",\n            \"email\": \"admin@gmail.com\",\n            \"mobile_number\": \"+37499099248\",\n            \"region\": \"Beirut\"\n        }\n    },\n    \"success\": true\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorize",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkOWYwYmQ5MjkxNDQi.GbGjO8IQSyLSmzfifqM6ERurTClxQXsNdLkAX16BiQE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/sport/api/users/get-user",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"get-user"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2019 10:49:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"User not found !\"\n}"
+				},
+				{
+					"name": "401",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorize",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUI1NiJ9.IjVkOWYwYmQ5MjkxNDQi.GbGjO8IQSyLSmzfifqM6ERurTClxQXsNdLkAX16BiQE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/sport/api/users/get-user",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"get-user"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2019 10:48:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=99"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Wrong Token Provided! \"\n}"
+				}
+			]
+		},
+		{
+			"name": "mehe.aimtech.am/api/users/forgot-password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "mkrtchyanarmenuhi@mail.ru",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "mehe.aimtech.am/api/users/forgot-password",
+					"host": [
+						"mehe",
+						"aimtech",
+						"am"
+					],
+					"path": [
+						"api",
+						"users",
+						"forgot-password"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "500",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "davidkocharyan94@yahoo.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sport/api/users/forgot-password",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"forgot-password"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2019 11:21:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [],\n    \"msg\": \"Server error, try again.\"\n}"
+				},
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sport/api/users/forgot-password",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"forgot-password"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2019 11:21:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Provide Email\"\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "davidkocharyan94@yahoo.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sport/api/users/forgot-password",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"forgot-password"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2019 11:19:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"User not found!\"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "davidkocharyan94@yahoo.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sport/api/users/forgot-password",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"users",
+								"forgot-password"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2019 11:21:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [],\n    \"msg\": \"Your New Password was sent to your MEHE email.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "mehe.aimtech.am/api/games/get-sport-type?limit=2&offset=1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorize",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYTk1ZjMyMTYxMDgi.NolOD8wecIKppOpo5FzMScRPTbXca8HLCrUBIJfi8OU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "mehe.aimtech.am/api/games/get-sport-type?limit=10",
+					"host": [
+						"mehe",
+						"aimtech",
+						"am"
+					],
+					"path": [
+						"api",
+						"games",
+						"get-sport-type"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "401",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-sport-type?limit=2&offset=1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-sport-type"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 17 Oct 2019 12:12:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \" Provide Authorize token!! \"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-sport-type?limit=2&offset=1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-sport-type"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 17 Oct 2019 12:11:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ci_sport_session=r02karlkpot32km061kgtq7u5gs2oapd; expires=Thu, 17-Oct-2019 14:11:58 GMT; Max-Age=7200; path=/; HttpOnly"
+						},
+						{
+							"key": "Content-Length",
+							"value": "278"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"sport\": [\n            {\n                \"id\": \"3\",\n                \"name\": \"Basketballvv\",\n                \"image\": \"plugins/images/sport/school_1570448556_1710342265.jpg\"\n            },\n            {\n                \"id\": \"4\",\n                \"name\": \"sdfsdfs\",\n                \"image\": \"plugins/images/sport/sport_1571234457_1526425261.jpg\"\n            }\n        ],\n        \"meta\": {\n            \"limit\": 2,\n            \"offset\": 2,\n            \"pages\": 2\n        }\n    },\n    \"msg\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "mehe.aimtech.am/api/games/get-games?limit=10&id=2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorize",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYTljNDk2ZWZjOGEi.wMEPlTdJQMebwm-7rHa5x7CG-UfTuxUkkhVBRW2B5jM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost/sport/api/games/get-games?limit=10",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sport",
+						"api",
+						"games",
+						"get-games"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "401",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-games?limit=10&action=2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-games"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "action",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 17 Oct 2019 13:55:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \" Provide Authorize token!! \"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-games?limit=10&offset=0&id=2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-games"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 17 Oct 2019 13:55:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "343"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"sport\": [\n            {\n                \"id\": \"5\",\n                \"place\": \"La bohem\",\n                \"time\": \"08 October 2019 - 05:25\",\n                \"active\": \"1\",\n                \"school_1_name\": \"Beirut\",\n                \"school_2_name\": \"Beirutasdasd\"\n            },\n            {\n                \"id\": \"3\",\n                \"place\": \"la bohem\",\n                \"time\": \"08 October 2019 - 05:25\",\n                \"active\": \"1\",\n                \"school_1_name\": \"Fizmat\",\n                \"school_2_name\": \"Beirut\"\n            }\n        ],\n        \"meta\": {\n            \"limit\": 10,\n            \"offset\": 0,\n            \"pages\": 1\n        }\n    },\n    \"msg\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "localhost/sport/api/games/get-game-students",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorize",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYTljNDk2ZWZjOGEi.wMEPlTdJQMebwm-7rHa5x7CG-UfTuxUkkhVBRW2B5jM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost/sport/api/games/get-game-students?id=3",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sport",
+						"api",
+						"games",
+						"get-game-students"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "401",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-game-students",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-game-students"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 18 Oct 2019 07:18:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \" Provide Authorize token!! \"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorize",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYTljNDk2ZWZjOGEi.wMEPlTdJQMebwm-7rHa5x7CG-UfTuxUkkhVBRW2B5jM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/sport/api/games/get-game-students?id=3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-game-students"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 18 Oct 2019 14:20:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1505"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"team_1\": {\n            \"id\": \"19\",\n            \"name\": \"New\",\n            \"students\": [\n                {\n                    \"id\": \"5\",\n                    \"name\": \"Mount Lebanon\",\n                    \"birthday\": \"2012-10-31\",\n                    \"gender\": \"Male\",\n                    \"image\": \"plugins/images/student/student_1570516483_724075984.jpg\",\n                    \"school_name\": \"Beirutasdasd\"\n                },\n                {\n                    \"id\": \"6\",\n                    \"name\": \"Volleyball\",\n                    \"birthday\": \"2012-10-31\",\n                    \"gender\": \"Male\",\n                    \"image\": \"plugins/images/student/student_1570454098_516196600.jpg\",\n                    \"school_name\": \"Beirutasdasd\"\n                },\n                {\n                    \"id\": \"7\",\n                    \"name\": \"Pargev\",\n                    \"birthday\": \"2012-10-31\",\n                    \"gender\": \"Male\",\n                    \"image\": \"plugins/images/student/student_1570455174_1120047375.jpg\",\n                    \"school_name\": \"Beirutasdasd\"\n                },\n                {\n                    \"id\": \"9\",\n                    \"name\": \"Mount Lebanonasdasd\",\n                    \"birthday\": \"2012-10-31\",\n                    \"gender\": \"Female\",\n                    \"image\": \"plugins/images/student/student_1571036547_1430839434.jpg\",\n                    \"school_name\": \"Beirutasdasd\"\n                }\n            ]\n        },\n        \"team_2\": {\n            \"id\": \"20\",\n            \"name\": \"1874\",\n            \"students\": [\n                {\n                    \"id\": \"5\",\n                    \"name\": \"Mount Lebanon\",\n                    \"birthday\": \"2012-10-31\",\n                    \"gender\": \"Male\",\n                    \"image\": \"plugins/images/student/student_1570516483_724075984.jpg\",\n                    \"school_name\": \"Beirutasdasd\"\n                },\n                {\n                    \"id\": \"6\",\n                    \"name\": \"Volleyball\",\n                    \"birthday\": \"2012-10-31\",\n                    \"gender\": \"Male\",\n                    \"image\": \"plugins/images/student/student_1570454098_516196600.jpg\",\n                    \"school_name\": \"Beirutasdasd\"\n                },\n                {\n                    \"id\": \"7\",\n                    \"name\": \"Pargev\",\n                    \"birthday\": \"2012-10-31\",\n                    \"gender\": \"Male\",\n                    \"image\": \"plugins/images/student/student_1570455174_1120047375.jpg\",\n                    \"school_name\": \"Beirutasdasd\"\n                },\n                {\n                    \"id\": \"9\",\n                    \"name\": \"Mount Lebanonasdasd\",\n                    \"birthday\": \"2012-10-31\",\n                    \"gender\": \"Female\",\n                    \"image\": \"plugins/images/student/student_1571036547_1430839434.jpg\",\n                    \"school_name\": \"Beirutasdasd\"\n                }\n            ]\n        }\n    },\n    \"msg\": \"\"\n}"
+				},
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-game-students",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-game-students"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 18 Oct 2019 07:18:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Provide Game\"\n}"
+				}
+			]
+		},
+		{
+			"name": "mehe.aimtech.am/api/games/get-referee?limit=2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/sport/api/games/get-referee?limit=2",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sport",
+						"api",
+						"games",
+						"get-referee"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-referee?limit=2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-referee"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 21 Oct 2019 09:45:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "289"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"referees\": [\n            {\n                \"id\": \"1\",\n                \"name_en\": \"pargev\",\n                \"name_ar\": \"pargev\",\n                \"mobile_number\": \"+10\",\n                \"count\": null,\n                \"status\": \"1\"\n            },\n            {\n                \"id\": \"2\",\n                \"name_en\": \"david\",\n                \"name_ar\": \"david\",\n                \"mobile_number\": \"+848151651651\",\n                \"count\": null,\n                \"status\": \"1\"\n            }\n        ],\n        \"meta\": {\n            \"limit\": 2,\n            \"offset\": 0,\n            \"pages\": 2\n        }\n    },\n    \"msg\": \"\"\n}"
+				},
+				{
+					"name": "401",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-referee?limit=2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-referee"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 21 Oct 2019 09:45:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \" Provide Authorize token!! \"\n}"
+				}
+			]
+		},
+		{
+			"name": "localhost/sport/api/games/get-points?id=8",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/sport/api/games/get-points?id=8",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sport",
+						"api",
+						"games",
+						"get-points"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-points?id=8",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-points"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 21 Oct 2019 11:52:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"points\": [\n            {\n                \"value\": \"1\"\n            },\n            {\n                \"value\": \"2\"\n            }\n        ]\n    },\n    \"msg\": \"\"\n}"
+				},
+				{
+					"name": "401",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-points?id=8",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-points"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 21 Oct 2019 11:53:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \" Provide Authorize token!! \"\n}"
+				},
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-points?id=",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-points"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 21 Oct 2019 11:52:49 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Provide Game\"\n}"
+				}
+			]
+		},
+		{
+			"name": "localhost/sport/api/games/end",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorize",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYjFhMjNiNjQwMDUi._IZa4kmj3eP9NaDmWQSLKC0ue-p7RJcZKMo8Y6fkvk4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "multipart/mixed",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "10",
+							"description": "game ID",
+							"type": "text"
+						},
+						{
+							"key": "team_1_id",
+							"value": "2",
+							"description": "Team 1 ID",
+							"type": "text"
+						},
+						{
+							"key": "team_2_id",
+							"value": "3",
+							"description": "Team 2 ID",
+							"type": "text"
+						},
+						{
+							"key": "team_1[]",
+							"value": "4",
+							"description": "Team  1 Selected students",
+							"type": "text"
+						},
+						{
+							"key": "team_2[]",
+							"value": "4",
+							"description": "Team  2 Selected students",
+							"type": "text"
+						},
+						{
+							"key": "team_1_best[]",
+							"value": "6",
+							"description": "Team   1 best players",
+							"type": "text"
+						},
+						{
+							"key": "team_2_best[]",
+							"value": "7",
+							"description": "Team  2 best players",
+							"type": "text"
+						},
+						{
+							"key": "team_1_score",
+							"value": "6",
+							"description": "Team  1 score",
+							"type": "text"
+						},
+						{
+							"key": "team_2_score",
+							"value": "9",
+							"description": "Team 2 score",
+							"type": "text"
+						},
+						{
+							"key": "info",
+							"value": "Some info",
+							"description": "info (optional)",
+							"type": "text"
+						},
+						{
+							"key": "signature_name[]",
+							"value": "Karen",
+							"description": "signature name array",
+							"type": "text"
+						},
+						{
+							"key": "signature_name[]",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "signature_image[]",
+							"contentType": "multipart/form-data",
+							"description": "signature image array",
+							"type": "file",
+							"src": "/C:/Users/user/Desktop/image/nathan-anderson-_tBeFVZPlPY-unsplash.jpg"
+						},
+						{
+							"key": "referee",
+							"value": "4",
+							"description": "referee ID ",
+							"type": "text"
+						},
+						{
+							"key": "game_images[]",
+							"contentType": "multipart/form-data",
+							"description": "game images",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "game_videos[]",
+							"contentType": "multipart/form-data",
+							"description": "game media",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/sport/api/games/end",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sport",
+						"api",
+						"games",
+						"end"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/sport/api/games/get-coaches?id=16",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/sport/api/games/get-coaches?id=16",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sport",
+						"api",
+						"games",
+						"get-coaches"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "16"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-coaches?id=16",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-coaches"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "16"
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Nov 2019 13:55:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Provide Game\"\n}"
+				},
+				{
+					"name": "401",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-coaches?id=",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-coaches"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Nov 2019 13:55:29 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \" Provide Authorize token!! \"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/sport/api/games/get-coaches?id=16",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sport",
+								"api",
+								"games",
+								"get-coaches"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "16"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Nov 2019 13:54:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.39 (Win64) OpenSSL/1.1.1c PHP/7.3.8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"coaches\": [\n            {\n                \"name_en\": \"Karma\",\n                \"id\": \"4\"\n            },\n            {\n                \"name_en\": \"Ziggs\",\n                \"id\": \"3\"\n            },\n            {\n                \"name_en\": \"asdasd\",\n                \"id\": \"6\"\n            }\n        ]\n    },\n    \"msg\": \"\"\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
