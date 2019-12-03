@@ -1,10 +1,11 @@
 <section class="main-baner generic-banner">
 	<figure>
-		<img class="hidden-xs" src="<?= base_url('plugins/images/banner/' . $banner->banner ?? '') ?>" alt="activity-baner">
-		<figcaption <?php if($lang == "ar") echo "style='display: flex; justify-content: flex-end;'"; ?> >
-			<p <?php if($lang == "ar") echo "style='text-align: right;'"; ?> >
+		<img class="hidden-xs" src="<?= base_url('plugins/images/banner/' . $banner->banner ?? '') ?>"
+			 alt="activity-baner">
+		<figcaption <?php if ($lang == "ar") echo "style='display: flex; justify-content: flex-end;'"; ?> >
+			<p <?php if ($lang == "ar") echo "style='text-align: right;'"; ?> >
 
-				<?= $banner->{"text_".$lang} ?? ""; ?>
+				<?= $banner->{"text_" . $lang} ?? ""; ?>
 			</p>
 		</figcaption>
 	</figure>
@@ -15,22 +16,47 @@
 <div class="container main-content">
 	<div class="row">
 		<?php foreach ($blogs as $key => $value) { ?>
-			<div class="col-md-4 col-lg-4 right-baner">
-				<a href="<?= base_url("$lang/topic/") . $value->blog_id ?>">
-					<img src="<?= base_url('plugins/images/blog/') . $value->image ?>" alt="blog_image">
-					<figcaption>
-						<p>
-							 <?php if ($lang == 'ar') { ?>
-								<?= $value->title_ar ?>
-							<?php } else { ?>
-								<?= $value->title_en ?>
-							<?php } ?>
-						</p>
-					</figcaption>
-				</a>
-			</div>
+
+
+			<?php if ($key == 0 OR $key % 7 == 0) { ?>
+				<section class="main-baner col-md-12 col-lg-12">
+					<figure>
+						<a href="<?= base_url("$lang/topic/") . $value->blog_id ?>">
+							<img class="hidden-xs"
+								 src="<?= base_url('plugins/images/blog/landscape/') . $value->landscape ?>"
+								 alt="blog_image">
+							<figcaption>
+								<p>
+									 <?php if ($lang == 'ar') { ?>
+										<?= $value->title_ar ?>
+									<?php } else { ?>
+										<?= $value->title_en ?>
+									<?php } ?>
+								</p>
+							</figcaption>
+						</a>
+					</figure>
+				</section>
+			<?php } else { ?>
+
+				<div class="col-md-4 col-lg-4 right-baner">
+					<a href="<?= base_url("$lang/topic/") . $value->blog_id ?>">
+						<img src="<?= base_url('plugins/images/blog/') . $value->image ?>" alt="blog_image">
+						<figcaption>
+							<p>
+								 <?php if ($lang == 'ar') { ?>
+									<?= $value->title_ar ?>
+								<?php } else { ?>
+									<?= $value->title_en ?>
+								<?php } ?>
+							</p>
+						</figcaption>
+					</a>
+				</div>
+			<?php } ?>
+
 		<?php } ?>
-		<div class="view-more-btn"><a href="<?= base_url("$lang/all-news?page=1")?>">View More</a></div>
+		<div class="view-more-btn"><a href="<?= base_url("$lang/all-news?page=1") ?>">View More</a></div>
 	</div>
 	<br>
 	<br>
@@ -65,7 +91,7 @@
 				</div>
 			</div>
 		<?php } ?>
-		<div class="view-more-btn"><a href="<?= base_url("$lang/all-upcoming-games?page=1")?>">View More</a></div>
+		<div class="view-more-btn"><a href="<?= base_url("$lang/all-upcoming-games?page=1") ?>">View More</a></div>
 	</div>
 </div>
 <br>

@@ -16,7 +16,7 @@ class Homes extends CI_Model
 		$this->db->join('blog_images', 'blog_id = blog.id');
 		$this->db->group_by('blog.id');
 		$this->db->order_by('blog.id DESC');
-		$this->db->limit(7);
+		$this->db->limit(11);
 		return $this->db->get_where('blog', array('blog.status' => 1))->result();
 	}
 

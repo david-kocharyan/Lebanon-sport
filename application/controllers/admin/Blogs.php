@@ -43,6 +43,31 @@ class Blogs extends CI_Controller
 			$this->create();
 			return;
 		} else {
+			//landscape upload
+			if (!empty($_FILES['landscape']['name']) || null != $_FILES['landscape']['name']) {
+				$image_info = getimagesize($_FILES["landscape"]["tmp_name"]);
+				$image_width = $image_info[0];
+				$image_height = $image_info[1];
+
+
+				if ($image_width != 1520 OR $image_height != 500) {
+					$this->session->set_flashdata('landscape', "Please insert correct image width and height");
+					$this->create();
+					return;
+				}
+
+				$image = $this->uploadLandscape('landscape');
+				if (isset($image['error'])) {
+					$this->session->set_flashdata('landscape', $image['error']);
+					$this->create();
+					return;
+				}
+				$landscape = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+			} else {
+				$this->session->set_flashdata('landscape', 'Image was required');
+				$this->create();
+				return;
+			}
 
 			$data = array(
 				'title_en' => $title_en,
@@ -50,6 +75,7 @@ class Blogs extends CI_Controller
 				'text_en' => $text_en,
 				'text_ar' => $text_ar,
 			);
+			if (isset($landscape)) $data['landscape'] = $landscape;
 
 			$id = $this->Blog->insert_topic($data);
 			if ($id != NULL) {
@@ -64,6 +90,10 @@ class Blogs extends CI_Controller
 					} else {
 						$this->db->insert_batch('blog_images', $images);
 					}
+				}else{
+					$this->session->set_flashdata('error', 'Image was required');
+					$this->create();
+					return;
 				}
 				$this->db->trans_complete();
 			}
@@ -92,9 +122,29 @@ class Blogs extends CI_Controller
 		$this->form_validation->set_rules('text_ar', 'Text AR', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->create();
+			$this->edit($id);
 			return;
 		} else {
+			//landscape upload
+			if (!empty($_FILES['landscape']['name']) || null != $_FILES['landscape']['name']) {
+				$image_info = getimagesize($_FILES["landscape"]["tmp_name"]);
+				$image_width = $image_info[0];
+				$image_height = $image_info[1];
+
+
+				if ($image_width != 1520 OR $image_height != 500) {
+					$this->session->set_flashdata('landscape', "Please insert correct image width and height");
+					$this->edit($id);
+					return;
+				}
+				$image = $this->uploadLandscape('landscape');
+				if (isset($image['error'])) {
+					$this->session->set_flashdata('landscape', $image['error']);
+					$this->edit($id);
+					return;
+				}
+				$landscape = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
+			}
 
 			$data = array(
 				'title_en' => $title_en,
@@ -102,6 +152,7 @@ class Blogs extends CI_Controller
 				'text_en' => $text_en,
 				'text_ar' => $text_ar,
 			);
+			if (isset($landscape)) $data['landscape'] = $landscape;
 
 			$this->Blog->update($data, $id);
 
@@ -121,6 +172,30 @@ class Blogs extends CI_Controller
 		redirect("admin/blog");
 	}
 
+//	landscape
+	private function uploadLandscape($image)
+	{
+		if (!is_dir(FCPATH . "/plugins/images/blog/landscape")) {
+			mkdir(FCPATH . "/plugins/images/blog/landscape", 0755, true);
+		}
+
+		$path = FCPATH . "/plugins/images/blog/landscape";
+		$config['upload_path'] = $path;
+		$config['file_name'] = 'landscape_' . time() . '_' . rand();
+		$config['allowed_types'] = 'jpg|png|jpeg';
+		$config['max_size'] = 100000;
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload($image)) {
+			$errorStrings = strip_tags($this->upload->display_errors());
+			$error = array('error' => $errorStrings, 'image' => $image);
+			return $error;
+		} else {
+			$uploadedImage = $this->upload->data();
+			$data = array('data' => $uploadedImage);
+			return $data;
+		}
+	}
 
 	private function upload_files($files, $id)
 	{
@@ -199,7 +274,7 @@ class Blogs extends CI_Controller
 
 	public function update_image($id)
 	{
-		$old_image =  $this->db->get_where('blog_images', array('id' => $id))->row();
+		$old_image = $this->db->get_where('blog_images', array('id' => $id))->row();
 
 		if (!empty($_FILES['image']['name']) || null != $_FILES['image']['name']) {
 			unlink(FCPATH . "/plugins/images/blog/" . $old_image->image);
@@ -213,7 +288,7 @@ class Blogs extends CI_Controller
 			$image = isset($image['data']['file_name']) ? $image['data']['file_name'] : "";
 		}
 
-		if (isset($image)){
+		if (isset($image)) {
 			$this->db->set('image', $image);
 			$this->db->where('id', $id);
 			$this->db->update('blog_images');

@@ -70,6 +70,20 @@
 
 						<div class="col-md-12">
 							<div class="form-group">
+								<label class="control-label">Landscape image</label><br>
+								<strong>Please select a picture with a width more than 1000 and a height of less than 2000</strong>
+								<?php if (!empty($this->session->flashdata('landscape'))) { ?>
+									<div class="help-block with-errors text-danger">
+										<?= $this->session->flashdata('landscape'); ?>
+									</div>
+								<?php } ?>
+								<input type="file" id="input-file-now" class="dropify" name="landscape" data-height="500"
+									   data-default-file="<?= base_url('plugins/images/blog/landscape/') . $blog->landscape; ?>"/>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="form-group">
 								<label class="control-label">Images</label>
 								<?php if (!empty($this->session->flashdata('error'))) { ?>
 									<div class="help-block with-errors text-danger">
@@ -90,6 +104,7 @@
 	</div>
 </div>
 
+<!--image part-->
 <div class="col-md-12 col-sm-12">
 	<div class="white-box">
 
@@ -108,7 +123,8 @@
 					<tr>
 						<td><?= $key + 1 ?></td>
 						<td>
-							<img src="<?= base_url('/plugins/images/blog/').$value->image ?>" alt="image" width="200" height="200" class="img-responsive">
+							<img src="<?= base_url('/plugins/images/blog/') . $value->image ?>" alt="image" width="200"
+								 height="200" class="img-responsive">
 						</td>
 						<td><?= $value->status; ?></td>
 						<td>

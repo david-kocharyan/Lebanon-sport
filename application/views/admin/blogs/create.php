@@ -32,7 +32,8 @@
 											<?= form_error('title_ar'); ?>
 										</div>
 									<?php } ?>
-									<input type="text" id="firstName" class="form-control" name="title_ar" style="resize: none; direction: rtl"
+									<input type="text" id="firstName" class="form-control" name="title_ar"
+										   style="resize: none; direction: rtl"
 										   value="<?= $this->input->post("title_ar"); ?>">
 								</div>
 							</div>
@@ -47,7 +48,8 @@
 											<?= form_error('text_en'); ?>
 										</div>
 									<?php } ?>
-									<textarea name="text_en" id="" cols="60" rows="10" class="form-control" style="resize: none; direction: ltr"><?= $this->input->post('text_en'); ?></textarea>
+									<textarea name="text_en" id="" cols="60" rows="10" class="form-control"
+											  style="resize: none; direction: ltr"><?= $this->input->post('text_en'); ?></textarea>
 								</div>
 							</div>
 
@@ -59,7 +61,8 @@
 											<?= form_error('text_ar'); ?>
 										</div>
 									<?php } ?>
-									<textarea name="text_ar" id="" cols="60" rows="10" class="form-control" style="resize: none; direction: rtl"><?= $this->input->post('text_ar'); ?></textarea>
+									<textarea name="text_ar" id="" cols="60" rows="10" class="form-control"
+											  style="resize: none; direction: rtl"><?= $this->input->post('text_ar'); ?></textarea>
 								</div>
 							</div>
 						</div>
@@ -77,11 +80,27 @@
 						</div>
 					</div>
 
-					<div class="form-actions">
-						<button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Save</button>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="control-label">Landscape Image</label><br>
+							<strong>Please select a picture with a width more than 1000 and a height of less than
+								2000</strong>
+							<?php if (!empty($this->session->flashdata('landscape'))) { ?>
+								<div class="help-block with-errors text-danger">
+									<?= $this->session->flashdata('landscape'); ?>
+								</div>
+							<?php } ?>
+							<input type="file" name="landscape" class="form-control">
+						</div>
 					</div>
-				</form>
 			</div>
+
+			<div class="form-actions">
+				<button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Save</button>
+			</div>
+			</form>
 		</div>
 	</div>
+</div>
 </div>
