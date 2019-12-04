@@ -54,7 +54,8 @@
 
 			<section class="gerneric-banner">
 				<?= $game->team_1_name; ?>
-				<a href="<?= base_url("$lang/game-school/") . $game->team_1_id; ?>">See Detail <i class="fa fa-chevron-right"></i></a>
+				<a href="<?= base_url("$lang/game-school/") . $game->team_1_id; ?>">See Detail <i
+						class="fa fa-chevron-right"></i></a>
 			</section>
 			<div class="carousel">
 				<div class="slideControls">
@@ -95,7 +96,8 @@
 
 			<section class="gerneric-banner">
 				<?= $game->team_2_name; ?>
-				<a href="<?= base_url("$lang/game-school/") . $game->team_2_id; ?>" >See Detai <i class="fa fa-chevron-right"></i></a>
+				<a href="<?= base_url("$lang/game-school/") . $game->team_2_id; ?>">See Detai <i
+						class="fa fa-chevron-right"></i></a>
 			</section>
 			<div class="carousel">
 				<div class="slideControls2">
@@ -197,7 +199,8 @@
 								</p>
 							</div>
 							<div class="col-md- col-lg-6 img-responsive"><img src="<?= base_url() . $value->image ?>"
-																	  alt="Best Player" width="200" height="200"></div>
+																			  alt="Best Player" width="200"
+																			  height="200"></div>
 						</div>
 					</div>
 				<?php } ?>
@@ -205,65 +208,48 @@
 		</div>
 	</div>
 
-	<style>
-		#gallery {
-			-webkit-column-count: 4;
-			-moz-column-count: 4;
-			column-count: 4;
-
-			-webkit-column-gap: 20px;
-			-moz-column-gap: 20px;
-			column-gap: 20px;
-		}
-
-		.card {
-			width: 100%;
-			height: auto;
-			margin: 4% auto;
-			cursor: pointer;
-		}
-
-		.modal-img, .model-vid {
-			width: 100%;
-			height: auto;
-		}
-
-		.modal-body {
-			padding: 0px;
-		}
-	</style>
-
 	<div class="game-content">
 		<div class="heading mt150"><h2>Game Content</h2></div>
 		<div class="panel1 gal">
 			<div id="gallery">
 
 				<?php foreach ($image as $key => $value) { ?>
-					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/images/' . $value->image))[0] == "image") { ?>
-						<img src="<?= base_url('plugins/images/end/images/') . $value->image ?>" class="card img-responsive">
+					<?php if (file_exists(FCPATH . 'plugins/images/end/images/' . $value->image)) { ?>
+						<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/images/' . $value->image))[0] == "image") { ?>
+							<img src="<?= base_url('plugins/images/end/images/') . $value->image ?>"
+								 class="card img-responsive">
+						<?php } ?>
 					<?php } ?>
 				<?php } ?>
 
 				<?php foreach ($media as $key) { ?>
-					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] == "image") { ?>
-						<img src="<?= base_url('plugins/images/end/media/') . $key->media ?>" class="card img-responsive">
+					<?php if (file_exists(FCPATH . 'plugins/images/end/media/' . $key->media)) { ?>
+						<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] == "image") { ?>
+							<img src="<?= base_url('plugins/images/end/media/') . $key->media ?>"
+								 class="card img-responsive">
+						<?php } ?>
 					<?php } ?>
 				<?php } ?>
 
 				<?php foreach ($media as $key) { ?>
-					<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] != "image") { ?>
-						<video width="500" height="500" controls class="card vid">
-							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/mp4">
-							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/ogg">
-							<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>" type="video/3gp">
-							Your browser does not support the video tag.
-						</video>
+					<?php if (file_exists(FCPATH . 'plugins/images/end/media/' . $key->media)) { ?>
+						<?php if (explode("/", mime_content_type(FCPATH . 'plugins/images/end/media/' . $key->media))[0] != "image") { ?>
+							<video width="500" height="500" controls class="card vid">
+								<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>"
+										type="video/mp4">
+								<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>"
+										type="video/ogg">
+								<source src="<?= base_url('plugins/images/end/media/') . $key->media; ?>"
+										type="video/3gp">
+								Your browser does not support the video tag.
+							</video>
+						<?php } ?>
 					<?php } ?>
 				<?php } ?>
 			</div>
 
 			<div id="myModal" class="modal fade" role="dialog">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-lg modal-dialog-centered">
 					<div class="modal-content">
 						<div class="modal-body">
 							<p>Some text in the modal.</p>

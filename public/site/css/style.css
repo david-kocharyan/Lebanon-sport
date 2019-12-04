@@ -3065,3 +3065,28 @@ table{
 		padding: 10px;
 	}
 }
+
+
+/*game result gallery*/
+#gallery {
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	column-count: 3;
+
+	-webkit-column-gap: 20px;
+	-moz-column-gap: 20px;
+	column-gap: 20px;
+}
+.card {
+	width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.modal-img, .model-vid {
+	width: 100%;
+	height: auto;
+}
+.modal-body {
+	padding: 0px;
+}
