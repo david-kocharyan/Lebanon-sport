@@ -32,16 +32,18 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav nav">
-						<li class="title">
+						<div class="grad"
+							 style="visibility: hidden; position: absolute; height: 5px; bottom: 0; z-index: 111;	background: linear-gradient(90deg, rgba(77,169,152,1) 0%, rgba(77,169,152,1) 71%, rgba(40,61,90,0.8827906162464986) 92%);"></div>
+						<li class="title" data-item="home">
 							<a href="<?= base_url("$lang/") ?>" class="scroll"><?= lang('home'); ?></a>
 						</li>
-						<li class="title">
+						<li class="title" data-item="news">
 							<a href="<?= base_url("$lang/") ?>#news" class="scroll"><?= lang('news'); ?></a>
 						</li>
-						<li class="title">
+						<li class="title" data-item="games">
 							<a href="<?= base_url("$lang/") ?>#games" class="scroll"><?= lang('upcoming'); ?></a>
 						</li>
-						<li class="title dropdown">
+						<li class="title dropdown" data-item="upcoming">
 							<a href="#" class="dropdown-toggle"><?= lang('activites'); ?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<?php foreach ($sport_types as $key => $value) { ?>
@@ -57,7 +59,7 @@
 								} ?>
 							</ul>
 						</li>
-						<li class="title">
+						<li class="title" data-item="contact">
 							<a href="<?= base_url("$lang/") ?>#contact" class="scroll"><?= lang('contact'); ?></a>
 						</li>
 
@@ -73,3 +75,36 @@
 		</div>
 	</header>
 
+
+	<script>
+        $(document).ready(function () {
+            $(".title").mouseover(function () {
+                var x = $(this).position().left + 10;
+                $('.grad').css({
+                    'margin-left': x,
+                    'transition': '0.3s',
+                    'visibility': 'visible',
+                });
+
+                if ($(this).data("item") == 'home') {
+                    $('.grad').css({'width': '95%'});
+                } else if ($(this).data("item") == 'news') {
+                    $('.grad').css({'width': '80%'});
+                } else if ($(this).data("item") == 'games') {
+                    $('.grad').css({'width': '65%'});
+                } else if ($(this).data("item") == 'upcoming') {
+                    $('.grad').css({'width': '45%'});
+                } else if ($(this).data("item") =='contact') {
+                    $('.grad').css({'width': '25%'});
+                }
+            })
+
+
+            $(".title").mouseout(function () {
+                $('.grad').css({
+                    'transition': '0s',
+                    'visibility': 'hidden',
+                });
+            })
+        })
+	</script>
