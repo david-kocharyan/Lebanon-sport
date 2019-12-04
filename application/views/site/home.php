@@ -100,7 +100,7 @@
 <div class="generic-form">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-lg-6">
+			<div class="col-sm-12  col-md-6 col-lg-6">
 				<div class="container">
 
 					<form action="send-msg" method="post">
@@ -139,7 +139,7 @@
 						</div>
 				</div>
 			</div>
-			<div class="col-md-8 col-lg-6">
+			<div class="col-sm-12 col-md-6 col-lg-6">
 				<div class="container">
 					<?php if (!empty(form_error('msg'))) { ?>
 						<div class="help-block with-errors text-danger">

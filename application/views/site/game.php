@@ -2,17 +2,17 @@
 	<div class="heading"><h2>Game Result</h2></div>
 	<div class="result-banner">
 		<div class="row">
-			<div class="col-lg-5"><?= $game->team_1_name; ?></div>
-			<div class="col-lg-2 text-center"><?= $game->score_1 . " - " . $game->score_2; ?></div>
-			<div class="col-lg-5 text-center"><?= $game->team_1_name; ?></div>
+			<div class="col-sm-5 col-md-5 col-lg-5"><?= $game->team_1_name; ?></div>
+			<div class="col-sm-2  col-md-2 col-lg-2 text-center"><?= $game->score_1 . " - " . $game->score_2; ?></div>
+			<div class="col-sm-5  col-md-5 col-lg-5 text-center"><?= $game->team_1_name; ?></div>
 		</div>
 	</div>
 	<div class="heading"><h2>Referee/Observer</h2></div>
 	<div class="refer-banner">
 		<div class="row">
-			<div class="col-lg-5">
+			<div class="col-md-5 col-lg-5">
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-md-6 col-lg-6">
 						<img src="<?= base_url() . $game->ref_image ?>" alt="Referee" width="200" height="200">
 					</div>
 					<div class="col-lg-6 refer-text">
@@ -27,11 +27,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-2">
+			<div class="col-md-2 col-lg-2">
 			</div>
-			<div class="col-lg-5">
+			<div class="col-md-5 col-lg-5">
 				<div class="row">
-					<div class="col-lg-6 refer-text">
+					<div class="col-md-6 col-lg-6 refer-text">
 						<p class="refer-name">
 							<?php if ($lang == 'ar') { ?>
 								<?= $game->observer_ar; ?>
@@ -54,8 +54,7 @@
 
 			<section class="gerneric-banner">
 				<?= $game->team_1_name; ?>
-				<a href="<?= base_url("$lang/game-school/") . $game->team_1_id; ?>"
-				   style="position: absolute; left: 75%; color: white; font-size: 20px;">See details ></a>
+				<a href="<?= base_url("$lang/game-school/") . $game->team_1_id; ?>">See Detail <i class="fa fa-chevron-right"></i></a>
 			</section>
 			<div class="carousel">
 				<div class="slideControls">
@@ -96,8 +95,7 @@
 
 			<section class="gerneric-banner">
 				<?= $game->team_2_name; ?>
-				<a href="<?= base_url("$lang/game-school/") . $game->team_2_id; ?>"
-				   style="position: absolute; left: 75%; color: white; font-size: 20px;">See details ></a>
+				<a href="<?= base_url("$lang/game-school/") . $game->team_2_id; ?>" >See Detai <i class="fa fa-chevron-right"></i></a>
 			</section>
 			<div class="carousel">
 				<div class="slideControls2">
@@ -151,11 +149,12 @@
 		<div class="row">
 			<?php foreach ($best as $key => $value) { ?>
 				<?php if ($value->school_id == $team_1[0]->school_id) { ?>
-					<div class="col-lg-5">
+					<div class="col-md-5 col-lg-5">
 						<div class="row">
-							<div class="col-lg-6 img-responsive"><img src="<?= base_url() . $value->image ?>"
-																	  alt="Best Player" width="200" height="200"></div>
-							<div class="col-lg-6 refer-text">
+							<div class="col-md-6 col-lg-6 img-responsive">
+								<img src="<?= base_url() . $value->image ?>" alt="Best Player" width="200" height="200">
+							</div>
+							<div class="col-md-6  col-lg-6 refer-text">
 								<p class="refer-name">
 									<?php if ($lang == 'ar') { ?>
 										<?= $value->name_ar; ?>
@@ -175,14 +174,14 @@
 				<?php } ?>
 			<?php } ?>
 
-			<div class="col-lg-2"></div>
+			<div class="col-md-2 col-lg-2"></div>
 
 
 			<?php foreach ($best as $key => $value) { ?>
 				<?php if ($value->school_id == $team_2[0]->school_id) { ?>
-					<div class="col-lg-5">
+					<div class="col-md-5 col-lg-5">
 						<div class="row">
-							<div class="col-lg-6 refer-text">
+							<div class="col-md-6 col-lg-6 refer-text">
 								<p class="refer-name">
 									<?php if ($lang == 'ar') { ?>
 										<?= $value->name_ar; ?>
@@ -197,7 +196,7 @@
 									<?php } ?>
 								</p>
 							</div>
-							<div class="col-lg-6 img-responsive"><img src="<?= base_url() . $value->image ?>"
+							<div class="col-md- col-lg-6 img-responsive"><img src="<?= base_url() . $value->image ?>"
 																	  alt="Best Player" width="200" height="200"></div>
 						</div>
 					</div>

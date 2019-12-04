@@ -60,17 +60,16 @@
 						<li class="title">
 							<a href="<?= base_url("$lang/") ?>#contact" class="scroll"><?= lang('contact'); ?></a>
 						</li>
-						<li>
-							<select name="language" id="lang">
-								<option value="en" <?php if ($this->session->userdata("lang") == "en") echo "selected"; ?>>EN
-								</option>
-								<option value="ar" <?php if ($this->session->userdata("lang") == "ar") echo "selected"; ?>>AR
-								</option>
-							</select>
-						</li>
-					</ul>
 
+					</ul>
 				</div>
+			</nav>
+			<select name="language" id="lang">
+				<option value="en" <?php if ($this->session->userdata("lang") == "en") echo "selected"; ?>>EN
+				</option>
+				<option value="ar" <?php if ($this->session->userdata("lang") == "ar") echo "selected"; ?>>AR
+				</option>
+			</select>
 		</div>
 	</header>
 

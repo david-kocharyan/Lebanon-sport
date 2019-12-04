@@ -13,7 +13,7 @@
 	<div class="heading"><h2>Game Fixtures</h2></div>
 
 	<div class="row">
-		<div class="col-md-8 col-lg-7">
+		<div class="col-md-6 col-lg-7">
 			<?php foreach ($game as $key => $value) { ?>
 				<div class="game-details">
 					<div class="game-details-top">
@@ -62,7 +62,7 @@
 		</div>
 
 		<!--search part-->
-		<div class="col-md-8 col-lg-4 right-banner">
+		<div class="col-md-6 col-lg-4 right-banner">
 			<div class="app mb25">
 				<div class="app__main">
 					<span class="decoration-row"></span>
