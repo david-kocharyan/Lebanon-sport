@@ -16,9 +16,14 @@ figure img{
 	width:100%;
 
 }
-header{
-	background:#283d5a;
-	height:120px;
+.navbar-brand img{
+	width: 70%;
+	margin-top: 4px;
+}
+
+header {
+	background: #283d5a;
+	height: 90px;
 }
 .mobile-txt{
 	display: none;
@@ -271,7 +276,7 @@ body{
 #lang {
 	background: #58ad9d;
 	border: none;
-	top: 56px;
+	top: 36px;
 	color: #fff;
 	padding: 3px 10px;
 	position: absolute;
@@ -289,7 +294,7 @@ body{
 }
 header .dropdown-menu {
 	margin: 0;
-	min-width: 13rem;
+	min-width: 12.6rem;
 	border: none;
 	border-radius: 0;
 	background: #4DA998;
@@ -332,11 +337,12 @@ header .dropdown-menu {
 .gerneric-banner a:hover{
 	text-decoration: none;
 }
-.title a{
-	color:#fff;
-	text-decoration:none;
-	display:block;
-	padding: 54px 16px 42px 14px;
+.title a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 36px 16px 30px 14px;
+	/* height: 101px; */
 }
 .title:after {
 	content: " ";
