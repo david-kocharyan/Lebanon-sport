@@ -58,6 +58,7 @@ class Activites extends CI_Controller
 		$data['lang'] = $this->session->userdata("lang");
 		$data['title'] = 'Activites';
 		$data['sport'] = $this->db->get_where('sport_types', array("id" => $id, 'status' => 1))->row();
+
 		layouts_site($data, 'site/activites.php');
 	}
 
@@ -83,11 +84,16 @@ class Activites extends CI_Controller
 		$this->db->select('games.id as id, games.place as place, FROM_UNIXTIME(games.time, "%D %M %Y %h:%i") as time, 
 		 games.status as status, schools_1.name_en as schools_1_name_en, schools_1.name_ar as schools_1_name_ar,
 		 schools_2.name_en as schools_2_name_en, schools_2.name_ar as schools_2_name_ar,
-		 teams_1.name as teams_1_name, teams_2.name as teams_2_name');
+		 teams_1.name as teams_1_name, teams_2.name as teams_2_name,
+		 reg_1.name_en as reg_1_en, reg_1.name_ar as reg_1_ar,
+		 reg_2.name_en as reg_2_en, reg_2.name_ar as reg_2_ar');
 
 		$this->db->join('game_schools', 'game_schools.game_id = games.id');
 		$this->db->join('schools as schools_1', 'schools_1.id = game_schools.school_id_1');
 		$this->db->join('schools as schools_2', 'schools_2.id = game_schools.school_id_2');
+
+		$this->db->join('regions as reg_1', 'reg_1.id = schools_1.region_id');
+		$this->db->join('regions as reg_2', 'reg_2.id = schools_2.region_id');
 
 		$this->db->join('game_teams', 'game_teams.game_id = games.id');
 		$this->db->join('teams as teams_1', 'teams_1.id = game_teams.team_1');
