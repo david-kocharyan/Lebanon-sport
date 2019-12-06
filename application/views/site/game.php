@@ -1,4 +1,4 @@
-<div class="container main-content">
+<div class="container main-content referee-banner">
 	<div class="heading"><h2>Game Result</h2></div>
 	<div class="result-banner">
 		<div class="row">
@@ -10,7 +10,7 @@
 	<div class="heading"><h2>Referee/Observer</h2></div>
 	<div class="refer-banner">
 		<div class="row">
-			<div class="col-md-5 col-lg-5">
+			<div class="col-sm-5 col-md-5 col-lg-5">
 				<div class="row">
 					<div class="col-md-6 col-lg-6">
 						<img src="<?= base_url() . $game->ref_image ?>" alt="Referee" width="200" height="200">
@@ -27,9 +27,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-2 col-lg-2">
+			<div class="col-sm-2  col-md-2 col-lg-2">
 			</div>
-			<div class="col-md-5 col-lg-5">
+			<div class="col-sm-5 col-md-5 col-lg-5">
 				<div class="row">
 					<div class="col-md-6 col-lg-6 refer-text">
 						<p class="refer-name">
@@ -151,7 +151,7 @@
 		<div class="row">
 			<?php foreach ($best as $key => $value) { ?>
 				<?php if ($value->school_id == $team_1[0]->school_id) { ?>
-					<div class="col-md-5 col-lg-5">
+					<div class="col-sm-5  col-md-5 col-lg-5">
 						<div class="row">
 							<div class="col-md-6 col-lg-6 img-responsive">
 								<img src="<?= base_url() . $value->image ?>" alt="Best Player" width="200" height="200">
@@ -176,12 +176,12 @@
 				<?php } ?>
 			<?php } ?>
 
-			<div class="col-md-2 col-lg-2"></div>
+			<div class="col-sm-2 col-md-2 col-lg-2"></div>
 
 
 			<?php foreach ($best as $key => $value) { ?>
 				<?php if ($value->school_id == $team_2[0]->school_id) { ?>
-					<div class="col-md-5 col-lg-5">
+					<div class="col-sm-5 col-md-5 col-lg-5">
 						<div class="row">
 							<div class="col-md-6 col-lg-6 refer-text">
 								<p class="refer-name">
@@ -288,9 +288,27 @@
             controls: false,
             item: 4,
             auto: true,
-            loop: true
+            loop: true,
+            responsive : [
+                {
+                    breakpoint:800,
+                    settings: {
+                        item:3,
+                        slideMove:1,
+                        slideMargin:6,
+                    }
+                },
+                {
+                    breakpoint:480,
+                    settings: {
+                        item:1,
+                        slideMove:1
+                    }
+                }
+            ]
 
         });
+
         $('.slideControls .slidePrev').click(function () {
             slider.goToPrevSlide();
         });
@@ -304,7 +322,24 @@
             controls: false,
             auto: true,
             item: 4,
-            loop: true
+            loop: true,
+            responsive : [
+                {
+                    breakpoint:800,
+                    settings: {
+                        item:3,
+                        slideMove:1,
+                        slideMargin:6,
+                    }
+                },
+                {
+                    breakpoint:480,
+                    settings: {
+                        item:1,
+                        slideMove:1
+                    }
+                }
+            ]
         });
         $('.slideControls2 .slidePrev').click(function () {
             slider2.goToPrevSlide();

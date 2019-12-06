@@ -21,6 +21,9 @@
 <div class="wrapper">
 	<header>
 		<div class="container header-inner">
+			<div class="grad"
+				 style="visibility: hidden; position: absolute; height: 6px; bottom: 0; z-index: 111;	background: linear-gradient(90deg, rgba(77,169,152,1) 0%, rgba(77,169,152,1) 71%, rgba(40,61,90,0.8827906162464986) 92%);"></div>
+
 			<nav class="navbar navbar-expand-lg">
 
 				<a class="navbar-brand" href="<?= base_url("$lang/") ?>">
@@ -32,8 +35,6 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav nav">
-						<div class="grad"
-							 style="visibility: hidden; position: absolute; height: 5px; bottom: 0; z-index: 111;	background: linear-gradient(90deg, rgba(77,169,152,1) 0%, rgba(77,169,152,1) 71%, rgba(40,61,90,0.8827906162464986) 92%);"></div>
 						<li class="title" data-item="home">
 							<a href="<?= base_url("$lang/") ?>" class="scroll"><?= lang('home'); ?></a>
 						</li>
@@ -79,17 +80,19 @@
 	<script>
         $(document).ready(function () {
             $(".title").mouseover(function () {
-                var x = $(this).position().left + 10;
+                var x = $(this).position().left+150;
+                console.log(x)
                 $('.grad').css({
                     'margin-left': x,
-                    'transition': '0.3s',
+                    // 'transition': '0.3s',
+                    // 'transition-delay' : 'all 3s 1s',
                     'visibility': 'visible',
                 });
 
                 if ($(this).data("item") == 'home') {
                     $('.grad').css({'width': '95%'});
                 } else if ($(this).data("item") == 'news') {
-                    $('.grad').css({'width': '80%'});
+                    $('.grad').css({'width': '60%'});
                 } else if ($(this).data("item") == 'games') {
                     $('.grad').css({'width': '65%'});
                 } else if ($(this).data("item") == 'upcoming') {

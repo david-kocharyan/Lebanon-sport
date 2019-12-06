@@ -8,9 +8,14 @@
 				<?= $banner->{"text_" . $lang} ?? ""; ?>
 			</p>
 		</figcaption>
-	</figure>
-</section>
 
+	</figure>
+
+</section>
+<p  class="mobile-txt" <?php if ($lang == "ar") echo "style='text-align: right;'"; ?> >
+
+	<?= $banner->{"text_" . $lang} ?? ""; ?>
+</p>
 <div id="news" style="height: 40px;"></div>
 <div class="heading"><h2>Blogs</h2></div>
 <div class="container main-content">
