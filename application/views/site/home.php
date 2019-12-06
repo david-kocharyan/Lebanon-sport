@@ -90,13 +90,10 @@
 							<?= $value->teams_1_name . " - " . $value->teams_2_name ?>
 						</p>
 					</div>
-					<div class="game-details-footer">
-						<a href="<?= base_url("$lang/") . "upcoming-game/" . $value->id ?>">See Details &gt;</a>
-					</div>
 				</div>
 			</div>
 		<?php } ?>
-		<div class="view-more-btn"><a href="<?= base_url("$lang/all-upcoming-games?page=1") ?>">View More</a></div>
+		<div class="view-more-btn  upcoming-btn"><a href="<?= base_url("$lang/all-upcoming-games?page=1") ?>">View More</a></div>
 	</div>
 </div>
 <br>
