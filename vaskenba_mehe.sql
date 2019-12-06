@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 02, 2019 at 04:33 AM
+-- Generation Time: Dec 06, 2019 at 07:30 AM
 -- Server version: 5.6.41-84.1
 -- PHP Version: 7.2.7
 
@@ -112,18 +112,9 @@ CREATE TABLE `blog` (
   `title_ar` varchar(255) NOT NULL,
   `text_en` text NOT NULL,
   `text_ar` text NOT NULL,
+  `landscape` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `blog`
---
-
-INSERT INTO `blog` (`id`, `title_en`, `title_ar`, `text_en`, `text_ar`, `status`) VALUES
-(30, 'Lorem', 'Lorem', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id tristique urna. Integer interdum ut ex quis rutrum. Quisque et eros justo. Phasellus vestibulum pulvinar sagittis. Suspendisse id tristique nulla. Maecenas volutpat pretium cursus. Nunc ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id tristique urna. Integer interdum ut ex quis rutrum. Quisque et eros justo. Phasellus vestibulum pulvinar sagittis. Suspendisse id tristique nulla. Maecenas volutpat pretium cursus. Nunc ', 1),
-(31, 'Lorem', 'Lorem', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id tristique urna. Integer interdum ut ex quis rutrum. Quisque et eros justo. Phasellus vestibulum pulvinar sagittis. Suspendisse id tristique nulla. Maecenas volutpat pretium cursus. Nunc ', 'new', 1),
-(32, 'Lorem', 'Lorem', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat consequat ultricies. Ut porttitor ex vitae lacus vestibulum interdum. Phasellus eleifend metus sit amet nunc efficitur consequat. Donec in lacus mauris. Aenean mauris massa, congue vest', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat consequat ultricies. Ut porttitor ex vitae lacus vestibulum interdum. Phasellus eleifend metus sit amet nunc efficitur consequat. Donec in lacus mauris. Aenean mauris massa, congue vest', 1),
-(33, 'Lorem', 'Lorem', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat consequat ultricies. Ut porttitor ex vitae lacus vestibulum interdum. Phasellus eleifend metus sit amet nunc efficitur consequat. Donec in lacus mauris. Aenean mauris massa, congue vestibulum euismod in, porta et quam. Aenean luctus, ligula sit amet rutrum elementum, velit tortor commodo tellus, a ullamcorper odio elit et risus. Nunc id finibus purus, id ultrices nibh. Nulla semper metus felis, non mollis odio efficitur nec. Sed blandit quam vel purus cursus, varius tristique ante gravida. Nullam ut elementum nibh. Nam ut vehicula nulla.\r\n\r\nCurabitur sit amet dapibus libero, vel accumsan dolor. Nunc lacinia velit ex, faucibus porta nisl euismod rhoncus. Pellentesque bibendum enim nulla, ut facilisis felis varius sed. Praesent dui nulla, gravida quis lacus in, sagittis porta nisi. Phasellus varius est non maximus elementum. Fusce in vulputate ex. Sed feugiat consectetur tortor id maximus. Sed eget congue ipsum. Donec velit magna, fringilla sed elit vitae, semper condimentum lectus. Duis feugiat et metus nec mattis. Curabitur semper fermentum justo, at mollis odio rhoncus sed. Nunc egestas viverra maximus. Maecenas quis metus ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque mattis sit amet dolor hendrerit interdum.\r\n\r\nUt malesuada, ligula ut efficitur tincidunt, quam lacus consequat libero, hendrerit faucibus elit sem et nibh. Ut dolor quam, imperdiet non magna laoreet, hendrerit ullamcorper sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi nec convallis nibh, vel malesuada mi. Curabitur dolor odio, tempus quis orci sed, convallis volutpat magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla quis malesuada neque. Nam sit amet faucibus dui, ac ultricies augue. Phasellus accumsan ornare metus, sit amet euismod erat ultricies molestie. Aliquam rutrum posuere sapien ac condimentum. Vestibulum aliquam mi diam, id sagittis libero vulputate vitae. Donec in tincidunt purus, eu convallis elit.\r\n\r\nClass aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ullamcorper neque vel odio faucibus, nec posuere nisi ultricies. Nulla nec congue ligula. Fusce maximus tincidunt odio quis sagittis. Donec placerat sollicitudin mauris. Curabitur rhoncus nulla ut elit auctor pulvinar. Donec lobortis turpis et vehicula vestibulum. Sed dui neque, vehicula ac diam et, efficitur rhoncus mauris. Suspendisse ante nulla, ultricies rhoncus diam eget, feugiat placerat ex. Sed eu justo at justo venenatis maximus. Integer finibus, erat at iaculis pulvinar, eros ante lobortis elit, eget sagittis massa massa eu nulla. Donec vulputate mi in dui interdum pellentesque. Duis fermentum massa vel elit hendrerit, ac varius felis vehicula. In eget neque feugiat, rutrum mi ac, vulputate nibh. Vivamus ullamcorper, dolor non ornare egestas, est tortor scelerisque erat, ac vestibulum nibh urna ac dui. Aenean venenatis pharetra lobortis.\r\n\r\nEtiam ut augue id erat varius condimentum. Ut elit quam, sodales at iaculis in, pulvinar nec mauris. Proin enim magna, fermentum et eleifend eu, tincidunt a nisi. Ut magna orci, vulputate nec libero semper, aliquam scelerisque nulla. Nullam quam nulla, volutpat id est at, tempor cursus justo. Sed commodo, erat vitae tempus aliquet, orci magna blandit tellus, non dictum dolor ipsum in ipsum. Nullam placerat finibus leo, vel congue felis auctor sit amet. Donec porttitor egestas turpis et venenatis. Vivamus sed laoreet felis, nec eleifend odio. Ut condimentum volutpat diam nec scelerisque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat consequat ultricies. Ut porttitor ex vitae lacus vestibulum interdum. Phasellus eleifend metus sit amet nunc efficitur consequat. Donec in lacus mauris. Aenean mauris massa, congue vestibulum euismod in, porta et quam. Aenean luctus, ligula sit amet rutrum elementum, velit tortor commodo tellus, a ullamcorper odio elit et risus. Nunc id finibus purus, id ultrices nibh. Nulla semper metus felis, non mollis odio efficitur nec. Sed blandit quam vel purus cursus, varius tristique ante gravida. Nullam ut elementum nibh. Nam ut vehicula nulla.\r\n\r\nCurabitur sit amet dapibus libero, vel accumsan dolor. Nunc lacinia velit ex, faucibus porta nisl euismod rhoncus. Pellentesque bibendum enim nulla, ut facilisis felis varius sed. Praesent dui nulla, gravida quis lacus in, sagittis porta nisi. Phasellus varius est non maximus elementum. Fusce in vulputate ex. Sed feugiat consectetur tortor id maximus. Sed eget congue ipsum. Donec velit magna, fringilla sed elit vitae, semper condimentum lectus. Duis feugiat et metus nec mattis. Curabitur semper fermentum justo, at mollis odio rhoncus sed. Nunc egestas viverra maximus. Maecenas quis metus ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque mattis sit amet dolor hendrerit interdum.\r\n\r\nUt malesuada, ligula ut efficitur tincidunt, quam lacus consequat libero, hendrerit faucibus elit sem et nibh. Ut dolor quam, imperdiet non magna laoreet, hendrerit ullamcorper sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi nec convallis nibh, vel malesuada mi. Curabitur dolor odio, tempus quis orci sed, convallis volutpat magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla quis malesuada neque. Nam sit amet faucibus dui, ac ultricies augue. Phasellus accumsan ornare metus, sit amet euismod erat ultricies molestie. Aliquam rutrum posuere sapien ac condimentum. Vestibulum aliquam mi diam, id sagittis libero vulputate vitae. Donec in tincidunt purus, eu convallis elit.\r\n\r\nClass aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ullamcorper neque vel odio faucibus, nec posuere nisi ultricies. Nulla nec congue ligula. Fusce maximus tincidunt odio quis sagittis. Donec placerat sollicitudin mauris. Curabitur rhoncus nulla ut elit auctor pulvinar. Donec lobortis turpis et vehicula vestibulum. Sed dui neque, vehicula ac diam et, efficitur rhoncus mauris. Suspendisse ante nulla, ultricies rhoncus diam eget, feugiat placerat ex. Sed eu justo at justo venenatis maximus. Integer finibus, erat at iaculis pulvinar, eros ante lobortis elit, eget sagittis massa massa eu nulla. Donec vulputate mi in dui interdum pellentesque. Duis fermentum massa vel elit hendrerit, ac varius felis vehicula. In eget neque feugiat, rutrum mi ac, vulputate nibh. Vivamus ullamcorper, dolor non ornare egestas, est tortor scelerisque erat, ac vestibulum nibh urna ac dui. Aenean venenatis pharetra lobortis.\r\n\r\nEtiam ut augue id erat varius condimentum. Ut elit quam, sodales at iaculis in, pulvinar nec mauris. Proin enim magna, fermentum et eleifend eu, tincidunt a nisi. Ut magna orci, vulputate nec libero semper, aliquam scelerisque nulla. Nullam quam nulla, volutpat id est at, tempor cursus justo. Sed commodo, erat vitae tempus aliquet, orci magna blandit tellus, non dictum dolor ipsum in ipsum. Nullam placerat finibus leo, vel congue felis auctor sit amet. Donec porttitor egestas turpis et venenatis. Vivamus sed laoreet felis, nec eleifend odio. Ut condimentum volutpat diam nec scelerisque.', 1);
 
 -- --------------------------------------------------------
 
@@ -137,18 +128,6 @@ CREATE TABLE `blog_images` (
   `image` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `blog_images`
---
-
-INSERT INTO `blog_images` (`id`, `blog_id`, `image`, `status`) VALUES
-(36, 30, 'blog_1573221517_5dc5748d951eb.jpg', 1),
-(37, 30, 'blog_1573221517_5dc5748d9829c.jpg', 1),
-(38, 30, 'blog_1573221517_5dc5748d9a78a.jpg', 1),
-(39, 31, 'blog_1573221572_5dc574c42d268.jpg', 1),
-(40, 32, 'blog_1573222418_5dc57812f0132.jpg', 1),
-(41, 33, 'blog_1573222655_5dc578ff3ad80.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -335,42 +314,6 @@ CREATE TABLE `end_game_image` (
   `image` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `end_game_image`
---
-
-INSERT INTO `end_game_image` (`id`, `game_id`, `image`) VALUES
-(88, 24, 'file_1573476042_5dc956ca198f8.390926'),
-(89, 24, 'file_1573544662_5dca62d6be005.5248609'),
-(90, 24, 'file_1573551241_5dca7c89e16b1.190274'),
-(91, 26, 'file_1573553509_5dca8565a083e.624588'),
-(92, 29, 'file_1573553887_5dca86df2957d.124515'),
-(93, 30, 'file_1573559119_5dca9b4f7203f.jpeg'),
-(94, 25, 'file_1573648707_5dcbf9433e575.jpg'),
-(95, 25, 'file_1573648779_5dcbf98b29f6d.jpg'),
-(96, 25, 'file_1573648790_5dcbf996c8722.jpg'),
-(97, 31, 'file_1573648885_5dcbf9f59c107.jpeg'),
-(98, 25, 'file_1573649030_5dcbfa86b51db.jpg'),
-(99, 25, 'file_1573649041_5dcbfa91b9bf2.jpg'),
-(100, 23, 'file_1573649333_5dcbfbb588d19.jpg'),
-(101, 32, 'file_1573650698_5dcc010a31ce9.jpeg'),
-(102, 33, 'file_1573650897_5dcc01d1d0a59.jpg'),
-(103, 34, 'file_1573651028_5dcc025414bef.jpeg'),
-(104, 34, 'file_1573651217_5dcc0311bf3e0.jpeg'),
-(105, 34, 'file_1573651329_5dcc0381d6abf.jpeg'),
-(106, 34, 'file_1573651438_5dcc03eebaccb.jpeg'),
-(107, 34, 'file_1573652027_5dcc063b87736.jpeg'),
-(108, 35, 'file_1573652340_5dcc077486d73.png'),
-(109, 35, 'file_1573652350_5dcc077ebdf13.png'),
-(110, 35, 'file_1573652355_5dcc0783148a4.png'),
-(111, 35, 'file_1573652364_5dcc078c291e5.png'),
-(112, 35, 'file_1573652501_5dcc08152ec59.png'),
-(113, 34, 'file_1573652625_5dcc089176b9c.jpeg'),
-(114, 36, 'file_1573654016_5dcc0e007ed89.jpeg'),
-(115, 36, 'file_1573657884_5dcc1d1c94bfc.jpeg'),
-(116, 36, 'file_1574252524_5dd52fecae4c5.jpeg'),
-(117, 38, 'file_1574253312_5dd533002373c.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -382,39 +325,6 @@ CREATE TABLE `end_game_media` (
   `game_id` int(11) NOT NULL,
   `media` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `end_game_media`
---
-
-INSERT INTO `end_game_media` (`id`, `game_id`, `media`) VALUES
-(67, 24, 'file_1573476042_5dc956ca2306d.946867'),
-(68, 24, 'file_1573544662_5dca62d6c57ea.527635'),
-(69, 24, 'file_1573544662_5dca62d6c5c7b.527851'),
-(70, 24, 'file_1573551241_5dca7c89e8352.192192'),
-(71, 24, 'file_1573551241_5dca7c89e8b55.192353'),
-(72, 26, 'file_1573553509_5dca8565a4460.630382'),
-(73, 26, 'file_1573553509_5dca8565a49b9.630597'),
-(74, 29, 'file_1573553887_5dca86df2a2df.125358'),
-(75, 29, 'file_1573553887_5dca86df32a40.1257548'),
-(76, 30, 'file_1573559119_5dca9b4f75d5e.jpeg'),
-(77, 30, 'file_1573559119_5dca9b4f768c8.mp4'),
-(78, 25, 'file_1573648707_5dcbf94343371.jpg'),
-(79, 25, 'file_1573648779_5dcbf98b2b1f8.jpg'),
-(80, 25, 'file_1573648790_5dcbf996c9aa3.jpg'),
-(81, 31, 'file_1573648885_5dcbf9f59d7ca.jpeg'),
-(82, 31, 'file_1573648885_5dcbf9f59e0f3.mp4'),
-(83, 25, 'file_1573649030_5dcbfa86b64d5.mp4'),
-(84, 25, 'file_1573649041_5dcbfa91bafa4.mp4'),
-(85, 23, 'file_1573649333_5dcbfbb58cbb3.mp4'),
-(86, 32, 'file_1573650698_5dcc010a36ba1.jpeg'),
-(87, 33, 'file_1573650897_5dcc01d1d485c.mp4'),
-(88, 35, 'file_1573652501_5dcc08153014d.3gpp'),
-(89, 36, 'file_1573654016_5dcc0e00801f6.jpeg'),
-(90, 36, 'file_1573654016_5dcc0e0080931.mp4'),
-(91, 36, 'file_1573657884_5dcc1d1c9dc5d.jpeg'),
-(92, 36, 'file_1574252525_5dd52fed23aea.jpeg'),
-(93, 38, 'file_1574253312_5dd5330026c63.jpg');
 
 -- --------------------------------------------------------
 
@@ -1100,7 +1010,7 @@ INSERT INTO `tokens` (`id`, `token`, `time`, `user_id`, `refresh_token`) VALUES
 (149, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzk0NTM5MTY4YTci.Bef9-CO33HKMG_wEzzy5dE19KS_Oe19LjG4FOEfrkTI', '1573557945', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzk0NTM5MTY5MTgi.Y2IPqr49gAYWdXAZqO2wi-Cec3cy98WqU-DnEiMgsoQ'),
 (150, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzg2NjI2MWU3Mzki.lz5_C1By9ebX9458oC8iWd02KBh1y6RYPHFUGkozEhA', '1573500838', 47, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzg2NjI2MWU3Yzgi.rPcPsh1uTH62YPqEuDXFRwM88k-teQCsIybtGLX8Xbk'),
 (151, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTI2MWY1ODI1NGYi.BEReGxBGIu5psxdTRzrwZL-pf9M4m_Q1ISbKG_Kdip4', '1575203701', 48, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTI2MWY1ODI1YjYi.KmwIP8PpjsNusocTsKQps5lvYLC3N8RSCjGMyZYSowE'),
-(152, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGUyOGVlZTI2MjIi.k0t-OEdC34_gDr_kv90ezfOOfQ7HovodbHS51-8uEz0', '1574926958', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGUyOGVlZTI2OTki.0xPzrBMHqiU1mvwkF9g0JEcAjJXiL14vCtkT-CC-oXk'),
+(152, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTY0MmY1MTAwMzgi.79th7K95VU9Gc_alJIhq2n3jbksz_hm4OCm8mzW8e18', '1575457909', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTY0MmY1MTAwYWMi.NT3hVkZUIYF9XTsJ567By9GYNu0EvY5r9wdkyHEMRIU'),
 (153, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzkxMGQ3YTYxYWIi.7VA7qdbjjYNR-CWRCEaRIZxZ6nqwQtjbsAPCErhxyE4', '0', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzkxMGQ3YTYyM2Ii.fM0Se0gvh1VEc6e6OOtSvhKPWwRDWIu7xqMAtAUpQ_s'),
 (154, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzkxMzFjYWRkOTEi.au8XtaAG8NEehIu5zZ7hLWSMKY4qb-U4lm1mOQ8U8zU', '0', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzkxMzFjYWRlMmQi.Zhoq0Kc1r9gN1xEvxXbX7abzczaf3YC1uFcEugMWJLE'),
 (155, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2E5N2Q0MDgzOGYi.Dho1riaW1LPSrb-4hrsO8a6JPrCYBltIPqTpqQoNjps', '1573644628', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2E5N2Q0MDg0Njci.RVCKzfzAjFGthHYr-QupNNDU_15dr_mPmECZ4bL9Aqk'),
@@ -1122,7 +1032,8 @@ INSERT INTO `tokens` (`id`, `token`, `time`, `user_id`, `refresh_token`) VALUES
 (171, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGUyMGQzYzU0M2Yi.6ZtrQT71CZp--_0l933L6J4fhkswL9HC0RTjpKqstsw', '1574924883', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGUyMGQzYzU0ZGMi.c7uPMB9uV3LUmc7AZgw94BpWYSt1SkE9fXsFmqv6LXg'),
 (172, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGUyYmQ5YzBhNmMi.9v5QnD9sPydGq2Pa_DxemrF7cNCyJa4_m6Hkj3FWsic', '1574927705', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGUyYmQ5YzBiMGIi.lSH2pNWl9va60zhjdWtq8-0ZAMDciGIPau2d0hE4HVA'),
 (173, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU0YWJkOGNmMTci.eceDmZLiwGNDvRq-ltJfwqrWLLHKZqyIjvVH3cmofKw', '1574935613', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU0YWJkOGQxOGUi.UOOJqtXQ-ZGma-Rw4fdMBniyqRghBaHhknr_b84eCvc'),
-(174, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU1NjdjYjJjOTci.vSiZ5j0Ntxff5nBI0cDb-M1Wcte71olGCvIHASCdk0Y', '1574938620', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU1NjdjYjJkNDMi.ljlX7-I8BL-nd8WBSVAoAuCf27UfBR7UNUNLnyBJszo');
+(174, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU1NjdjYjJjOTci.vSiZ5j0Ntxff5nBI0cDb-M1Wcte71olGCvIHASCdk0Y', '1574938620', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU1NjdjYjJkNDMi.ljlX7-I8BL-nd8WBSVAoAuCf27UfBR7UNUNLnyBJszo'),
+(175, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTUyYTZkMTBhNTMi.dirzkt-EP8Y_yy2kbZyiJSQ1gC9JELMQjmjjuVmat4c', '1575386093', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTUyYTZkMTBhZjIi.vbjiLZpQ-Vb7Mz2aju-ATlvZB4yqU_tp-hNWwFd1TJI');
 
 -- --------------------------------------------------------
 
@@ -1427,13 +1338,13 @@ ALTER TABLE `age_group`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `blog_images`
 --
 ALTER TABLE `blog_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `coaches`
@@ -1571,7 +1482,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
 
 --
 -- AUTO_INCREMENT for table `users`
