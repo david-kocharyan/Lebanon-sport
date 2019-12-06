@@ -308,7 +308,7 @@ header .dropdown-menu {
 .title {
 	font-family: 'Gotham-Book';
 	position: relative;
-	transition: 0.3s;
+	transition: 0.2s;
 	color: #FFF;
 	margin: 0px 20px;
 	background: #283d5a;
@@ -346,7 +346,7 @@ header .dropdown-menu {
 	-ms-transform: skew(18deg, 0deg);
 	-webkit-transform: skew(18deg, 0deg);
 	transform: skew(18deg, 0deg);
-	transition: 0.3s;
+	transition: 0.2s;
 }
 .generic-banner figcaption {
 	bottom: 40px !important;
