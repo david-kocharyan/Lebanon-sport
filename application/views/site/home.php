@@ -87,7 +87,7 @@
 					</div>
 					<div class="game-details-content">
 						<p class=""> <?= $value->teams_1_name ?>	</p>
-						<p class=""> VS
+						<p class=""> VS </p>
 						<p class=""> <?= $value->teams_2_name ?>	</p>
 					</div>
 				</div>
