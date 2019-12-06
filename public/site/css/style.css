@@ -84,6 +84,14 @@ header{
 .upcoming-btn{
 	margin: 40px 0;
 }
+.game-details-content{
+	padding: 10px 0;
+	text-align: center;
+}
+.game-details-content p{
+	margin: 10px;
+	font-weight: bold;
+}
 .view-more-btn.upcoming-btn a{
 	float: none;
 	display: block;

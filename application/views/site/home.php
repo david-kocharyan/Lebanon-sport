@@ -85,10 +85,10 @@
 							<?= $value->time; ?>
 						</span>
 					</div>
-					<div class="flex-container game-details-content">
-						<p class="">
-							<?= $value->teams_1_name . " - " . $value->teams_2_name ?>
-						</p>
+					<div class="game-details-content">
+						<p class=""> <?= $value->teams_1_name ?>	</p>
+						<p class=""> VS
+						<p class=""> <?= $value->teams_2_name ?>	</p>
 					</div>
 				</div>
 			</div>

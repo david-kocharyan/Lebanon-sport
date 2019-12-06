@@ -86,7 +86,7 @@ class Activites extends CI_Controller
 		 schools_2.name_en as schools_2_name_en, schools_2.name_ar as schools_2_name_ar,
 		 teams_1.name as teams_1_name, teams_2.name as teams_2_name,
 		 reg_1.name_en as reg_1_en, reg_1.name_ar as reg_1_ar,
-		 reg_2.name_en as reg_2_en, reg_2.name_ar as reg_2_ar');
+		 reg_2.name_en as reg_2_en, reg_2.name_ar as reg_2_ar, end_game.score_1, end_game.score_2');
 
 		$this->db->join('game_schools', 'game_schools.game_id = games.id');
 		$this->db->join('schools as schools_1', 'schools_1.id = game_schools.school_id_1');
@@ -98,6 +98,8 @@ class Activites extends CI_Controller
 		$this->db->join('game_teams', 'game_teams.game_id = games.id');
 		$this->db->join('teams as teams_1', 'teams_1.id = game_teams.team_1');
 		$this->db->join('teams as teams_2', 'teams_2.id = game_teams.team_2');
+
+		$this->db->join('end_game', 'games.id = end_game.game_id');
 	}
 
 //	search part/////////////////////////////////////////////////////////////////////////////////////////////////////////

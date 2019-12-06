@@ -42,9 +42,10 @@ class Homes extends CI_Model
 		 schools_2.name_en as schools_2_name_en, schools_2.name_ar as schools_2_name_ar,
 		 teams_1.name as teams_1_name, teams_2.name as teams_2_name, 
 		 reg_1.name_en as reg_1_en, reg_1.name_ar as reg_1_ar,
-		 reg_2.name_en as reg_2_en, reg_2.name_ar as reg_2_ar');
+		 reg_2.name_en as reg_2_en, reg_2.name_ar as reg_2_ar, end_game.score_1, end_game.score_2');
 
 		$this->join();
+		$this->db->join('end_game', 'games.id = end_game.game_id');
 
 
 		$this->db->where("sport_type", $id);

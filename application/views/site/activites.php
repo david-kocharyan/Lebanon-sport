@@ -50,12 +50,20 @@
 						</span>
 					</div>
 					<div class="flex-container game-details-content">
+
+						<div class="game-details-content">
+							<p class=""> <?= $value->teams_1_name ?>    </p>
+							<p class=""> VS </p>
+							<p class=""> <?= $value->teams_2_name ?>    </p>
+						</div>
+
 						<p class="">
 							<?= $value->teams_1_name . " - " . $value->teams_2_name ?>
 						</p>
 					</div>
 					<div class="game-details-footer">
-						<a href="<?= base_url("$lang/") . "game/" . $value->id ?>">See Details <i class="fa fa-chevron-right"></i></a>
+						<a href="<?= base_url("$lang/") . "game/" . $value->id ?>">See Details <i
+								class="fa fa-chevron-right"></i></a>
 					</div>
 				</div>
 			<?php } ?>
