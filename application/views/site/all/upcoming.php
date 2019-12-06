@@ -18,12 +18,11 @@
 						</span>
 					</div>
 					<div class="flex-container game-details-content">
-						<p class="">
-							<?= $value->teams_1_name . " - " . $value->teams_2_name ?>
-						</p>
-					</div>
-					<div class="game-details-footer">
-						<a href="<?= base_url("$lang/") . "upcoming-game/" . $value->id ?>">See Details &gt;</a>
+						<div class="game-details-content">
+							<p class=""> <?= $value->teams_1_name ?>	</p>
+							<p class=""> VS </p>
+							<p class=""> <?= $value->teams_2_name ?>	</p>
+						</div>
 					</div>
 				</div>
 			</div>
