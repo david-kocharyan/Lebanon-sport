@@ -18,6 +18,19 @@
 	<script src="<?= base_url('public/site/') ?>js/bootstrap.js"></script>
 </head>
 <body>
+
+<div class="loader" style="position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+z-index:9999;
+/*background:url(https://whaleshares.io/imageupload_data/9710b7f7cc799dbf70fc01a196cba26691814a5d) 50% 50% no-repeat #fff;*/
+background:url(<?= base_url("/public/site/images/loader.gif") ?>) 50% 50% no-repeat #fff;
+opacity:1;
+"></div>
+
+
 <div class="wrapper">
 	<header>
 		<div class="container header-inner">
@@ -78,9 +91,14 @@
 
 
 	<script>
+        $(window).on("load", function (e) {
+            $(".loader").fadeOut("slow");
+
+        })
+
         $(document).ready(function () {
             $(".title").mouseover(function () {
-                var x = $(this).position().left+150;
+                var x = $(this).position().left + 150;
                 console.log(x)
                 $('.grad').css({
                     'margin-left': x,
@@ -97,7 +115,7 @@
                     $('.grad').css({'width': '65%'});
                 } else if ($(this).data("item") == 'upcoming') {
                     $('.grad').css({'width': '45%'});
-                } else if ($(this).data("item") =='contact') {
+                } else if ($(this).data("item") == 'contact') {
                     $('.grad').css({'width': '25%'});
                 }
             })
