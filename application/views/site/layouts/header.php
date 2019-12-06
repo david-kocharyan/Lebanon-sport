@@ -20,15 +20,15 @@
 <body>
 
 <div class="loader" style="position:fixed;
-left:0;
-top:0;
-width:100%;
-height:100%;
-z-index:9999;
-/*background:url(https://whaleshares.io/imageupload_data/9710b7f7cc799dbf70fc01a196cba26691814a5d) 50% 50% no-repeat #fff;*/
-background:url(<?= base_url("/public/site/images/loader.gif") ?>) 50% 50% no-repeat #fff;
-opacity:1;
-"></div>
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	z-index:9999;
+	/*background:url(https://whaleshares.io/imageupload_data/9710b7f7cc799dbf70fc01a196cba26691814a5d) 50% 50% no-repeat #fff;*/
+	background:url(<?= base_url("/public/site/images/loader.gif") ?>) 50% 50% no-repeat #fff;
+	opacity:1;
+	"></div>
 
 
 <div class="wrapper">
@@ -51,13 +51,13 @@ opacity:1;
 						<li class="title" data-item="home">
 							<a href="<?= base_url("$lang/") ?>" class="scroll"><?= lang('home'); ?></a>
 						</li>
-						<li class="title" data-item="news">
+						<li class="title sport_news" data-item="news">
 							<a href="<?= base_url("$lang/") ?>#news" class="scroll"><?= lang('news'); ?></a>
 						</li>
 						<li class="title" data-item="games">
 							<a href="<?= base_url("$lang/") ?>#games" class="scroll"><?= lang('upcoming'); ?></a>
 						</li>
-						<li class="title dropdown" data-item="upcoming">
+						<li class="title dropdown sport_active" data-item="upcoming">
 							<a href="#" class="dropdown-toggle"><?= lang('activites'); ?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<?php foreach ($sport_types as $key => $value) { ?>
@@ -128,4 +128,23 @@ opacity:1;
                 });
             })
         })
+
+        var url = window.location.href;
+        url = url.split("/");
+        console.log(url);
+
+        url.forEach((name, index) => {
+            if (name == "activites" || name == "game" || name == "game-school") {
+                $(".sport_active").css({
+                    "background": "#4DA998",
+                })
+                $('.sport_active').toggleClass('changed');
+            } else if (name == 'topic') {
+                $(".sport_news").css({
+                    "background": "#4DA998",
+                })
+                $('.sport_news').toggleClass('changed');
+            }
+        });
+
 	</script>

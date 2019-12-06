@@ -71,7 +71,7 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label">Landscape image</label><br>
-								<strong>Please select a picture with a width more than 1000 and a height of less than 2000</strong>
+								<strong>Please select a picture with a width 1520 and a height 500</strong>
 								<?php if (!empty($this->session->flashdata('landscape'))) { ?>
 									<div class="help-block with-errors text-danger">
 										<?= $this->session->flashdata('landscape'); ?>

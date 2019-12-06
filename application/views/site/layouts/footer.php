@@ -8,6 +8,7 @@
 		<div class="row">
 			<div class="text-center  col-lg-4">
 				<img src="<?= base_url('public/site/') ?>images/footer-logo.png" alt="footer-logo">
+				<img src="<?= base_url('public/site/') ?>images/footer-logo.png" alt="footer-logo">
 				<div class="copyright">© 2019 <?= lang('copyright'); ?></div>
 				<ul class="social">
 					<li><?= lang('follow'); ?></li>

@@ -1858,3 +1858,20 @@ footer ul li a:hover{
 .modal-body {
 	padding: 0px;
 }
+
+.changed:after {
+	content: " ";
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background: #4DA998;
+	transform-origin: top right;
+	-ms-transform: skew(18deg, 0deg);
+	-webkit-transform: skew(18deg, 0deg);
+	transform: skew(18deg, 0deg);
+	transition: 0.2s;
+}
