@@ -191,29 +191,33 @@
                         $('.err').append(res.success);
                         $('.err').css({'display': 'block'})
                     }
-                        $('#team_1').append("<option value=''>Choose Team 1</option>");
-                        for (let i = 0; i < res['team_1'].length; i++) {
-                            var $option = $('<option></option>')
-                                .attr('value', res['team_1'][i].id)
-                                .text(res['team_1'][i].name);
-                            $('#team_1').append($option);
-                        }
-                        $('#team_2').append("<option value=''>Choose Team 2</option>");
-                        for (let i = 0; i < res['team_2'].length; i++) {
-                            var $option = $('<option></option>')
-                                .attr('value', res['team_2'][i].id)
-                                .text(res['team_2'][i].name);
-                            $('#team_2').append($option);
-                        }
-                        for (let i = 0; i < res['observer'].length; i++) {
-                            var $option = $('<option></option>')
-                                .attr('value', res['observer'][i].id)
-                                .text(res['observer'][i].username);
-                            $('#observer').append($option);
-                        }
 
-                        $('.err').empty();
-                        $('.settings').slideDown("slow");
+                    $('#team_1').empty();
+                    $('#team_2').empty();
+
+                    $('#team_1').append("<option value=''>Choose Team 1</option>");
+                    for (let i = 0; i < res['team_1'].length; i++) {
+                        var $option = $('<option></option>')
+                            .attr('value', res['team_1'][i].id)
+                            .text(res['team_1'][i].name);
+                        $('#team_1').append($option);
+                    }
+                    $('#team_2').append("<option value=''>Choose Team 2</option>");
+                    for (let i = 0; i < res['team_2'].length; i++) {
+                        var $option = $('<option></option>')
+                            .attr('value', res['team_2'][i].id)
+                            .text(res['team_2'][i].name);
+                        $('#team_2').append($option);
+                    }
+                    for (let i = 0; i < res['observer'].length; i++) {
+                        var $option = $('<option></option>')
+                            .attr('value', res['observer'][i].id)
+                            .text(res['observer'][i].username);
+                        $('#observer').append($option);
+                    }
+
+                    $('.err').empty();
+                    $('.settings').slideDown("slow");
                 },
             });
         }
@@ -224,13 +228,13 @@
         var team_1 = $('#team_1 :selected').val();
         var team_2 = $('#team_2 :selected').val();
 
-        if (team_1 == "" || team_2 == ""){
+        if (team_1 == "" || team_2 == "") {
             $('.err').empty();
             $('.err').append("Please choose teams");
             $('.err').css({'display': 'block'})
-		}else{
+        } else {
             $('.forma-s').submit();
-		}
+        }
     })
 </script>
 
