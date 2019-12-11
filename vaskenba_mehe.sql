@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 06, 2019 at 08:26 AM
+-- Generation Time: Dec 11, 2019 at 06:06 AM
 -- Server version: 5.6.41-84.1
 -- PHP Version: 7.2.7
 
@@ -50,7 +50,8 @@ INSERT INTO `admins` (`id`, `username`, `first_name`, `last_name`, `mobile_numbe
 (42, 'admin', 'Super', 'Admin', '+0000000', 'admin@gmail.com', '2', 'c9cc24ffa63b25bb52b9d5fa288c2921a5190acd2ad461e2ece7b7d74af0fa53c86b783a066fc1ad3694313345702e69f57d70a597f7fbbf78dfc957d3bcdea9', '1', '2019-11-08 13:53:43', '2019-11-08 13:53:43'),
 (44, 'pargev', 'Pargev', 'Aghabekyan', '+566666666', 'pargev@aimtech.am', '1', '32b70b41827206bc07f988aa53322d428a4ecb43a60c9e0f01fb994e3466a9fb798e4902a97785507f9b34f48bbf9969a6e45419aa0b852e04b8bb6500de74d4', '1', '2019-11-08 13:55:38', '2019-11-08 13:55:38'),
 (45, 'Nareg', 'Nareg', 'Sfeir', '70604213', 'nareg.sfeir33@gmail.com', '1', 'fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe', '1', '2019-11-10 18:52:03', '2019-11-10 18:52:03'),
-(46, 'vasken', 'Vasken', 'Bakkalian', '55023420', 'vaskenbakkalian@gmail.com', '1', '42f0f66c454c90789939115800028418809e01be26d808dca31c4a96788a1cbc413b90bb1e3b1801930f00b8018cde9abb8fc13aea8a81dba3e9290e7d5d7c8a', '1', '2019-11-10 18:52:10', '2019-11-10 18:52:10');
+(46, 'vasken', 'Vasken', 'Bakkalian', '55023420', 'vaskenbakkalian@gmail.com', '1', '42f0f66c454c90789939115800028418809e01be26d808dca31c4a96788a1cbc413b90bb1e3b1801930f00b8018cde9abb8fc13aea8a81dba3e9290e7d5d7c8a', '1', '2019-11-10 18:52:10', '2019-11-10 18:52:10'),
+(47, 'lichaa', 'Lichaa', 'Tarabay', '714567890', 'lichaa@nova4lb.com', '1', 'fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe', '1', '2019-12-09 08:54:09', '2019-12-09 08:54:09');
 
 -- --------------------------------------------------------
 
@@ -73,7 +74,9 @@ INSERT INTO `admins_region` (`id`, `admin_id`, `region_id`, `status`) VALUES
 (18, 44, 19, 1),
 (19, 44, 20, 1),
 (20, 45, 19, 1),
-(21, 46, 20, 1);
+(21, 46, 20, 1),
+(22, 47, 19, 1),
+(23, 47, 20, 1);
 
 -- --------------------------------------------------------
 
@@ -116,6 +119,18 @@ CREATE TABLE `blog` (
   `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `title_en`, `title_ar`, `text_en`, `text_ar`, `landscape`, `status`) VALUES
+(38, 'What is Lorem Ipsum?', 'ما هو ', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.\r\n\r\nلوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.\r\n\r\nلوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.\r\n\r\n', 'landscape_1575883302_1417475550.jpg', 1),
+(39, 'What is Lorem Ipsum?', 'ما هو ', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.\r\n\r\nلوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.\r\n\r\nلوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.\r\n\r\n', 'landscape_1575883541_1371155798.jpg', 1),
+(40, 'What is Lorem Ipsum?', 'ما هو', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.\r\n\r\nلوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.\r\n\r\nلوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.\r\n\r\n', 'landscape_1575883619_1567778393.jpg', 1),
+(41, 'New Topic', 'Topic new', 'Lorem ipsum dolor set a met', 'Lorem ipsum dolor set a met', 'landscape_1575995417_404402485.jpg', 0),
+(42, 'Lorem', 'Lorem', 'lorem', 'lorem', 'landscape_1575970906_1592689156.jpg', 0),
+(43, 'asdasd', 'asdasd', 'asdasd', 'asdasd', 'landscape_1575995631_860081780.jpg', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -128,6 +143,18 @@ CREATE TABLE `blog_images` (
   `image` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `blog_images`
+--
+
+INSERT INTO `blog_images` (`id`, `blog_id`, `image`, `status`) VALUES
+(47, 40, 'blog_1575883619_5dee1363a7407.jpg', 1),
+(48, 39, 'blog_1575884120_5dee15588db1a.jpg', 1),
+(49, 41, 'blog_1575970294_5def65f65d40c.jpg', 1),
+(50, 42, 'blog_1575970906_5def685a313fc.jpg', 1),
+(51, 43, 'blog_1575974840_5def77b86dece.jpg', 1),
+(52, 38, 'blog_1575980141_5def8c6db9769.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -297,31 +324,6 @@ CREATE TABLE `game_teams` (
   `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `game_teams`
---
-
-INSERT INTO `game_teams` (`id`, `game_id`, `team_1`, `team_2`, `status`) VALUES
-(18, 21, 28, 29, 1),
-(19, 22, 28, 29, 1),
-(20, 23, 28, 29, 1),
-(21, 24, 28, 29, 1),
-(22, 25, 30, 31, 1),
-(23, 26, 30, 31, 1),
-(26, 29, 30, 31, 1),
-(27, 30, 30, 31, 1),
-(28, 31, 32, 33, 1),
-(29, 32, 30, 33, 1),
-(30, 33, 32, 31, 1),
-(31, 34, 30, 33, 1),
-(32, 35, 31, 32, 1),
-(33, 36, 32, 33, 1),
-(34, 37, 30, 33, 1),
-(35, 38, 31, 32, 1),
-(36, 39, 30, 33, 1),
-(37, 40, 31, 30, 1),
-(38, 41, 31, 30, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -437,7 +439,9 @@ INSERT INTO `schools` (`id`, `name_en`, `name_ar`, `address_en`, `address_ar`, `
 (12, 'Fizmat', 'Fizmat', 'Amiryan 12', 'amiryan 12', 'school_1573221653_2131018553.jpg', 1, 44, 19),
 (13, 'Qvant', 'Qvant', 'Amiryan 13', 'Amiryan 13', 'school_1573222173_388087619.jpg', 1, 44, 19),
 (14, 'High School', 'High School', 'Ashrafieh', 'Ashrafieh', 'school_1573412130_1309674068.jpeg', 1, 45, 19),
-(15, 'Saida National School ', 'مدرسة صيدا الوطنية', 'Saida ', 'صيدا ', 'school_1573412185_699537170.jpg', 1, 46, 20);
+(15, 'Saida National School ', 'مدرسة صيدا الوطنية', 'Saida ', 'صيدا ', 'school_1573412185_699537170.jpg', 1, 46, 20),
+(16, 'NOVA4', 'نوفا4', 'Sin El Fill', 'سن الفيل', 'school_1575881713_1918550844.png', 1, 47, 19),
+(17, 'NOVA4-1', 'سن الفيل11', 'Horsh Tabet', 'سن الفيل', 'school_1575881761_2001126616.png', 1, 47, 19);
 
 -- --------------------------------------------------------
 
@@ -510,20 +514,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `school_id`, `name_en`, `name_ar`, `birthday`, `gender`, `image`, `status`) VALUES
-(14, 14, 'Nareg', 'Nareg', '2009-01-27', '1', 'student_1573412234_1658188050.jpeg', 1),
-(15, 15, 'Fatme ', 'Fatme ', '2004-07-22', '0', 'student_1573412377_1103640172.jpg', 1),
-(16, 14, 'Partoghomios', 'Partoghomios', '2009-01-14', '1', 'student_1573413143_901900855.jpeg', 1),
-(17, 15, 'Sarkis', 'سركيس', '2008-11-20', '1', 'student_1573414184_188522940.jpg', 1),
-(18, 12, 'david', 'david', '2013-11-06', '1', 'student_1573483187_1039985551.jpg', 1),
-(19, 12, 'Pargev', 'pargev', '2013-06-18', '1', 'student_1573483222_1778667375.jpg', 1),
-(20, 13, 'Zara', 'Zara', '2013-07-24', '0', 'student_1573483269_511258016.jpg', 1),
-(21, 13, 'Lara Croft', 'Lara Croft', '2013-10-11', '0', 'student_1573483356_925555212.jpg', 1),
-(22, 12, 'Nara', 'Nara', '2013-11-06', '0', 'student_1573643334_1062919774.jpg', 1),
-(23, 12, 'Mara', 'Mara', '2013-11-06', '0', 'student_1573643355_1289213371.jpg', 1),
-(24, 12, 'Lara', 'Lara', '2013-11-06', '0', 'student_1573643384_1144328381.jpg', 1),
-(25, 12, 'Klara', 'Klara', '2013-11-06', '0', 'student_1573643409_1597574605.jpg', 1),
-(26, 13, 'Babken', 'Babken', '2013-11-06', '1', 'student_1573643491_1474495100.jpg', 1),
-(27, 13, 'Vachagan', 'Vachagan', '2013-11-06', '1', 'student_1573643517_661132741.jpg', 1);
+(37, 12, 'Sarkis', 'Sarkis', '2010-03-10', '1', 'student_1576064437_237552665.jpg', 1),
+(38, 13, 'pargev', 'Pargev', '2010-12-16', '1', 'student_1576064513_1632865151.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -543,21 +535,8 @@ CREATE TABLE `students_sport` (
 --
 
 INSERT INTO `students_sport` (`id`, `student_id`, `sport_id`, `status`) VALUES
-(20, 14, 9, 1),
-(21, 15, 9, 1),
-(22, 15, 11, 1),
-(23, 16, 9, 1),
-(24, 17, 9, 1),
-(25, 18, 9, 1),
-(26, 19, 9, 1),
-(27, 20, 9, 1),
-(28, 21, 9, 1),
-(29, 22, 9, 1),
-(30, 23, 9, 1),
-(31, 24, 9, 1),
-(32, 25, 9, 1),
-(33, 26, 9, 1),
-(34, 27, 9, 1);
+(48, 37, 9, 1),
+(49, 38, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -577,26 +556,8 @@ CREATE TABLE `students_team` (
 --
 
 INSERT INTO `students_team` (`id`, `team_id`, `student_id`, `status`) VALUES
-(31, 28, 14, 1),
-(32, 29, 17, 1),
-(33, 30, 18, 1),
-(34, 30, 19, 1),
-(35, 31, 20, 1),
-(36, 31, 21, 1),
-(37, 32, 18, 1),
-(38, 32, 19, 1),
-(39, 32, 22, 1),
-(40, 32, 23, 1),
-(41, 32, 24, 1),
-(42, 32, 25, 1),
-(43, 33, 20, 1),
-(44, 33, 21, 1),
-(45, 33, 26, 1),
-(46, 33, 27, 1),
-(47, 34, 20, 1),
-(48, 34, 21, 1),
-(49, 34, 26, 1),
-(50, 34, 27, 1);
+(1, 1, 37, 1),
+(2, 2, 38, 1);
 
 -- --------------------------------------------------------
 
@@ -619,13 +580,8 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `name`, `age_id`, `gender`, `sport_id`, `school_id`, `status`) VALUES
-(28, 'High School-male/10 - 12/Basketball', '15', '1', 9, 14, 1),
-(29, 'Saida National School -male/10 - 12/Basketball', '15', '1', 9, 15, 1),
-(30, 'Fizmat-both/6 - 8/Basketball', '13', '2', 9, 12, 1),
-(31, 'Qvant-both/6 - 8/Basketball', '13', '2', 9, 13, 1),
-(32, 'New-Fizmat-both/6 - 8/Basketball', '13', '2', 9, 12, 1),
-(33, 'New-Qvant-both/6 - 8/Basketball', '13', '2', 9, 13, 1),
-(34, 'Qvant-both/6 - 8/Basketball', '13', '2', 9, 13, 1);
+(1, 'Fizmat-male/8-10/Basketball', '14', '1', 9, 12, 1),
+(2, 'Qvant-male/8-10/Basketball', '14', '1', 9, 13, 1);
 
 -- --------------------------------------------------------
 
@@ -654,7 +610,7 @@ INSERT INTO `tokens` (`id`, `token`, `time`, `user_id`, `refresh_token`) VALUES
 (154, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzkxMzFjYWRkOTEi.au8XtaAG8NEehIu5zZ7hLWSMKY4qb-U4lm1mOQ8U8zU', '0', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzkxMzFjYWRlMmQi.Zhoq0Kc1r9gN1xEvxXbX7abzczaf3YC1uFcEugMWJLE'),
 (155, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2E5N2Q0MDgzOGYi.Dho1riaW1LPSrb-4hrsO8a6JPrCYBltIPqTpqQoNjps', '1573644628', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2E5N2Q0MDg0Njci.RVCKzfzAjFGthHYr-QupNNDU_15dr_mPmECZ4bL9Aqk'),
 (156, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2MxODU5MjA2ZGMi.PSuQuRJItkoqHm2n6nBt_dVWezYIlwn6ZCfyeALJa7s', '0', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2MxODU5MjA3NjYi.djGL_6zl7hUSOTMNOYbI2gcBYsyJC2f_Slwal5Y7EgI'),
-(157, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZDUyNjI4ZThhMDMi.zk3WgFhAT-wbhNWcpXEUdDvEn7U8QV1iymLU-n03SiM', '1574336424', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZDUyNjI4ZThhNzQi.FhNWjzC60FGJYKLLCHXNRFRDEis7GhfvOQOAXnERfYY'),
+(157, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZWRmMmU0M2E0OGEi.z0jNprsYEMFGGztZXNf8mpYXk6uq7K9ae0zorfQEGy0', '1575961700', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZWRmMmU0M2E1MDMi.vs2EqUs64juHwHCW2aJADCqKXqdn_80XCxJvDIEd-gU'),
 (158, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzk2OTk5NjQ3NjAi.79XqCB87f7Fx7ZwZqm8FkyPCQdSlQIOyummENFVOZNQ', '0', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkYzk2OTk5NjQ3ZTgi.SAOyob7_vdE47mnWOsqWeS3PMXvlN_bOSMUTQxzIavY'),
 (159, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2JmMDY5Mjk2MTAi.jlXk1U9jdZ-ZhjBFPsqO0Ijuj957KodtUVYg13v1Iuo', '1573732841', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2JmMDY5Mjk2ODIi.WcQstis5ynMh2V2HhcPw7c7UpJbyO1UMaGYpjb0kyMI'),
 (160, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2MxMGUxZTc4NmUi.AU2dqYv3bHaaxXhnaQh411CNDe532ZpusPkPZJJeIxo', '0', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkY2MxMGUxZTdhZTQi.GyGf_mLJ8gKlRQclpbe2C6kJvu0c4iZ6_2cjPoUn_1s'),
@@ -672,7 +628,8 @@ INSERT INTO `tokens` (`id`, `token`, `time`, `user_id`, `refresh_token`) VALUES
 (172, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGUyYmQ5YzBhNmMi.9v5QnD9sPydGq2Pa_DxemrF7cNCyJa4_m6Hkj3FWsic', '1574927705', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGUyYmQ5YzBiMGIi.lSH2pNWl9va60zhjdWtq8-0ZAMDciGIPau2d0hE4HVA'),
 (173, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU0YWJkOGNmMTci.eceDmZLiwGNDvRq-ltJfwqrWLLHKZqyIjvVH3cmofKw', '1574935613', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU0YWJkOGQxOGUi.UOOJqtXQ-ZGma-Rw4fdMBniyqRghBaHhknr_b84eCvc'),
 (174, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU1NjdjYjJjOTci.vSiZ5j0Ntxff5nBI0cDb-M1Wcte71olGCvIHASCdk0Y', '1574938620', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZGU1NjdjYjJkNDMi.ljlX7-I8BL-nd8WBSVAoAuCf27UfBR7UNUNLnyBJszo'),
-(175, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTUyYTZkMTBhNTMi.dirzkt-EP8Y_yy2kbZyiJSQ1gC9JELMQjmjjuVmat4c', '1575386093', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTUyYTZkMTBhZjIi.vbjiLZpQ-Vb7Mz2aju-ATlvZB4yqU_tp-hNWwFd1TJI');
+(175, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTUyYTZkMTBhNTMi.dirzkt-EP8Y_yy2kbZyiJSQ1gC9JELMQjmjjuVmat4c', '1575386093', 49, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZTUyYTZkMTBhZjIi.vbjiLZpQ-Vb7Mz2aju-ATlvZB4yqU_tp-hNWwFd1TJI'),
+(176, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZjBjNDM1YjI2YzUi.wLrkHlxcX0VAnb9QIDW_3hVvWjiFGM-NgEcMEWCK9T4', '1576146357', 46, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjVkZjBjNDM1YjI3NDQi.Fpx7vvrM7mRYBosiFzdczTkNUU5lNZYeo0WIZs3KKFU');
 
 -- --------------------------------------------------------
 
@@ -959,13 +916,13 @@ ALTER TABLE `users_sport`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `admins_region`
 --
 ALTER TABLE `admins_region`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `age_group`
@@ -977,13 +934,13 @@ ALTER TABLE `age_group`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `blog_images`
 --
 ALTER TABLE `blog_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `coaches`
@@ -1007,7 +964,7 @@ ALTER TABLE `end_game_best_players`
 -- AUTO_INCREMENT for table `end_game_image`
 --
 ALTER TABLE `end_game_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `end_game_media`
@@ -1019,7 +976,7 @@ ALTER TABLE `end_game_media`
 -- AUTO_INCREMENT for table `end_game_signature`
 --
 ALTER TABLE `end_game_signature`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `end_game_teams`
@@ -1031,25 +988,25 @@ ALTER TABLE `end_game_teams`
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `game_regions`
 --
 ALTER TABLE `game_regions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `game_schools`
 --
 ALTER TABLE `game_schools`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `game_teams`
 --
 ALTER TABLE `game_teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `game_types`
@@ -1079,7 +1036,7 @@ ALTER TABLE `regions`
 -- AUTO_INCREMENT for table `schools`
 --
 ALTER TABLE `schools`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `sport_points`
@@ -1097,31 +1054,31 @@ ALTER TABLE `sport_types`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `students_sport`
 --
 ALTER TABLE `students_sport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `students_team`
 --
 ALTER TABLE `students_team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `users`
