@@ -37,7 +37,7 @@ class Homes extends CI_Model
 
 	public function select_game($id)
 	{
-		$today = strtotime(date('y-m-d'));
+		$today = strtotime("today midnight");
 
 		$this->db->select('games.id as id, games.place as place, FROM_UNIXTIME(games.time, "%D %M %Y %h:%i") as time,
 		 games.status as status, schools_1.name_en as schools_1_name_en, schools_1.name_ar as schools_1_name_ar,
