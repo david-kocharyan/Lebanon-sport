@@ -30,8 +30,13 @@ class Team extends CI_Model
 
 	public function selectTeam($id)
 	{
-		$this->db->select('students.*,students_team.status as student_status, students.id as student_id, students_team.team_id as team_id, students_team.id as student_team_id');
+		$this->db->select('students.*,students_team.status as student_status, students.id as student_id, students_team.team_id as team_id, 
+		students_team.id as student_team_id');
 		$this->db->join('students', 'students.id = students_team.student_id');
+
+		$this->db->where("YEAR(CURDATE()) - YEAR(birthday) - IF(STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', MONTH(birthday), '-', DAY(birthday)) ,'%Y-%c-%e') > CURDATE(), 1, 0) >=", 6);
+		$this->db->where("YEAR(CURDATE()) - YEAR(birthday) - IF(STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', MONTH(birthday), '-', DAY(birthday)) ,'%Y-%c-%e') > CURDATE(), 1, 0) <=", 18);
+
 		return $this->db->get_where('students_team', array('team_id' => $id))->result();
 	}
 
