@@ -51,7 +51,8 @@ class Games_api extends REST_Controller
 	{
 		$this->db->select("games.id as id, place, time, active, 
 		team_1.name as team_1_name, team_2.name as team_2_name,
-		schools_1.name_en as school_1_name, schools_2.name_en as school_2_name");
+		schools_1.name_en as school_1_name, schools_2.name_en as school_2_name, 
+		case when FROM_UNIXTIME(time, '%Y-%m-%d') <= CURRENT_DATE then 0 else 1 end is_future ");
 		$this->join($res);
 		if ($this->input->get('id') !== null) $this->db->where(array("sport_type" => $this->input->get("id")));
 		$this->db->where(array("observer_id" => $res, "games.status" => 1));
