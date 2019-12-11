@@ -81,6 +81,12 @@
 										<?= form_error('birthday'); ?>
 									</div>
 								<?php } ?>
+
+								<?php if (!empty($this->session->flashdata('age_err'))) { ?>
+									<div class="help-block with-errors text-danger">
+										<?= $this->session->flashdata('age_err') ?>
+									</div>
+								<?php } ?>
 								<input type="text" class="form-control complex-colorpicker" id="datepicker-autoclose"
 									   placeholder="yyyy-mm-dd" name="birthday"
 									   value="<?= $this->input->post("birthday") ?>">

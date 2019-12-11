@@ -54,6 +54,17 @@ class Students extends CI_Controller
 		}
 		$sport = $_POST["sport"];
 
+		//age
+		$this->db->where("TIMESTAMPDIFF(YEAR, '$birthday', CURDATE()) >= age_group.from");
+		$this->db->where("TIMESTAMPDIFF(YEAR, '$birthday', CURDATE()) < age_group.to");
+		$age = $this->db->get('age_group')->row();
+
+		if ($age == NULL){
+			$this->session->set_flashdata('age_err', 'Please insert correct birthday');
+			$this->create();
+			return;
+		}
+
 		if ($this->form_validation->run() == FALSE) {
 			$this->create();
 			return;
@@ -84,10 +95,6 @@ class Students extends CI_Controller
 			//school
 			$school = $this->db->get_where("schools", array("id" => $school_id))->row();
 
-			//age
-			$this->db->where("TIMESTAMPDIFF(YEAR, '2013-07-23', CURDATE()) >= age_group.from");
-			$this->db->where("TIMESTAMPDIFF(YEAR, '2013-07-23', CURDATE()) < age_group.to");
-			$age = $this->db->get('age_group')->row();
 			//gender
 			$gender_name = $gender == 1 ? "male" : "female";
 
@@ -147,6 +154,18 @@ class Students extends CI_Controller
 		}
 		$sport = $_POST["sport"];
 		$student = $this->Student->select($id);
+
+		//age
+		$this->db->where("TIMESTAMPDIFF(YEAR, '$birthday', CURDATE()) >= age_group.from");
+		$this->db->where("TIMESTAMPDIFF(YEAR, '$birthday', CURDATE()) < age_group.to");
+		$age = $this->db->get('age_group')->row();
+
+		if ($age == NULL){
+			$this->session->set_flashdata('age_err', 'Please insert correct birthday');
+			$this->create();
+			return;
+		}
+
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->edit($id);
