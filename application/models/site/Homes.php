@@ -37,19 +37,23 @@ class Homes extends CI_Model
 
 	public function select_game($id)
 	{
-		$this->db->select('games.id as id, games.place as place, FROM_UNIXTIME(games.time, "%D %M %Y %h:%i") as time, 
+		$today = strtotime(date('y-m-d'));
+
+		$this->db->select('games.id as id, games.place as place, FROM_UNIXTIME(games.time, "%D %M %Y %h:%i") as time,
 		 games.status as status, schools_1.name_en as schools_1_name_en, schools_1.name_ar as schools_1_name_ar,
 		 schools_2.name_en as schools_2_name_en, schools_2.name_ar as schools_2_name_ar,
-		 teams_1.name as teams_1_name, teams_2.name as teams_2_name, 
+		 teams_1.name as teams_1_name, teams_2.name as teams_2_name,
 		 reg_1.name_en as reg_1_en, reg_1.name_ar as reg_1_ar,
 		 reg_2.name_en as reg_2_en, reg_2.name_ar as reg_2_ar, end_game.score_1, end_game.score_2');
 
 		$this->join();
 		$this->db->join('end_game', 'games.id = end_game.game_id');
 
-
 		$this->db->where("sport_type", $id);
+		$this->db->where("games.time <= $today");
+
 		$this->db->where(array('games.for_site' => 1, 'games.status' => 1, 'active' => 0));
+
 		return $this->db->get('games')->result();
 	}
 

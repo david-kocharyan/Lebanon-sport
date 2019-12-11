@@ -26,6 +26,14 @@ class Activites extends CI_Controller
 		$date = $this->input->get('date');
 		$gender = $this->input->get('gender');
 
+		$data['filter'] = array(
+			'type' => $type ?? array(),
+			'age' => $age ?? array(),
+			'regions' => $regions ?? array(),
+			'date' => $date ?? 0,
+			'gender' => $gender ?? 2,
+		);
+
 		if (empty($_GET) OR $_GET == NULL) {
 			$data['game'] = $this->Homes->select_game($id);
 		} else {

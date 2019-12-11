@@ -82,17 +82,23 @@
 				<form class="row">
 					<div class="col-md-8 col-lg-4 custom-control custom-radio">
 						<input type="radio" class="custom-control-input" id="defaultChecked"
-							   name="gender" value="1">
+							   name="gender" value="1" <?php if ($filter['gender'] == 1) {
+							echo 'checked';
+						} ?> >
 						<label class="custom-control-label" for="defaultChecked">Male</label>
-					</div><!-- Default unchecked -->
+					</div>
 					<div class="col-md-8 col-lg-4 custom-control custom-radio">
 						<input type="radio" class="custom-control-input" id="defaultUnchecked1"
-							   name="gender" value="0">
+							   name="gender" value="0" <?php if ($filter['gender'] == 0) {
+							echo 'checked';
+						} ?>>
 						<label class="custom-control-label" for="defaultUnchecked1">Female</label>
 					</div>
 					<div class="col-md-8 col-lg-4 custom-control custom-radio">
 						<input type="radio" class="custom-control-input" id="defaultUnchecked2"
-							   name="gender" value="2" checked>
+							   name="gender" value="2" <?php if ($filter['gender'] == 2) {
+							echo 'checked';
+						} ?>>
 						<label class="custom-control-label" for="defaultUnchecked2">Both</label>
 					</div>
 				</form>
@@ -104,7 +110,13 @@
 						<div class="custom-control custom-checkbox col-md-8 col-lg-6">
 							<input type="checkbox" name="type[]" class="custom-control-input type"
 								   value="<?= $key->id; ?>"
-								   id="type<?= $key->id; ?>">
+								   id="type<?= $key->id; ?>"
+								<?php foreach ($filter['type'] as $k => $v) {
+									if ($v == $key->id) {
+										echo 'checked';
+									}
+								} ?>
+							>
 							<label class="custom-control-label" for="type<?= $key->id; ?>">
 								<?= $key->type; ?>
 							</label>
@@ -118,7 +130,13 @@
 					<?php foreach ($age as $key) { ?>
 						<div class="custom-control custom-checkbox col-md-8 col-lg-4">
 							<input type="checkbox" name="age[]" class="custom-control-input" value="<?= $key->id; ?>"
-								   id="check<?= $key->id; ?>">
+								   id="check<?= $key->id; ?>"
+								<?php foreach ($filter['age'] as $k => $v) {
+									if ($v == $key->id) {
+										echo 'checked';
+									}
+								} ?>
+							>
 							<label class="custom-control-label" for="check<?= $key->id; ?>">
 								<?= $key->from . " - " . $key->to; ?>
 							</label>
@@ -136,7 +154,12 @@
 						<div class="custom-control custom-checkbox col-md-8 col-lg-6">
 							<input type="checkbox" name="regions[]" class="custom-control-input"
 								   value="<?= $key->id; ?>"
-								   id="regions<?= $key->id; ?>">
+								   id="regions<?= $key->id; ?>"
+								<?php foreach ($filter['regions'] as $k => $v) {
+									if ($v == $key->id) {
+										echo 'checked';
+									}
+								} ?>>
 							<label class="custom-control-label" for="regions<?= $key->id; ?>">
 								<?php if ($lang == 'ar') { ?>
 									<?= $key->name_ar ?>
@@ -155,6 +178,13 @@
 
 <script src="<?= base_url('public/site/') ?>js/datapicker.js"></script>
 
+<style>
+	.highlight{
+		font-weight: bold !important;
+		color: red !important;
+	}
+</style>
+
 <script>
 
     $(document).ready(function () {
@@ -162,8 +192,20 @@
         var params = {};
 
         $("#calendar").datepicker({
-            todayHighlight: true,
-            weekStart: 1
+            weekStart: 1,
+            beforeShowDay: function (date) {
+                var dates = "<?= $filter['date']; ?>";
+                var d = new Date(dates);
+                mydate = formatDate(d);
+                alldate = formatDate(date);
+
+                if (alldate == mydate) {
+                    return 'today';
+                }else if(alldate != mydate){
+                    return '';
+				}
+                return [true, ""]
+            },
         }).on({
             'changeDate': function (e) {
                 if (typeof (e.date) == "undefined") return false;
@@ -173,7 +215,20 @@
                 var time = [date.getFullYear(), mnth, day].join("-");
                 params.date = time;
             }
-        });
+        })
+
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+            return [year, month, day].join('-');
+        }
+
 
         function filter() {
             var type = new Array();
