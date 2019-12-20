@@ -45,16 +45,6 @@ class Blogs extends CI_Controller
 		} else {
 			//landscape upload
 			if (!empty($_FILES['landscape']['name']) || null != $_FILES['landscape']['name']) {
-				$image_info = getimagesize($_FILES["landscape"]["tmp_name"]);
-				$image_width = $image_info[0];
-				$image_height = $image_info[1];
-
-
-//				if ($image_width != 1520 OR $image_height != 500) {
-//					$this->session->set_flashdata('landscape', "Please insert correct image width and height");
-//					$this->create();
-//					return;
-//				}
 
 				$image = $this->uploadLandscape('landscape');
 				if (isset($image['error'])) {
@@ -127,16 +117,7 @@ class Blogs extends CI_Controller
 		} else {
 			//landscape upload
 			if (!empty($_FILES['landscape']['name']) || null != $_FILES['landscape']['name']) {
-				$image_info = getimagesize($_FILES["landscape"]["tmp_name"]);
-				$image_width = $image_info[0];
-				$image_height = $image_info[1];
 
-
-//				if ($image_width != 1520 OR $image_height != 500) {
-//					$this->session->set_flashdata('landscape', "Please insert correct image width and height");
-//					$this->edit($id);
-//					return;
-//				}
 				$image = $this->uploadLandscape('landscape');
 				if (isset($image['error'])) {
 					$this->session->set_flashdata('landscape', $image['error']);
