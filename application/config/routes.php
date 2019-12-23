@@ -91,7 +91,9 @@ $route['^(en|ar)/all-upcoming-games'] = 'site/Upcoming/all_upcoming_games';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //admin panel
-$route['admin'] = 'admin/Admins';
+//$route['admin'] = 'admin/Admins';
+$route['admin'] = 'admin/Blogs';
+
 //admin logout
 $route['admin/login'] = 'admin/Login';
 $route['admin/logout'] = 'admin/Login/logout';

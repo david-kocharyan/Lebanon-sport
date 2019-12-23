@@ -46,6 +46,7 @@ class Admins extends CI_Controller
 		$last_name = $this->input->post('last_name');
 		$mobile_number = $this->input->post('mobile_number');
 		$email = $this->input->post('email');
+		$password = $this->input->post('password');
 
 		$def_username = $user->username;
 		$def_email = $user->email;
@@ -59,6 +60,7 @@ class Admins extends CI_Controller
 		$this->form_validation->set_rules('first_name', 'First Name', 'required|trim');
 		$this->form_validation->set_rules('last_name', 'Last Name', 'required|trim');
 		$this->form_validation->set_rules('mobile_number', 'Mobile Number', 'required|trim');
+		$this->form_validation->set_rules('password', 'Password', 'min_length[8]');
 
 
 		if ($this->form_validation->run() == FALSE) {
@@ -85,6 +87,8 @@ class Admins extends CI_Controller
 				'email' => $email,
 			);
 			if (isset($logo)) $admin['logo'] = $logo;
+			if (isset($password)) $admin['password'] = hash("SHA512", $password);
+
 
 			$this->Admin->update($id, $admin);
 

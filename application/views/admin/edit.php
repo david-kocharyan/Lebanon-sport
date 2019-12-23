@@ -75,6 +75,20 @@
 					<?php } ?>
 				</div>
 
+
+				<div class="form-group">
+					<label class="control-label">Password</label>
+					<?php if (!empty(form_error('password'))) { ?>
+						<div class="help-block with-errors text-danger">
+							<?= form_error('password'); ?>
+						</div>
+					<?php } ?>
+					<input type="text" id="password" class="form-control" name="password">
+					<button type="button" class="generate btn btn-outline btn-primary m-t-5">Generate
+						Password
+					</button>
+				</div>
+
 				<div class="form-group">
 					<div class="col-sm-12">
 						<button class="btn btn-success">Update Profile</button>
@@ -84,3 +98,19 @@
 		</div>
 	</div>
 </div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $(".generate").click(function () {
+            var length = 10,
+                charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                retVal = "";
+            for (var i = 0, n = charset.length; i < length; ++i) {
+                retVal += charset.charAt(Math.floor(Math.random() * n));
+            }
+            $("#password").val(retVal);
+        })
+    })
+</script>

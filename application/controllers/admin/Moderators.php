@@ -141,7 +141,7 @@ class Moderators extends CI_Controller
 				"mobile_number" => $mobile_number,
 				"username" => $username,
 			);
-			if (isset($password)) $data['password'] = password_hash($password, PASSWORD_BCRYPT);
+			if (isset($password)) $data['password'] = hash("SHA512", $password);
 
 			$this->db->trans_start();
 			$this->Moderator->update($data, $id);

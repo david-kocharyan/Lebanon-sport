@@ -83,15 +83,10 @@
 		<div class="navbar-header">
 			<div class="top-left-part">
 				<!-- Logo -->
-				<a class="logo" href="<?= base_url('admin') ?>">
-					<!-- Logo icon image, you can use font-icon also --><b>
-						<!--This is dark logo icon--><img src="<?= base_url('public/') ?>plugins/images/admin-logo.png"
-														  alt="home" class="dark-logo"/>
-					</b>
-					<!-- Logo text image you can use text also --><span class="hidden-xs">
-                        <!--This is dark logo text--><img src="<?= base_url('public/') ?>plugins/images/admin-text.png"
-														  alt="home" class="dark-logo"/>
-                     </span> </a>
+				<a class="logo" href="<?= base_url('admin/blog') ?>">
+						<!--This is dark logo icon--><img src="<?= base_url('public/') ?>plugins/images/logo_imp.png"
+														  alt="home" class="dark-logo" width="300"/>
+				</a>
 			</div>
 		</div>
 		<!-- /.navbar-header -->
