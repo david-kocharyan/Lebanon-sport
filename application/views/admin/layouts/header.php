@@ -108,8 +108,8 @@
 					</a>
 
 					<ul class="nav nav-second-level collapse" aria-expanded="false" style="">
-						<li><a href="<?= base_url('admin/profile') ?>"><i class="ti-user"></i> <span
-									class="hide-menu">My Profile</span></a></li>
+<!--						<li><a href=" = base_url('admin/profile') "><i class="ti-user"></i> <span-->
+<!--									class="hide-menu">My Profile</span></a></li>-->
 						<li><a href="<?= base_url('admin/settings') ?>"><i class="ti-settings"></i> <span
 									class="hide-menu">Account Setting</span></a>
 						</li>

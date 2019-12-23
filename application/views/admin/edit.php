@@ -99,6 +99,23 @@
 	</div>
 </div>
 
+<?php if ($user['role'] == 2) { ?>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="white-box">
+				<h4>
+					Change the age group of students at the beginning of each academic year !
+				</h4>
+				<a href="<?= base_url('admin/students/date') ?>">
+					<button class="btn btn-primary">
+						Update students age group
+					</button>
+				</a>
+
+			</div>
+		</div>
+	</div>
+<?php } ?>
 
 
 <script>

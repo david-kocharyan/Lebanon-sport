@@ -98,7 +98,7 @@ $route['admin'] = 'admin/Blogs';
 $route['admin/login'] = 'admin/Login';
 $route['admin/logout'] = 'admin/Login/logout';
 //admin settings
-$route['admin/profile'] = 'admin/Admins/profile';
+//$route['admin/profile'] = 'admin/Admins/profile';
 $route['admin/settings'] = 'admin/Admins/settings';
 $route['admin/settings/update/(:any)'] = 'admin/Admins/update/$1';
 
