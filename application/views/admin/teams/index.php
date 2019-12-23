@@ -39,7 +39,7 @@
 							</td>
 							<td><?= $value->sport; ?></td>
 							<td><?= $value->school; ?></td>
-							<td><?= $value->status; ?></td>
+							<td><?php if($value->status == 1){ echo "Active"; }else{echo "Inactive ";} ?></td>
 							<td>
 								<a href="<?= base_url("admin/teams/edit/$value->id") ?>" data-toggle="tooltip"
 								   data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info"> <i

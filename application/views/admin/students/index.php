@@ -8,7 +8,6 @@ $this->lang->load("ar", "arabic");
 	<div class="col-sm-12">
 		<div class="white-box">
 			<h3 class="box-title m-b-0">Students Table</h3>
-			<p class="text-muted m-b-15">All students in 1 place!!</p>
 			<p class="box-title m-b-30"><a href="<?= base_url("admin/students/create") ?>" class="text-success">Add new
 					Students</a></p>
 
@@ -17,6 +16,7 @@ $this->lang->load("ar", "arabic");
 					<thead>
 					<tr>
 						<th>ID</th>
+						<th>Status</th>
 						<th>School Name</th>
 						<th>Name EN</th>
 						<th>Name AR</th>
@@ -25,7 +25,6 @@ $this->lang->load("ar", "arabic");
 						<th>Gender AR</th>
 						<th>Sport Types</th>
 						<th>Image</th>
-						<th>Status</th>
 						<th>Options</th>
 					</tr>
 					</thead>
@@ -33,6 +32,10 @@ $this->lang->load("ar", "arabic");
 					<?php foreach ($students as $key => $value) { ?>
 						<tr>
 							<td><?= $key + 1 ?></td>
+							<td>
+								<img src="<?= base_url('/plugins/images/student/') . $value->image; ?>"
+									 alt="school image" width="150" height="150">
+							</td>
 							<td><?= $value->school_name_en; ?></td>
 							<td><?= $value->name_en; ?></td>
 							<td><?= $value->name_ar; ?></td>
@@ -50,11 +53,7 @@ $this->lang->load("ar", "arabic");
 									<?php } ?>
 								<?php } ?>
 							</td>
-							<td>
-								<img src="<?= base_url('/plugins/images/student/') . $value->image; ?>"
-									 alt="school image" width="150" height="150">
-							</td>
-							<td><?= $value->status; ?></td>
+							<td><?php if($value->status == 1){ echo "Active"; }else{echo "Inactive ";} ?></td>
 							<td>
 								<a href="<?= base_url("admin/students/edit/$value->id") ?>" data-toggle="tooltip"
 								   data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info"> <i

@@ -3,7 +3,6 @@
 	<div class="col-sm-12">
 		<div class="white-box">
 			<h3 class="box-title m-b-0">Regions Table</h3>
-			<p class="text-muted m-b-15">All Regions in 1 place!!</p>
 			<p class="box-title m-b-30"><a href="<?= base_url("admin/regions/create") ?>" class="text-success">Add new
 					Region</a></p>
 
@@ -24,7 +23,7 @@
 							<td><?= $key + 1 ?></td>
 							<td><?= $value->name_en; ?></td>
 							<td><?= $value->name_ar; ?></td>
-							<td><?= $value->status; ?></td>
+							<td><?php if($value->status == 1){ echo "Active"; }else{echo "Inactive ";} ?></td>
 							<td>
 								<a href="<?= base_url("admin/regions/edit/$value->id") ?>" data-toggle="tooltip"
 								   data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info"> <i

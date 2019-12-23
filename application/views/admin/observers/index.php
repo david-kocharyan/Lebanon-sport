@@ -8,7 +8,6 @@ $this->lang->load("ar", "arabic");
 	<div class="col-sm-12">
 		<div class="white-box">
 			<h3 class="box-title m-b-0">Observer Table</h3>
-			<p class="text-muted m-b-15">All Observer in 1 place!!</p>
 			<p class="box-title m-b-30"><a href="<?= base_url("admin/observers/create") ?>" class="text-success">Add new
 					Observer</a></p>
 
@@ -17,10 +16,10 @@ $this->lang->load("ar", "arabic");
 					<thead>
 					<tr>
 						<th>ID</th>
+						<th>Image</th>
 						<th>Username</th>
 						<th>Observer Name en</th>
 						<th>Observer Name ar</th>
-						<th>Image</th>
 						<th>Gender En</th>
 						<th>Gender AR</th>
 						<th>Email</th>
@@ -35,12 +34,12 @@ $this->lang->load("ar", "arabic");
 					<?php foreach ($observers as $key => $value) { ?>
 						<tr>
 							<td><?= $key + 1 ?></td>
+							<td>
+								<img src="<?= base_url('plugins/images/users/'). $value->image; ?>" alt="observer" class="img-responsive" width="300">
+							</td>
 							<td><?= $value->username; ?></td>
 							<td><?= $value->name_en; ?></td>
 							<td><?= $value->name_ar; ?></td>
-							<td>
-								<img src="<?= base_url('plugins/images/users/'). $value->image; ?>" alt="referee" class="img-responsive" width="300">
-							</td>
 							<td>
 								<?php echo $value->gender == 1 ? lang('en_male') : lang('en_female'); ?>
 							</td>
@@ -57,7 +56,7 @@ $this->lang->load("ar", "arabic");
 									<?php } ?>
 								<?php } ?>
 							</td>
-							<td><?= $value->status; ?></td>
+							<td><?php if($value->status == 1){ echo "Active"; }else{echo "Inactive ";} ?></td>
 							<td>
 								<a href="<?= base_url("admin/observers/edit/$value->id") ?>" data-toggle="tooltip"
 								   data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info"> <i

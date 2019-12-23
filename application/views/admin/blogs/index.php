@@ -24,7 +24,7 @@
 							<td><?= $key + 1 ?></td>
 							<td><?= $value->title_en; ?></td>
 							<td><?= $value->title_ar; ?></td>
-							<td><?= $value->status; ?></td>
+							<td><?php if($value->status == 1){ echo "Active"; }else{echo "Inactive ";} ?></td>
 							<td>
 								<a href="<?= base_url("admin/blog/edit/$value->id") ?>" data-toggle="tooltip"
 								   data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info"> <i

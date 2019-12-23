@@ -52,7 +52,7 @@
 							<td><?= $value->game_type; ?></td>
 							<td><?= $value->sport_name; ?></td>
 							<td><?= $value->observer_name; ?></td>
-							<td><?= $value->status; ?></td>
+							<td><?php if($value->status == 1){ echo "Active"; }else{echo "Inactive ";} ?></td>
 							<td>
 								<?php if ($value->status == 1) { ?>
 									<a href="<?= base_url("admin/games/change-status/$value->id") ?>"

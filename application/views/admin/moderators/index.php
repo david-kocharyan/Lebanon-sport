@@ -8,7 +8,6 @@ $this->lang->load("ar", "arabic");
 	<div class="col-sm-12">
 		<div class="white-box">
 			<h3 class="box-title m-b-0">Admins Table</h3>
-			<p class="text-muted m-b-15">All admins in 1 place!!</p>
 			<p class="box-title m-b-30"><a href="<?= base_url("admin/moderators/create") ?>" class="text-success">Add new
 					Admins</a></p>
 
@@ -51,7 +50,7 @@ $this->lang->load("ar", "arabic");
 									<?php } ?>
 								<?php } ?>
 							</td>
-							<td><?= $value->active; ?></td>
+							<td><?php if($value->active == 1){ echo "Active"; }else{echo "Inactive ";} ?></td>
 							<td>
 								<a href="<?= base_url("admin/moderators/edit/$value->id") ?>" data-toggle="tooltip"
 								   data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info"> <i

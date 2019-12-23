@@ -12,13 +12,13 @@
 					<thead>
 					<tr>
 						<th>ID</th>
+						<th>Image</th>
 						<th>Name en</th>
 						<th>Name ar</th>
 						<th>Address en</th>
 						<th>Address ar</th>
 						<th>Region en</th>
 						<th>Region ar</th>
-						<th>Image</th>
 						<th>Status</th>
 						<th>Options</th>
 					</tr>
@@ -27,16 +27,16 @@
 					<?php foreach ($schools as $key => $value) { ?>
 						<tr>
 							<td><?= $key + 1 ?></td>
+							<td>
+								<img src="<?= base_url('/plugins/images/school/'). $value->image; ?>" alt="school image" width="150" height="150">
+							</td>
 							<td><?= $value->name_en; ?></td>
 							<td><?= $value->name_ar; ?></td>
 							<td><?= $value->address_ar; ?></td>
 							<td><?= $value->address_ar; ?></td>
 							<td><?= $value->reg_name_en; ?></td>
 							<td><?= $value->reg_name_ar; ?></td>
-							<td>
-								<img src="<?= base_url('/plugins/images/school/'). $value->image; ?>" alt="school image" width="150" height="150">
-							</td>
-							<td><?= $value->status; ?></td>
+							<td><?php if($value->status == 1){ echo "Active"; }else{echo "Inactive";} ?></td>
 							<td>
 								<a href="<?= base_url("admin/schools/edit/$value->id") ?>" data-toggle="tooltip"
 								   data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info"> <i

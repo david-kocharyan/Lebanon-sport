@@ -18,7 +18,6 @@
 						<th>Game Type</th>
 						<th>Sport Type</th>
 						<th>Observer name</th>
-						<th>Status</th>
 						<th>Status for show</th>
 						<th>Options</th>
 					</tr>
@@ -45,8 +44,7 @@
 							<td><?= $value->game_type; ?></td>
 							<td><?= $value->sport_name; ?></td>
 							<td><?= $value->observer_name; ?></td>
-							<td><?= $value->status; ?></td>
-							<td><?= $value->for_site; ?></td>
+							<td><?php if($value->for_site == 1){ echo "Active"; }else{echo "Inactive";} ?></td>
 							<td>
 
 								<a href="<?= base_url("admin/check/show/$value->id") ?>"
